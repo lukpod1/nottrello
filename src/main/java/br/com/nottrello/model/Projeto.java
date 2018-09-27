@@ -4,18 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Projeto {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+	
+	@OneToMany(mappedBy="projeto")
 	private List<Tarefa> tarefas = new ArrayList<>();
 	private String descricao;
 	private String dataVecimento;
 	private String etiquetaCor;
+	
+	@OneToOne(mappedBy="projeto")
 	private Equipe equipe;
-	private List<Usuario> obs = new ArrayList<>();
+	
+	@OneToMany
+	private List<Usuario> usuarios = new ArrayList<>();
+	
+	@ManyToMany
+	private List<Categoria> categorias = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -73,12 +90,15 @@ public class Projeto {
 		this.equipe = equipe;
 	}
 
-	public List<Usuario> getObs() {
-		return obs;
+
+	public List<Categoria> getCategorias() {
+		return categorias;
 	}
 
-	public void setObs(List<Usuario> obs) {
-		this.obs = obs;
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
 	}
+	
+	
 
 }

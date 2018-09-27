@@ -1,10 +1,18 @@
 package br.com.nottrello.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Tarefa {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private Categoria categoria;
@@ -12,7 +20,12 @@ public class Tarefa {
 	private String dataVencimento;
 	private String status;
 	private String descricao;
+	
+	@ManyToOne
 	private Usuario usuario;
+	
+	@OneToOne
+	private Projeto projeto;
 
 	public Long getId() {
 		return id;
@@ -69,5 +82,25 @@ public class Tarefa {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Projeto getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(Projeto projeto) {
+		this.projeto = projeto;
+	}
+	
+	
+	
+	
 
 }
