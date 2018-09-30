@@ -4,7 +4,7 @@ package br.com.nottrello.model.service;
 
 import java.util.List;
 
-import br.com.nottrello.model.Projeto;
+import br.com.nottrello.model.entity.Projeto;
 
 
 public interface ProjetoService {

@@ -1,6 +1,6 @@
 package br.com.nottrello.model.service;
 
-import br.com.nottrello.model.Usuario;
+import br.com.nottrello.model.entity.Usuario;
 
 public interface UsuarioService {
 

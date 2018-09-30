@@ -2,9 +2,7 @@ package br.com.nottrello.model.service;
 
 import java.util.List;
 
-
-
-import br.com.nottrello.model.Tarefa;
+import br.com.nottrello.model.entity.Tarefa;
 
 
 public interface TarefaService {

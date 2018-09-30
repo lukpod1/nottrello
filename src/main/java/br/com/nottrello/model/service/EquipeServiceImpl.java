@@ -8,7 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.nottrello.model.Equipe;
+import br.com.nottrello.model.entity.Equipe;
 import br.com.nottrello.model.repository.EquipeRepository;
 
 @Service

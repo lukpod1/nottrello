@@ -2,7 +2,7 @@ package br.com.nottrello.model.service;
 
 import java.util.List;
 
-import br.com.nottrello.model.Equipe;
+import br.com.nottrello.model.entity.Equipe;
 
 public interface EquipeService {
 	public void adicionar(Equipe equipe);

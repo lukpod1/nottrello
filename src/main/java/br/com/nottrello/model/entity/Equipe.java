@@ -1,4 +1,4 @@
-package br.com.nottrello.model;
+package br.com.nottrello.model.entity;
 
 import java.util.ArrayList;
 import java.util.List;
