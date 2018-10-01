@@ -13,7 +13,7 @@
 	<header> 
 		<nav class="navbar navbar-default">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/home">
+				<a class="navbar-brand" href="/usuario/logado">
 					 <img class="logo" src="/imgs/logo2.png">
 				</a>
 			</div>
