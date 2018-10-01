@@ -15,7 +15,7 @@
 		<h1>Criar uma Conta !Trello</h1>
 		<p>ou<a href="/usuario/entrar"> entrar em sua conta</a></p>
 		
-		<form action="/usuario/salvar" method="post">
+		<form action="/usuario/registrar" method="post">
 			
 			<div class="form-group">
 				<label for="nome">Nome:</label>

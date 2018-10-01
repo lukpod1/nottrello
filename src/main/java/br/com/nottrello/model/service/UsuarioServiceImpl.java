@@ -1,5 +1,8 @@
 package br.com.nottrello.model.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,21 +19,33 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public void salvar(Usuario usuario) {
-		usuarioRepository.save(usuario);
+		this.usuarioRepository.save(usuario);
 
 	}
 
 	@Override
 	public void remover(Long id) {
-		usuarioRepository.deleteById(id);
+		this.usuarioRepository.deleteById(id);
 
 	}
 
 	@Override
-	public Usuario buscar(Long id) {
+	public Usuario buscarId(Long id) {
 		Optional<Usuario> u = this.usuarioRepository.findById(id);
 		return u.get();
 
+	}
+
+	@Override
+	public List<Usuario> buscarUsuarios() {
+		List<Usuario> usuarios = new ArrayList<>();
+        Iterator<Usuario> iterator = this.usuarioRepository.findAll().iterator();
+
+        while (iterator.hasNext()) {
+            usuarios.add(iterator.next());
+        }
+
+        return usuarios;
 	}
 
 }
