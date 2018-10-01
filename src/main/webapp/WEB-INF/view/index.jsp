@@ -5,20 +5,26 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/style/style.css">
 <title>Nottrello</title>
 </head>
 <body>
-	<nav>
-	<ul
-		class="nav justify-content-end navbar-expand-sm bg-light navbar-light">
-		<li class="nav-item"><a class="nav-link" href="/formLogin">Entrar</a></li>
-		<li class="nav-item"><a class="nav-link" href="/formCadastro">Inscrever-se</a>
-		</li>
-	</ul>
 
-	</nav>
+	<div class="header">
+		<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">
+				<img class="logo" src="/imgs/logo2.png">
+			</a>
+		</div>
+		<ul class="nav navbar-nav navbar-right" id="icones">
+			<li style=""><a href="/usuario/entrar"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
+			<li><a href="/usuario/novo"><span class="glyphicon glyphicon-user"></span> Inscrever-se</a></li>
+		</ul>
+		</nav>
+	</div>
+
 
 	<div class="container"></div>
 
@@ -26,11 +32,6 @@
 
 
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	
 </body>
 </html>

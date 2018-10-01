@@ -6,14 +6,16 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-		<title>Criar uma conta !Trello</title>
+		<title>Entrar no !Trello</title>
 	</head>
 
 	<body>
 		<div class="container" style="width: 430px; margin-top: 100px; ">
-			<div>
-				<h1>Fazer Login no !Trello ${usuario.nome}</h1>
-				<p>ou<a href="/formCadastro"> criar uma conta</a></p>
+			
+			<div>			
+				
+				<h1>Fazer Login no !Trello</h1>
+				<p>ou<a href="/usuario/novo"> criar uma conta</a></p>
 					
 					<form action="/logar" method="post">
 						<div class="form-group">
@@ -21,12 +23,12 @@
 							<input type="email" class="form-control" id="email" required="true">
 						</div>
 						<div class="form-group">
-							<label for="pwd">Senha:</label>
-							<input type="password" class="form-control" id="pwd" required="true">
+							<label for="senha">Senha:</label>
+							<input type="password" class="form-control" id="senha" required="true">
 						</div>						
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Entrar</button>
-							<a href="/home"> Voltar</a>	
+							<a href="/home"> Voltar pro Inicio</a>	
 						
 						</div>	
 										
