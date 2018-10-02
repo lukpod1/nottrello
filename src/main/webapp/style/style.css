@@ -16,7 +16,7 @@ body{
 
 li > a:hover{
 
- 	border-bottom:solid;
+	border-bottom:solid;	 
 	border-bottom-color: #2374c7;
 	
 }
@@ -28,4 +28,8 @@ li > a:hover{
 
 .dropdown {
 	margin-top: 7px;
+}
+
+#projetos{
+	width: 200px;
 }
