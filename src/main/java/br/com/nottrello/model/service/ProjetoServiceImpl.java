@@ -16,6 +16,13 @@ public class ProjetoServiceImpl implements ProjetoService {
 
 	@Autowired
 	private ProjetoRepository projetoRepository;
+	
+	
+
+	public ProjetoServiceImpl(ProjetoRepository projetoRepository) {
+		super();
+		this.projetoRepository = projetoRepository;
+	}
 
 	@Override
 	public void salvar(Projeto projeto) {

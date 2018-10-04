@@ -1,5 +1,6 @@
 package br.com.nottrello.model.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Projeto {
+public class Projeto implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -33,6 +34,16 @@ public class Projeto {
 	
 	@ManyToMany
 	private List<Categoria> categorias = new ArrayList<>();
+	
+	public Projeto() {
+		super();
+	}
+
+	public Projeto(Long id, String nome) {
+		super();
+		this.id = id;
+		this.nome = nome;
+	}
 
 	public Long getId() {
 		return id;

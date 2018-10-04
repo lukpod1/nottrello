@@ -1,5 +1,6 @@
 body{
 	font-size: 17px;
+	
 }
 
 
@@ -20,6 +21,8 @@ li > a:hover{
 	border-bottom-color: #2374c7;
 	
 }
+
+
 
 .navbar-nav{
 	margin-right: 100px;

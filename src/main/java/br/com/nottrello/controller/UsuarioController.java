@@ -18,13 +18,10 @@ import br.com.nottrello.model.service.UsuarioService;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-	private UsuarioService usuarioService;
+	private UsuarioService usuarioService;	
 	
-	
-	
-	
-
-	public UsuarioController(UsuarioService usuarioService, UsuarioRepository usuarioRepository) {		
+	//Sempre lembrar de colocar o construtor para que os métodos do service funcionem
+	public UsuarioController(UsuarioService usuarioService) {		
 		this.usuarioService = usuarioService;
 		
 	}
@@ -33,24 +30,18 @@ public class UsuarioController {
 	public String novo() {		
 
 		return "pags/formCadastro";
-	}
-	
-	@GetMapping("/registrar")
-	public ModelAndView novoUsuario() {
-		ModelAndView mv = new ModelAndView("pags/formLogin");
-		
-		mv.addObject("newUser", new Usuario());
-		
-		return mv;
 	}	
+
 	
 
 	@PostMapping("/salvar")
 	public String salvar(Usuario usuario) {
 
 		usuarioService.salvar(usuario);
+		
+		
 
-		return "redirect:/entrar";
+		return "redirect:/usuario/entrar";
 	}
 
 	@GetMapping("/entrar")

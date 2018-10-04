@@ -11,33 +11,27 @@
 
 	<body>
 		<div class="container" style="width: 430px; margin-top: 100px; ">
-			
-			<div>			
-				
+			<div>
 				<h1>Fazer Login no !Trello</h1>
-				<p>ou<a href="/usuario/novo"> criar uma conta</a></p>
-					
-					<form action="logar" method="post">
-						<div class="form-group">
-							<label for="email">Email:</label>
-							<input type="email" class="form-control" id="email" name="email" required="true">
-						</div>
-						<div class="form-group">
-							<label for="senha">Senha:</label>
-							<input type="password" class="form-control" id="senha" name="senha" required="true">
-						</div>						
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Entrar</button>
-							<a href="/home"> Voltar pro Inicio</a>	
-						
-						</div>	
-										
-						
-					</form>
+				<p>ou
+					<a href="/usuario/novo"> criar uma conta</a>
+				</p>
+				<form action="logar" method="post">
+					<div class="form-group">
+						<label for="email">Email:</label>
+						<input type="email" class="form-control" id="email" name="email"  required="true">
+					</div>
+					<div class="form-group">
+						<label for="senha">Senha:</label>
+						<input type="password" class="form-control" id="senha" name="senha"  required="true">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Entrar</button>
+						<a href="/home"> Voltar pro Inicio</a>
+
+					</div>
+				</form>
 			</div>
-
 		</div>
-
 	</body>
-
 	</html>
