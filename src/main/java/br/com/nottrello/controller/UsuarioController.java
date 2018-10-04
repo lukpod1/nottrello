@@ -19,14 +19,14 @@ import br.com.nottrello.model.service.UsuarioService;
 public class UsuarioController {
 
 	private UsuarioService usuarioService;
-	private UsuarioRepository usuarioRepository;
+	
 	
 	
 	
 
 	public UsuarioController(UsuarioService usuarioService, UsuarioRepository usuarioRepository) {		
 		this.usuarioService = usuarioService;
-		this.usuarioRepository = usuarioRepository;
+		
 	}
 
 	@GetMapping("/novo")

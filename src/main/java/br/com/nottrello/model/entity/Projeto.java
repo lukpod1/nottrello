@@ -51,14 +51,22 @@ public class Projeto {
 	}
 
 	public List<Tarefa> getTarefas() {
+		Tarefa tarefa1 = new Tarefa(null,"Java Web","Estudar Java web no youtube");
+		Tarefa tarefa2 = new Tarefa(null,"Python","Estudar Python web com django");
+		
+		tarefas.add(tarefa1);
+		tarefas.add(tarefa2);
+		
 		return tarefas;
 	}
 
 	public void setTarefas(List<Tarefa> tarefas) {
+		
 		this.tarefas = tarefas;
 	}
 
 	public String getDescricao() {
+		
 		return descricao;
 	}
 
@@ -92,12 +100,15 @@ public class Projeto {
 
 
 	public List<Categoria> getCategorias() {
+		
 		return categorias;
 	}
 
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
+
+	
 	
 	
 

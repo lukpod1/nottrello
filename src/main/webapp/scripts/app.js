@@ -1,6 +1,6 @@
-var inputElement = document.querySelector('#app input');
+var inputElement = document.querySelector('#nome');
 var btntElement = document.querySelector('#app button');
-var table = document.querySelector('#app table');
+var table = document.querySelector('#tabelaPre');
 
 
 var paraFazer = JSON.parse(localStorage.getItem('lista_itens'))  || [];
@@ -10,20 +10,22 @@ function renderFazer(){
     for(fazer of paraFazer){
         var linha = document.createElement('tr');
         var fazerText = document.createTextNode(fazer);
-        var colnome = document.createElement('td');
+        
+        var colnome = document.createElement('td');      
+        
         var colexcluir = document.createElement('td');
         var pos = paraFazer.indexOf(fazer);
-        var linkElement = document.createElement('a');
-        linkElement.setAttribute('href', '#');
-        linkElement.setAttribute('onclick', 'deletaParaFazer('+ pos +')');
         
+        var linkElement = document.createElement('a');        
+        linkElement.setAttribute('href', '#');
+        linkElement.setAttribute('onclick', 'deletaParaFazer('+ pos +')');     
 
         
         var linkText = document.createTextNode('Excluir');
         linkElement.appendChild(linkText);
         
         table.appendChild(linha);
-        linha.appendChild(colnome);
+        linha.appendChild(colnome);        
         linha.appendChild(colexcluir);
         colnome.appendChild(fazerText);
         colexcluir.appendChild(linkElement);
@@ -42,8 +44,8 @@ function renderFazer(){
 renderFazer();
 
 function addParaFazer(){
-    var inputText = inputElement.value;    
-    paraFazer.push(inputText);
+    var inputText = inputElement.value;       
+    paraFazer.push(inputText);    
     inputElement.value = '';
     renderFazer();
     salvaParaFazer();

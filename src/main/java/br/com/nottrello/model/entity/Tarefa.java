@@ -25,6 +25,19 @@ public class Tarefa {
 	
 	@OneToOne
 	private Projeto projeto;
+	
+	
+	
+
+	public Tarefa() {
+		
+	}
+
+	public Tarefa(Long id,String nome, String descricao) {
+		this.id =  id;
+		this.nome = nome;
+		this.descricao = descricao;
+	}
 
 	public Long getId() {
 		return id;
