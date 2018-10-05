@@ -1,24 +1,29 @@
 package br.com.nottrello.controller;
 
-import java.util.Iterator;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import br.com.nottrello.model.entity.Usuario;
-import br.com.nottrello.model.repository.UsuarioRepository;
+import br.com.nottrello.model.service.ProjetoService;
+import br.com.nottrello.model.service.TarefaService;
 import br.com.nottrello.model.service.UsuarioService;
 
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-	private UsuarioService usuarioService;	
+	@Autowired
+	private UsuarioService usuarioService;
+	
+	@Autowired
+	private ProjetoService projetoService;
+	
+	@Autowired
+	private TarefaService tarefaService;
 	
 	//Sempre lembrar de colocar o construtor para que os métodos do service funcionem
 	public UsuarioController(UsuarioService usuarioService) {		
@@ -50,8 +55,10 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/logado")
-	public String usuarioLogado() {
-		return "pags/usuariologado";
+	public String usuarioLogado(Model model) {
+		model.addAttribute("projetos", projetoService.listarProjetos());
+		model.addAttribute("tarefas", tarefaService.listarTarefas());
+		return "/pags/usuariologado";
 	}
 
 	@PostMapping("/logar")

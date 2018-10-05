@@ -1,5 +1,6 @@
 package br.com.nottrello.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,45 +13,37 @@ import br.com.nottrello.model.service.ProjetoService;
 @Controller
 @RequestMapping("/projeto")
 public class ProjetoController {
-	
+
+	@Autowired
 	private ProjetoService projetoService;
-	
-	
+
 	public ProjetoController(ProjetoService projetoService) {
 		super();
 		this.projetoService = projetoService;
 	}
 
-
-
 	@GetMapping("/novo")
-	public String novo() {		
+	public String novo() {
 
-		return "pags/formProjeto";
+		return "/pags/formProjeto";
 	}
-	
-	 @GetMapping("usuario/logado")
-	    public String listar(Model model) {
-	        
-	        model.addAttribute("projetos", projetoService.listarProjetos());
 
-	        return "pags/usuariologado";
-	    }
-	
+	@GetMapping("usuario/logado")
+	public String getListar(Model model) {
+
+		model.addAttribute("projetos", projetoService.listarProjetos());
+
+		return "pags/usuariologado";
+	}
 
 	@PostMapping("/salvar")
 	public String salvar(Projeto projeto) {
 
-		projetoService.salvar(projeto);	
-		
-		
+		projetoService.salvar(projeto);
 
-		return "pags/usuariologado";
+		return "redirect:/usuario/logado";
 	}
-	
-	
-	
-	
+
 //	@RequestMapping("/addTarefa")
 //	public String addTarefa(Tarefa tarefa) {
 //		Projeto projeto = new Projeto();
