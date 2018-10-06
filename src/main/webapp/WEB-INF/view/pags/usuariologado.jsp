@@ -17,7 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="color: white">
+	<div>
 		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
 		<a class="navbar-brand" href="#"> <img class="logo"
 			src="/imgs/logo2.jpg">
@@ -83,11 +83,11 @@
 							<th>Nome</th>
 							<th>Descrição</th>
 						</tr>
-						<c:forEach var="tarefas" items="${tarefas}">
+						<c:forEach var="tarefa" items="${tarefas}">
 							<tr>
-								<td>${tarefas.nome}</td>
-								<td>${tarefas.descricao}</td>
-								
+								<td>${tarefa.nome}</td>
+								<td>${tarefa.descricao}</td>
+								<td><a href="/excluirTarefa?id=${tarefa.id}" onclick="'return confirm(\'Deseja excluir esse contato?\')'">Excluir</a></td>
 							</tr>
 						</c:forEach>
 					</table>

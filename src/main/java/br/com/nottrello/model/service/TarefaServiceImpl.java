@@ -16,6 +16,11 @@ public class TarefaServiceImpl implements TarefaService {
 
 	@Autowired
 	private TarefaRepository tarefaRepository;
+	
+	public TarefaServiceImpl(TarefaRepository tarefaRepository) {
+		super();
+		this.tarefaRepository = tarefaRepository;
+	}
 
 	@Override
 	public void salvar(Tarefa tarefa) {
