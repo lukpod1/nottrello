@@ -23,27 +23,37 @@ public class Projeto implements Serializable {
 	@OneToMany(mappedBy="projeto")
 	private List<Tarefa> tarefas = new ArrayList<>();
 	private String descricao;
-	private String dataVecimento;
+	private String dataVencimento;
 	private String etiquetaCor;
 	
 	@OneToOne(mappedBy="projeto")
-	private Equipe equipe;
+	private Equipe equipe;	
 	
-	@OneToMany
-	private List<Usuario> usuarios = new ArrayList<>();
 	
 	@ManyToMany
 	private List<Categoria> categorias = new ArrayList<>();
 	
 	public Projeto() {
 		super();
-	}
+	}	
 
-	public Projeto(Long id, String nome) {
+
+	public Projeto(Long id, String nome, List<Tarefa> tarefas, String descricao, String dataVencimento,
+			String etiquetaCor, Equipe equipe, List<Categoria> categorias) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.tarefas = tarefas;
+		this.descricao = descricao;
+		this.dataVencimento = dataVencimento;
+		this.etiquetaCor = etiquetaCor;
+		this.equipe = equipe;
+		this.categorias = categorias;
 	}
+
+
+
+
 
 	public Long getId() {
 		return id;
@@ -61,12 +71,7 @@ public class Projeto implements Serializable {
 		this.nome = nome;
 	}
 
-	public List<Tarefa> getTarefas() {
-		Tarefa tarefa1 = new Tarefa(null,"Java Web","Estudar Java web no youtube");
-		Tarefa tarefa2 = new Tarefa(null,"Python","Estudar Python web com django");
-		
-		tarefas.add(tarefa1);
-		tarefas.add(tarefa2);
+	public List<Tarefa> getTarefas() {		
 		
 		return tarefas;
 	}
@@ -85,12 +90,12 @@ public class Projeto implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public String getDataVecimento() {
-		return dataVecimento;
+	public String getDataVencimento() {
+		return dataVencimento;
 	}
 
-	public void setDataVecimento(String dataVecimento) {
-		this.dataVecimento = dataVecimento;
+	public void setDataVencimento(String dataVencimento) {
+		this.dataVencimento = dataVencimento;
 	}
 
 	public String getEtiquetaCor() {

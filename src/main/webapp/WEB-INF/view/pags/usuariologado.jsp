@@ -31,7 +31,7 @@
 			id="navbarNavAltMarkup">
 			<div class="navbar-nav">
 				<strong><a class="nav-item nav-link active"
-					href="/projeto/novo">Adicionar Projeto</a></strong> <a
+					href="/projeto/novo">+ Adicionar Projeto</a></strong> <a
 					class="nav-item nav-link" href="#">Perfil</a> <a
 					class="nav-item nav-link" href="/usuario/entrar">Sair</a>
 			</div>
@@ -63,7 +63,7 @@
 				<div id="app">
 					<h3>Projeto 01</h3>
 					<h4>Tarefas</h4>
-					<form class="form-inline" method="get" action="/addTarefa">
+					<form class="form-inline" method="post" action="/addTarefa">
 						<div class="form-group">
 							<input type="hidden" name="id" >
 							<label for="nome">Nome:</label>

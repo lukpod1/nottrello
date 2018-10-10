@@ -1,5 +1,8 @@
 package br.com.nottrello.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,12 +66,15 @@ public class UsuarioController {
 
 	@PostMapping("/logar")
 	public String logar(Usuario usuario) {
+			List<Usuario> usuarios = usuarioService.buscarUsuarios();		
 		
-			if (usuario.getEmail().equalsIgnoreCase("admin@admin.com") && usuario.getSenha().equalsIgnoreCase("admin")) {
-				return "redirect:/usuario/logado";
-			} else {
-				return "pags/loginfail";
-		}
+			if (usuarios.contains(usuario)) {
+					return "redirect:/usuario/logado";
+				} else {
+					return "pags/loginfail";
+				}
+			
+			
 		
 
 		

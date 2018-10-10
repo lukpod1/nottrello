@@ -9,15 +9,36 @@
 </head>
 <body>
 <h4>Novo projeto</h4>
-
-<form action="/projeto/salvar" method="post">
+	<form action="/projeto/salvar" method="post">
 	<input type="hidden" id="id" name="id">
-	<label for="nome">Nome: </label>
-	<input type="text" id= "nome" name="nome">
+			
+	<table>
+		<tr>
+			<td><label for="nome">Nome: </label></td>
+			<td><input class="form-controll" type="text" id= "nome" name="nome"></td>
+		
+		</tr>
+		<tr>
+			<td><label for="descricao">Descrição: </label></td>
+			<td><input class="form-controll" type="text" id= "descricao" name="descricao">	</td>
+		</tr>
+		<tr>
+			<td><label for="dataVenc">Data de vencimento: </label></td>
+			<td><input class="form-controll" type="date" id= "dataVenc" name="dataVencimento"></td>
+		</tr>
+		<tr>
+			<td><label for="etiquetaCot">Cor da Etiqueta: </label></td>
+			<td><input class="form-controll" type="color"  id= "etiquetaCot" name="etiquetaCot"></td>
+		</tr>
+	
+	</table>
 	
 	<button class="btn btn-primary" type="submit">Salvar Projeto</button>
 
 </form>
+
+</div>
+
 
 </body>
 </html>

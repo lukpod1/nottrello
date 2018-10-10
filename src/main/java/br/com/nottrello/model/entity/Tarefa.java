@@ -28,17 +28,23 @@ public class Tarefa implements Serializable {
 	@OneToOne
 	private Projeto projeto;
 	
-	
-	
 
 	public Tarefa() {
 		
 	}
 
-	public Tarefa(Long id,String nome, String descricao) {
-		this.id =  id;
+	public Tarefa(Long id, String nome, Categoria categoria, String prioridadeCor, String dataVencimento, String status,
+			String descricao, Usuario usuario, Projeto projeto) {
+		super();
+		this.id = id;
 		this.nome = nome;
+		this.categoria = categoria;
+		this.prioridadeCor = prioridadeCor;
+		this.dataVencimento = dataVencimento;
+		this.status = status;
 		this.descricao = descricao;
+		this.usuario = usuario;
+		this.projeto = projeto;
 	}
 
 	public Long getId() {

@@ -19,10 +19,7 @@ public class Usuario implements Serializable {
 	private Long id;
 	private String nome;
 	private String email;
-	private String senha;
-
-	@OneToMany(mappedBy = "usuarios")
-	private List<Projeto> projetos = new ArrayList<>();
+	private String senha;	
 
 	@OneToMany(mappedBy = "usuario")
 	private List<Tarefa> tarefas = new ArrayList<>();
@@ -33,14 +30,24 @@ public class Usuario implements Serializable {
 	public Usuario() {
 
 	}
+	
+
+	
 
 	public Usuario(Long id, String nome, String email, String senha) {
 		super();
-		this.id = id;
+		this.id = id;		
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 	}
+
+
+
+
+	
+
+
 
 	public Long getId() {
 		return id;
@@ -73,14 +80,7 @@ public class Usuario implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
-	public List<Projeto> getProjetos() {
-		return projetos;
-	}
-
-	public void setProjetos(List<Projeto> projetos) {
-		this.projetos = projetos;
-	}
+	
 
 	public List<Tarefa> getTarefas() {
 		return tarefas;

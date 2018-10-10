@@ -21,8 +21,18 @@ public class Categoria implements Serializable{
 	private String nome;
 	
 	@ManyToMany(mappedBy="categorias")
-	private List<Projeto> projetos = new ArrayList<>();
+	private List<Projeto> projetos = new ArrayList<>();	
 	
+	
+	public Categoria() {
+		super();
+	}
+	public Categoria(Long id, String nome, List<Projeto> projetos) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.projetos = projetos;
+	}
 	public Long getId() {
 		return id;
 	}

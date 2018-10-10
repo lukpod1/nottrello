@@ -24,6 +24,18 @@ public class Equipe implements Serializable{
 	@OneToOne
 	private Projeto projeto;
 
+	public Equipe() {
+		super();
+	}
+	
+
+	public Equipe(Long id, List<Usuario> usuarios, Projeto projeto) {
+		super();
+		this.id = id;
+		this.usuarios = usuarios;
+		this.projeto = projeto;
+	}
+
 	public Long getId() {
 		return id;
 	}
