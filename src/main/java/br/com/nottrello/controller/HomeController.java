@@ -12,13 +12,5 @@ public class HomeController{
 		return "index";
 	}
 	
-	@RequestMapping("/formLogin")
-	public String login() {
-		return "pags/formLogin";
-	}
 	
-	@RequestMapping("/formCadastro")
-	public String inscrever() {
-		return "pags/formCadastro";
-	}
 }
