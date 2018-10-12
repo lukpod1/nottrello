@@ -1,5 +1,7 @@
 package br.com.nottrello.model.service;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -39,13 +41,23 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public List<Usuario> buscarUsuarios() {
 		List<Usuario> usuarios = new ArrayList<>();
-        Iterator<Usuario> iterator = this.usuarioRepository.findAll().iterator();
+		Iterator<Usuario> iterator = this.usuarioRepository.findAll().iterator();
 
-        while (iterator.hasNext()) {
-            usuarios.add(iterator.next());
-        }
+		while (iterator.hasNext()) {
+			usuarios.add(iterator.next());
+		}
 
-        return usuarios;
+		return usuarios;
+	}
+
+	@Override
+	public boolean verificarUsuario(Usuario usuario) {
+		if (usuario.getEmail().equalsIgnoreCase("admin@admin.com") && usuario.getSenha().equalsIgnoreCase("admin")) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 }

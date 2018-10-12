@@ -10,4 +10,5 @@ public interface UsuarioService {
 	public void remover(Long id);
 	public Usuario buscarId(Long id);
 	public List<Usuario> buscarUsuarios();
+	public boolean verificarUsuario(Usuario usuario);
 }

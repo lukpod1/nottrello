@@ -61,7 +61,7 @@
 			</ul>
 			<div class="col-sm-8 text-left">
 				<div id="app">
-					<h3>Projeto 01</h3>
+					<h3>${projeto.nome}</h3>
 					<h4>Tarefas</h4>
 					<form class="form-inline" method="post" action="/addTarefa">
 						<div class="form-group">

@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 import br.com.nottrello.model.entity.Equipe;
 import br.com.nottrello.model.entity.Projeto;
@@ -36,7 +37,7 @@ public class NottrelloApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(NottrelloApplication.class, args);
 	}
-
+	
 	@Override
 	public void run(String... args) throws Exception {
 		Usuario user1 = new Usuario(null, "admin", "admin@admin.com", "admin123");

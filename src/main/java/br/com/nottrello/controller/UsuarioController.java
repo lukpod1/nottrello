@@ -3,6 +3,8 @@ package br.com.nottrello.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,33 +23,30 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@Autowired
 	private ProjetoService projetoService;
-	
+
 	@Autowired
 	private TarefaService tarefaService;
-	
-	//Sempre lembrar de colocar o construtor para que os métodos do service funcionem
-	public UsuarioController(UsuarioService usuarioService) {		
+
+	// Sempre lembrar de colocar o construtor para que os métodos do service
+	// funcionem
+	public UsuarioController(UsuarioService usuarioService) {
 		this.usuarioService = usuarioService;
-		
+
 	}
 
 	@GetMapping("/novo")
-	public String novo() {		
+	public String novo() {
 
 		return "pags/formCadastro";
-	}	
-
-	
+	}
 
 	@PostMapping("/salvar")
 	public String salvar(Usuario usuario) {
 
 		usuarioService.salvar(usuario);
-		
-		
 
 		return "redirect:/usuario/entrar";
 	}
@@ -56,7 +55,7 @@ public class UsuarioController {
 	public String entrar() {
 		return "pags/formLogin";
 	}
-	
+
 	@GetMapping("/logado")
 	public String usuarioLogado(Model model) {
 		model.addAttribute("projetos", projetoService.listarProjetos());
@@ -65,20 +64,21 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/logar")
-	public String logar(Usuario usuario) {
-			List<Usuario> usuarios = usuarioService.buscarUsuarios();		
-		
-			if (usuario.getEmail().equalsIgnoreCase("admin@admin.com") && usuario.getSenha().equalsIgnoreCase("admin")) {
-					return "redirect:/usuario/logado";
-				} else {
-					return "pags/loginfail";
-				}
-			
-			
+	public String logar(Usuario usuario, HttpSession session) {
 		
 
-		
+		if (usuarioService.verificarUsuario(usuario)) {
+			session.setAttribute("usuarioLogado", usuario);
+			return "redirect:/usuario/logado";
+		} else {
+			return "pags/loginfail";
+		}
 
-		
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return entrar();
 	}
 }
