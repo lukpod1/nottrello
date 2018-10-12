@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -23,7 +24,7 @@ import br.com.nottrello.model.repository.UsuarioRepository;
 @EntityScan(basePackages = {"br.com.nottrello.model"})
 @ComponentScan(basePackages = {"br.com*"})
 @EnableJpaRepositories(basePackages = {"br.com.nottrello.model.repository*"})
-public class NottrelloApplication implements CommandLineRunner {
+public class NottrelloApplication extends SpringBootServletInitializer implements CommandLineRunner {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
