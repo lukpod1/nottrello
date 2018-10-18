@@ -18,10 +18,12 @@
 </head>
 <body>
 	<div>
-		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-		<a class="navbar-brand" href="#"> <img class="logo"
-			src="/imgs/logo2.jpg">
-		</a>
+		<nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
+		<h1 class="logo float-left">
+                
+                   <img src="/imgs/logo2.png" class="logo">
+                
+         </h1>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +35,7 @@
 				<strong><a class="nav-item nav-link active"
 					href="/projeto/novo">+ Adicionar Projeto</a></strong> <a
 					class="nav-item nav-link" href="#">Perfil</a> <a
-					class="nav-item nav-link" href="/usuario/entrar">Sair</a>
+					class="nav-item nav-link" href="/usuario/logout">Sair</a>
 			</div>
 		</div>
 		</nav>

@@ -5,9 +5,9 @@ body{
 
 
 .logo{
-	width: 130px;
-	margin-top:-3px;
-	margin-left: 100px;
+	width: 100px;
+    margin-top: 4px;
+    margin-left: 70px;
 }
 .logo:hover{
 	opacity: 0.9;
@@ -24,8 +24,13 @@ li > a:hover{
 
 
 
-.navbar-nav{
+.navbar{
 	margin-right: 100px;
+	padding: 10px 0;
+    background: #17baef;
+    color: #fff;
+    
+    width: 100%;
 	
 }
 

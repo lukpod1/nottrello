@@ -9,8 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="author" content="">    
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <!-- FontAwesome JS -->
@@ -231,8 +230,7 @@
 
     <!-- ******FOOTER****** -->
     <footer class="footer">
-        <div class="container text-center">
-            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+        <div class="container text-center">            
             <small class="copyright">© Copyright 2018. Todos os direitos reservados.</small>
         </div>
         <!--//container-->
