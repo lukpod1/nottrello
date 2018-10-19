@@ -52,7 +52,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public boolean verificarUsuario(Usuario usuario) {
-		if (usuario.getEmail().equalsIgnoreCase("admin@admin.com") && usuario.getSenha().equalsIgnoreCase("admin")) {
+		if (usuario.getNome().equalsIgnoreCase("admin") && usuario.getSenha().equalsIgnoreCase("admin")) {
 			return true;
 		} else {
 			return false;

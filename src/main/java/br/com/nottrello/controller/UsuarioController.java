@@ -40,7 +40,7 @@ public class UsuarioController {
 	@GetMapping("/novo")
 	public String novo() {
 
-		return "pags/formCadastro";
+		return "pags/testCadastro";
 	}
 
 	@PostMapping("/salvar")
@@ -53,7 +53,7 @@ public class UsuarioController {
 
 	@GetMapping("/entrar")
 	public String entrar() {
-		return "pags/formLogin";
+		return "pags/testLogin";
 	}
 
 	@GetMapping("/logado")
@@ -63,7 +63,7 @@ public class UsuarioController {
 		return "/pags/usuariologado";
 	}
 
-	@PostMapping("/logar")
+	@GetMapping("/logar")
 	public String logar(Usuario usuario, HttpSession session) {
 		
 
