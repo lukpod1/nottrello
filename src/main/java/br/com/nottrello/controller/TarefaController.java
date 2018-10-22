@@ -23,8 +23,8 @@ public class TarefaController{
 		this.tarefaService = tarefaService;
 	}
 
-	@RequestMapping("/addTarefa")
-	public String addTarefa(Tarefa tarefa) {
+	@RequestMapping("/salvarTarefa")
+	public String salvarTarefa(Tarefa tarefa) {
 		tarefaService.salvar(tarefa);
 		
 		return "redirect:/usuario/logado";
@@ -32,6 +32,7 @@ public class TarefaController{
 	
 	@RequestMapping("/excluirTarefa")
 	public String removeTarefa(@PathParam("id") Long id) {
+		
 		tarefaService.remover(id);
 		
 		return "redirect:/usuario/logado";

@@ -11,7 +11,7 @@ import br.com.nottrello.model.entity.Projeto;
 import br.com.nottrello.model.service.ProjetoService;
 
 @Controller
-@RequestMapping("/projeto")
+@RequestMapping("usuario/projeto")
 public class ProjetoController {
 
 	@Autowired
@@ -27,14 +27,7 @@ public class ProjetoController {
 
 		return "/pags/formProjeto";
 	}
-
-	@GetMapping("usuario/logado")
-	public String getListar(Model model) {
-
-		model.addAttribute("projetos", projetoService.listarProjetos());
-
-		return "pags/usuariologado";
-	}
+	
 
 	@PostMapping("/salvar")
 	public String salvar(Projeto projeto) {
