@@ -37,7 +37,7 @@
                             </div>
 
 
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Entrar</button>
                             <a class="d-block text-center mt-2 small" href="/usuario/novo">Criar conta</a>
                             <a class="d-block text-center mt-2 small" href="/home"> Voltar pro Inicio</a>
 

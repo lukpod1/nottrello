@@ -37,12 +37,5 @@ public class ProjetoController {
 		return "redirect:/usuario/logado";
 	}
 
-//	@RequestMapping("/addTarefa")
-//	public String addTarefa(Tarefa tarefa) {
-//		Projeto projeto = new Projeto();
-//		projeto.getTarefas().add(tarefa);
-//		
-//		
-//		return "pags/usuariologado";
-//	}
+
 }

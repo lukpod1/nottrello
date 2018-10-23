@@ -23,7 +23,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-center">Criar uma Conta !Trello</h5>
-                        <form class="form-signin">
+                        <form class="form-signin" method="POST" action="/usuario/salvar">
                             <div class="form-label-group">
                                 <input name="nome" type="text" id="inputUserame" class="form-control" placeholder="Username"
                                     required autofocus>
@@ -45,12 +45,12 @@
                             </div>
 
                             <div class="form-label-group">
-                                <input name="senha" type="password" id="inputConfirmPassword" class="form-control" placeholder="Password"
+                                <input  type="password" id="inputConfirmPassword" class="form-control" placeholder="Password"
                                     required>
                                 <label for="inputConfirmPassword">Confirmar senha</label>
                             </div>
 
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Cadastrar</button>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Cadastre-se</button>
                             <a class="d-block text-center mt-2 small" href="/usuario/entrar">Entrar em sua conta</a>
                             <a class="d-block text-center mt-2 small" href="/home"> Voltar pro Inicio</a>
                            

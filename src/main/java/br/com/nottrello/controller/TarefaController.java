@@ -5,6 +5,7 @@ import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.nottrello.model.entity.Tarefa;
@@ -36,6 +37,14 @@ public class TarefaController{
 		tarefaService.remover(id);
 		
 		return "redirect:/usuario/logado";
+	}
+	
+	@RequestMapping("/editarTarefa")
+	public String editarTarefa(@PathParam("id") Long id, Model model) {
+		model.addAttribute(tarefaService.buscar(id));
+		
+		
+		return "pags/formTarefa";
 	}
 	
 }

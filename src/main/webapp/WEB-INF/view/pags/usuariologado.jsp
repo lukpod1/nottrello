@@ -32,7 +32,7 @@
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
 						<div class="navbar-nav">
 							<strong>
-								<a class="nav-item nav-link active" data-toggle="modal" data-target="#myModalProjeto" href="/projeto/novo">+ Adicionar Projeto</a>
+								<a class="nav-item nav-link active" data-toggle="modal" data-target="#myModalProjeto" href="#">+ Adicionar Projeto</a>
 							</strong>
 
 							<a class="nav-item nav-link" href="#">Perfil</a>
@@ -98,7 +98,7 @@
 													</a>
 												</td>
 												<td>
-													<a class="btn btn-dark btn-sm" href="/editarTarefa/${tarefa.id}" data-toggle="modal" data-target="#myModalTarefa">
+													<a class="btn btn-dark btn-sm" href="/editarTarefa?id=${tarefa.id}" >
 														<i class="fas fa-edit"></i>
 													</a>
 												</td>

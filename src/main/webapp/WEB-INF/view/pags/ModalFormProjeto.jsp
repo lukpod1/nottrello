@@ -12,7 +12,7 @@
                 </div>
 
                 <!-- Modal body -->
-                <form method="post" action="/projeto/salvar" name="tarefa">
+                <form method="post" action="projeto/salvar">
 
                     <div class="modal-body">
 
