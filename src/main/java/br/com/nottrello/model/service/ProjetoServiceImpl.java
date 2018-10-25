@@ -37,7 +37,7 @@ public class ProjetoServiceImpl implements ProjetoService {
 	}
 
 	@Override
-	public Projeto buscar(Long id) {
+	public Projeto buscarPorId(Long id) {
 		Optional<Projeto> p = this.projetoRepository.findById(id);
 		return p.get();
 	}

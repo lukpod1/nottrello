@@ -4,11 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -16,44 +19,39 @@ import javax.persistence.OneToOne;
 public class Projeto implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "projeto_id")
 	private Long id;
 	private String nome;
-	
-	@OneToMany(mappedBy="projeto")
+
+	@OneToMany(mappedBy = "projeto")
 	private List<Tarefa> tarefas = new ArrayList<>();
 	private String descricao;
 	private String dataVencimento;
-	private String etiquetaCor;
-	
-	@OneToOne(mappedBy="projeto")
-	private Equipe equipe;	
-	
-	
-	@ManyToMany
-	private List<Categoria> categorias = new ArrayList<>();
-	
+//	private String etiquetaCor;
+
+//	@OneToOne(mappedBy = "projeto")
+//	private Equipe equipe;
+
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
+
+//	@ManyToMany
+//	private List<Categoria> categorias = new ArrayList<>();
+
 	public Projeto() {
 		super();
-	}	
+	}
 
-
-	public Projeto(Long id, String nome, List<Tarefa> tarefas, String descricao, String dataVencimento,
-			String etiquetaCor, Equipe equipe, List<Categoria> categorias) {
+	public Projeto(Long id, String nome, String descricao, String dataVencimento, Usuario usuario) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.tarefas = tarefas;
 		this.descricao = descricao;
 		this.dataVencimento = dataVencimento;
-		this.etiquetaCor = etiquetaCor;
-		this.equipe = equipe;
-		this.categorias = categorias;
+		this.usuario = usuario;
 	}
-
-
-
-
 
 	public Long getId() {
 		return id;
@@ -71,18 +69,18 @@ public class Projeto implements Serializable {
 		this.nome = nome;
 	}
 
-	public List<Tarefa> getTarefas() {		
-		
+	public List<Tarefa> getTarefas() {
+
 		return tarefas;
 	}
 
 	public void setTarefas(List<Tarefa> tarefas) {
-		
+
 		this.tarefas = tarefas;
 	}
 
 	public String getDescricao() {
-		
+
 		return descricao;
 	}
 
@@ -98,34 +96,29 @@ public class Projeto implements Serializable {
 		this.dataVencimento = dataVencimento;
 	}
 
-	public String getEtiquetaCor() {
-		return etiquetaCor;
-	}
-
-	public void setEtiquetaCor(String etiquetaCor) {
-		this.etiquetaCor = etiquetaCor;
-	}
-
-	public Equipe getEquipe() {
-		return equipe;
-	}
-
-	public void setEquipe(Equipe equipe) {
-		this.equipe = equipe;
-	}
-
-
-	public List<Categoria> getCategorias() {
-		
-		return categorias;
-	}
-
-	public void setCategorias(List<Categoria> categorias) {
-		this.categorias = categorias;
-	}
-
-	
-	
-	
+//	public String getEtiquetaCor() {
+//		return etiquetaCor;
+//	}
+//
+//	public void setEtiquetaCor(String etiquetaCor) {
+//		this.etiquetaCor = etiquetaCor;
+//	}
+//
+//	public Equipe getEquipe() {
+//		return equipe;
+//	}
+//
+//	public void setEquipe(Equipe equipe) {
+//		this.equipe = equipe;
+//	}
+//
+//	public List<Categoria> getCategorias() {
+//
+//		return categorias;
+//	}
+//
+//	public void setCategorias(List<Categoria> categorias) {
+//		this.categorias = categorias;
+//	}
 
 }

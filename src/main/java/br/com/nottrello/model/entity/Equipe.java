@@ -18,8 +18,8 @@ public class Equipe implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToMany(mappedBy="equipes")
-	private List<Usuario> usuarios = new ArrayList<>();
+//	@ManyToMany(mappedBy="equipes")
+//	private List<Usuario> usuarios = new ArrayList<>();
 	
 	@OneToOne
 	private Projeto projeto;
@@ -29,10 +29,10 @@ public class Equipe implements Serializable{
 	}
 	
 
-	public Equipe(Long id, List<Usuario> usuarios, Projeto projeto) {
+	public Equipe(Long id, Projeto projeto) {
 		super();
 		this.id = id;
-		this.usuarios = usuarios;
+		
 		this.projeto = projeto;
 	}
 
@@ -44,12 +44,12 @@ public class Equipe implements Serializable{
 		this.id = id;
 	}
 
-	public List<Usuario> getUsuarios() {
-		return usuarios;
-	}
-
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
+//	public List<Usuario> getUsuarios() {
+//		return usuarios;
+//	}
+//
+//	public void setUsuarios(List<Usuario> usuarios) {
+//		this.usuarios = usuarios;
+//	}
 
 }

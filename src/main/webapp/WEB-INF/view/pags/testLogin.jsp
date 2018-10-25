@@ -25,9 +25,9 @@
                         <h5 class="card-title text-center">Fazer Login no !Trello</h5>
                         <form class="form-signin" action="logar" method="GET">
                             <div class="form-label-group">
-                                <input name="nome" type="text" id="nome" class="form-control" placeholder="Usuario"
+                                <input name="nomeUsuario" type="text" id="usuario" class="form-control" placeholder="Usuario"
                                     required autofocus>
-                                <label for="nome">Usuario</label>
+                                <label for="usuario">Usuario</label>
                             </div>
 
                             <div class="form-label-group">

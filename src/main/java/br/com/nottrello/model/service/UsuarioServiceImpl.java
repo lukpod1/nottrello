@@ -82,8 +82,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 //				query.select(from).where().orderBy(builder.asc(from.get("id"))));
 //		return !typedQuery.getResultList().isEmpty();
 		
-		Query query = manager.createQuery("from Usuario where nome = :nome and senha = :senha");
-		query.setParameter("nome", usuario.getNome());
+		Query query = manager.createQuery("from Usuario where nomeUsuario = :usuario and senha = :senha");
+		query.setParameter("usuario", usuario.getNomeUsuario());
 		query.setParameter("senha", usuario.getSenha());
 		return !query.getResultList().isEmpty();
 		

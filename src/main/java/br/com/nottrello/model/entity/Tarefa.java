@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -19,13 +20,18 @@ public class Tarefa implements Serializable {
 	private Categoria categoria;
 	private String prioridadeCor;
 	private String dataVencimento;
-	private String status;
-	private String descricao;
 	
 	@ManyToOne
-	private Usuario usuario;
+	@JoinColumn(name="status_id")
+	private Status status;
 	
-	@OneToOne
+	private String descricao;
+	
+//	@ManyToOne
+//	private Usuario usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="projeto_id")
 	private Projeto projeto;
 	
 
@@ -33,8 +39,8 @@ public class Tarefa implements Serializable {
 		
 	}
 
-	public Tarefa(Long id, String nome, Categoria categoria, String prioridadeCor, String dataVencimento, String status,
-			String descricao, Usuario usuario, Projeto projeto) {
+	public Tarefa(Long id, String nome, Categoria categoria, String prioridadeCor, String dataVencimento, Status status,
+			String descricao, Projeto projeto) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -43,7 +49,6 @@ public class Tarefa implements Serializable {
 		this.dataVencimento = dataVencimento;
 		this.status = status;
 		this.descricao = descricao;
-		this.usuario = usuario;
 		this.projeto = projeto;
 	}
 
@@ -87,11 +92,11 @@ public class Tarefa implements Serializable {
 		this.dataVencimento = dataVencimento;
 	}
 
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 
@@ -101,14 +106,6 @@ public class Tarefa implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 	public Projeto getProjeto() {

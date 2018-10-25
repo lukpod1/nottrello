@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -16,27 +18,32 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="usuario_id")
 	private Long id;
-	private String nome;
+	private String nomeCompleto;
+	private String nomeUsuario;
 	private String email;
 	private String senha;
 
-	@OneToMany(mappedBy = "usuario")
-	private List<Tarefa> tarefas = new ArrayList<>();
+	@OneToMany
+	@JoinColumn(name="projeto_id")
+	private List<Projeto> projetos = new ArrayList<>();
 
-	@ManyToMany
-	private List<Equipe> equipes = new ArrayList<>();
+//	@ManyToMany
+//	private List<Equipe> equipes = new ArrayList<>();
 
 	public Usuario() {
 
 	}
 
-	public Usuario(Long id, String nome, String email, String senha) {
+	public Usuario(Long id, String nomeCompleto, String nomeUsuario, String email, String senha) {
 		super();
 		this.id = id;
-		this.nome = nome;
+		this.nomeCompleto = nomeCompleto;
+		this.nomeUsuario = nomeUsuario;
 		this.email = email;
 		this.senha = senha;
+		
 	}
 
 	public Long getId() {
@@ -47,12 +54,20 @@ public class Usuario implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getNomeCompleto() {
+		return nomeCompleto;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
+	}
+
+	public String getNomeUsuario() {
+		return nomeUsuario;
+	}
+
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
 	}
 
 	public String getEmail() {
@@ -70,21 +85,24 @@ public class Usuario implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
-	public List<Tarefa> getTarefas() {
-		return tarefas;
+	
+	public List<Projeto> getProjetos() {
+		return projetos;
 	}
 
-	public void setTarefas(List<Tarefa> tarefas) {
-		this.tarefas = tarefas;
+	public void setProjetos(List<Projeto> projetos) {
+		this.projetos = projetos;
 	}
 
-	public List<Equipe> getEquipes() {
-		return equipes;
-	}
+//	public List<Equipe> getEquipes() {
+//		return equipes;
+//	}
+//
+//	public void setEquipes(List<Equipe> equipes) {
+//		this.equipes = equipes;
+//	}
 
-	public void setEquipes(List<Equipe> equipes) {
-		this.equipes = equipes;
-	}
+
+
 
 }

@@ -25,9 +25,15 @@
                         <h5 class="card-title text-center">Criar uma Conta !Trello</h5>
                         <form class="form-signin" method="POST" action="/usuario/salvar">
                             <div class="form-label-group">
-                                <input name="nome" type="text" id="inputUserame" class="form-control" placeholder="Username"
+                                <input name="nomeCompleto" type="text" id="inputName" class="form-control" placeholder="Nome Completo"
                                     required autofocus>
-                                <label for="inputUserame">Nome</label>
+                                <label for="inputName">Nome Completo</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input name="nomeUsuario" type="text" id="inputUsername" class="form-control" placeholder="Usuario de Login"
+                                    required autofocus>
+                                <label for="inputUsername">Usuario de Login</label>
                             </div>
 
                             <div class="form-label-group">

@@ -12,7 +12,7 @@
                 </div>
 
                 <!-- Modal body -->
-                <form method="post" action="projeto/salvar">
+                <form method="post" action="/projeto/salvar">
 
                     <div class="modal-body">
 
@@ -42,8 +42,8 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" style="margin-left: 20px;">Salvar</button>
-                        <a href="/usuario/logado" class="btn btn-danger">Cancelar</a>
+                        <button type="submit" class="btn btn-primary" >Salvar</button>
+                        <button data-dismiss="modal" class="btn btn-danger">Cancelar</button>
                     </div>
                 </form>
             </div>

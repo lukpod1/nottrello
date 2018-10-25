@@ -46,6 +46,8 @@ public class UsuarioController {
 	@PostMapping("/salvar")
 	public String salvar(Usuario usuario) {
 
+		usuario.getNomeUsuario().toLowerCase();
+		usuario.getEmail().toLowerCase();
 		usuarioService.salvar(usuario);
 
 		return "redirect:/usuario/entrar";

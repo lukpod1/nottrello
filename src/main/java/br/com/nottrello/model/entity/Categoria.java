@@ -20,18 +20,18 @@ public class Categoria implements Serializable{
 	private Long id;
 	private String nome;
 	
-	@ManyToMany(mappedBy="categorias")
-	private List<Projeto> projetos = new ArrayList<>();	
+//	@ManyToMany(mappedBy="categorias")
+//	private List<Projeto> projetos = new ArrayList<>();	
 	
 	
 	public Categoria() {
 		super();
 	}
-	public Categoria(Long id, String nome, List<Projeto> projetos) {
+	public Categoria(Long id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.projetos = projetos;
+		
 	}
 	public Long getId() {
 		return id;
@@ -45,12 +45,12 @@ public class Categoria implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public List<Projeto> getProjetos() {
-		return projetos;
-	}
-	public void setProjetos(List<Projeto> projetos) {
-		this.projetos = projetos;
-	}
+//	public List<Projeto> getProjetos() {
+//		return projetos;
+//	}
+//	public void setProjetos(List<Projeto> projetos) {
+//		this.projetos = projetos;
+//	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

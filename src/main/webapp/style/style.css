@@ -6,7 +6,6 @@ body{
 
 .logo{
 	width: 100px;
-    margin-top: 4px;
     margin-left: 70px;
 }
 .logo:hover{
@@ -29,7 +28,7 @@ li > a:hover{
 	padding: 10px 0;
     background: #17baef;
     color: #fff;
-    
+    height: 55px;
     width: 100%;
 	
 }
