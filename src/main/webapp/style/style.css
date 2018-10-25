@@ -3,6 +3,10 @@ body{
 	
 }
 
+.avatar{
+	width: 200px;
+	margin: 40px;
+}
 
 .logo{
 	width: 100px;

@@ -47,11 +47,11 @@
 		<div class="row content">
 			<ul class="sidebar navbar-nav bg-light">
 				<li>
-					<img class="avatar" src="#">
+					<img class="avatar" src="/imgs/padrao.jpg">
 				</li>
 				<li>
-					<h4>Nome</h4>
-					<small>email</small>
+					<h4>${usuarioLogado.nomeUsuario}</h4>
+					<small>${usuarioLogado.email}</small>
 				</li>
 			</ul>
 			<div class="col-sm-8 text-left">

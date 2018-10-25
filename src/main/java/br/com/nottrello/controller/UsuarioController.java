@@ -59,9 +59,9 @@ public class UsuarioController {
 	}
 
 	@GetMapping("/logado")
-	public String usuarioLogado(Model model) {
+	public String usuarioLogado(Model model, HttpSession session) {
 		model.addAttribute("projetos", projetoService.listarProjetos());
-		model.addAttribute("tarefas", tarefaService.listarTarefas());
+		model.addAttribute("tarefas", tarefaService.listarTarefas());		
 		return "/pags/usuariologado";
 	}
 

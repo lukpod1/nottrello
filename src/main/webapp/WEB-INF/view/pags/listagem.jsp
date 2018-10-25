@@ -36,7 +36,7 @@
                         <i class="fas fa-plus"></i> Nova Tarefa
                     </a>
 
-                    <a class="nav-item nav-link active" href="/{{projeto.usuario.id}}">{{projeto.usuario}}</a>
+                    <a class="nav-item nav-link active" href="/usuario/logado">${usuarioLogado.nomeUsuario}</a>
                     <a class="nav-item nav-link active" href="/usuario/entrar">Sair</a>
                 </div>
             </div>
@@ -57,7 +57,7 @@
 
 
                 <c:forEach var="projeto" items="${projetos}">
-                    <li><a class="nav-item" href="/{{projeto.usuario.id}}/projeto/{{projeto.id}}">{{projeto.nome}}</a></li>
+                    <li><a class="nav-item" href="/projeto/projeto?id=${projeto.id}">${projeto.nome}</a></li>
                 </c:forEach>
                
              
@@ -69,13 +69,16 @@
                 <div id="app">
                     <br>
                     <h3>${projeto.nome}
-                        <a href="/projeto/excluir/{{projeto.id}}">
+                        <a href="/projeto/excluirProjeto?id=${projeto.id}">
                             <i class="far fa-times-circle" style="color: red;"></i>
+                        </a>
+                        <a href="/projeto/editarProjeto?id=${projeto.id}">
+                            <i class="fas fa-pencil-alt" ></i>
                         </a>
                     </h3>
                     <br>
                     <h4>Tarefas</h4>
-
+						
                     <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
 
                     <table class=" table table-hover" style="width:100%">
@@ -83,17 +86,15 @@
                         <tr>
                             <th>Nome</th>
                             <th>Descrição</th>
-                            <th>Data de Criação</th>
-                            <th>Vencimento</th>
+                            <th>Vencimento</th>                            
 
                         </tr>
-                        {% for tarefa in tarefas %}
-                        <tbody id="myTable">
+                        <c:forEach var="tarefa" items="${tarefas}">
+                        	<tbody id="myTable">
                             <tr>
-                                <td>{{tarefa.nome}}</td>
-                                <td id="descricao">{{tarefa.descricao}}</td>
-                                <td>{{tarefa.data_criacao}}</td>
-                                <td>{{tarefa.data_vencimento}}</td>
+                                <td>${tarefa.nome}</td>
+                                <td id="descricao">${tarefa.descricao}</td>
+                                <td>${tarefa.dataVencimento}</td>
 
                                 <td>
                                     <a class="btn btn-success btn-sm" href="/tarefa/concluido/{{tarefa.id}}">
@@ -101,18 +102,21 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-danger btn-sm" href="/tarefa/excluir/{{tarefa.id}}">
+                                    <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a id="btnEditar" href="/tarefa/editar/{{tarefa.id}}" class="btn btn-dark btn-sm">
+                                    <a id="btnEditar" href="/editarTarefa?id=${tarefa.id}" class="btn btn-dark btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
                             </tr>
                         </tbody>
-                        {% endfor %}
+                        
+                        </c:forEach>
+                        
+                        
                     </table>
 
                 </div>
@@ -121,7 +125,9 @@
     </div>
 
     <!--Modals-->
-    {% include "app/modalTarefa.html" %} {% include "app/modalProjeto.html" %}
+    <c:import url="ModalFormProjeto.jsp"></c:import>
+    <c:import url="ModalFormTarefa.jsp"></c:import>
+   
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

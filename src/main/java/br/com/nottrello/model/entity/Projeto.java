@@ -33,9 +33,9 @@ public class Projeto implements Serializable {
 //	@OneToOne(mappedBy = "projeto")
 //	private Equipe equipe;
 
-	@ManyToOne
-	@JoinColumn(name = "usuario_id")
-	private Usuario usuario;
+//	@ManyToOne
+//	@JoinColumn(name = "usuario_id")
+//	private Usuario usuario;
 
 //	@ManyToMany
 //	private List<Categoria> categorias = new ArrayList<>();
@@ -44,13 +44,13 @@ public class Projeto implements Serializable {
 		super();
 	}
 
-	public Projeto(Long id, String nome, String descricao, String dataVencimento, Usuario usuario) {
+	public Projeto(Long id, String nome, String descricao, String dataVencimento) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.dataVencimento = dataVencimento;
-		this.usuario = usuario;
+		
 	}
 
 	public Long getId() {
