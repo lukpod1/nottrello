@@ -17,11 +17,11 @@
 					<div class="modal-body">
 
 						<div class="form-group">
-							<input type="hidden" name="id">
+							<input type="hidden" name="id" id="id" >
 							<label for="nome">Nome:</label>
-							<input class="form-control" type="text" id="nome" name="nome" required/>
+							<input class="form-control"  type="text" id="nome" name="nome" required/>
 							<label for="dataVencimento">Data de Vencimento:</label>
-							<input class="form-control" type="date" id="dataVencimento" name="dataVencimento" required/>
+							<input class="form-control"  type="date" id="data_vencimento" name="dataVencimento" required/>
 							<label for="descricao">Descrição:</label>
 							<textarea class="form-control" name="descricao" rows="4" cols="50" style="resize: none">
 								 

@@ -10,7 +10,7 @@
 <body>
 <h4>Editar projeto</h4>
 	<form action="/projeto/salvar" method="post">
-	<input type="hidden" id="id" name="id">
+	<input type="hidden" id="id" name="id" value="${projeto.id}">
 			
 	<table>
 		<tr>
@@ -19,7 +19,7 @@
 		
 		</tr>
 		<tr>
-			<td><label for="descricao">Descrição: </label></td>
+			<td><label for="descricao">Descriï¿½ï¿½o: </label></td>
 			<td><input class="form-controll " value="${projeto.descricao}" type="text" id= "descricao" name="descricao">	</td>
 		</tr>
 		<tr>

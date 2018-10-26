@@ -40,6 +40,12 @@ public class TarefaServiceImpl implements TarefaService {
         return t.get();
 
 	}
+	
+	@Override
+	public Tarefa atualizar(Tarefa tarefa) {
+		buscar(tarefa.getId());
+		return this.tarefaRepository.save(tarefa);
+	}
 
 	@Override
 	public List<Tarefa> listarTarefas() {
@@ -52,5 +58,7 @@ public class TarefaServiceImpl implements TarefaService {
 
 		return tarefas;
 	}
+
+	
 
 }

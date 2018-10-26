@@ -14,12 +14,12 @@
                 
 
                     <div class="form-group">
-                        <input type="hidden" name="id">
+                        <input type="hidden" name="id" value="${tarefa.id}">
                         <label for="nome">Nome:</label>
                         <input class="form-control"  value="${tarefa.nome}" type="text" id="nome" name="nome" required/>
                         <label for="dataVencimento">Data de Vencimento:</label>
                         <input class="form-control" value="${tarefa.dataVencimento}" type="date" id="dataVencimento" name="dataVencimento" required/>
-                        <label for="descricao">Descrição:</label>
+                        <label for="descricao">DescriÃ§Ã£o:</label>
                         <textarea class="form-control" value="${tarefa.descricao}" name="descricao" rows="4" cols="50" style="resize: none">
                              
                         </textarea>

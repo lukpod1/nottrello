@@ -39,12 +39,12 @@ public class TarefaController{
 		return "redirect:/usuario/logado";
 	}
 	
-	@RequestMapping("/editarTarefa")
-	public String editarTarefa(@PathParam("id") Long id, Model model) {
-		model.addAttribute(tarefaService.buscar(id));
-		
-		
-		return "pags/formTarefa";
-	}
+//	@RequestMapping("/editarTarefa")
+//	public String editarTarefa(@PathParam("id") Long id, Model model) {
+//		model.addAttribute("tarefa", tarefaService.buscar(id));
+//		
+//		
+//		return "pags/formTarefa";
+//	}
 	
 }

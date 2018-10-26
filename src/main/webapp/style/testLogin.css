@@ -28,7 +28,8 @@
     width: 61%;
     /* Link to your background image using in the property below! */
     /* background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512'); */
-    background: scroll center url('https://d3ptyyxy2at9ui.cloudfront.net/d31285b9faaf5566ba0cd2e6ec07db81.png');
+    /* background: scroll center url('https://d3ptyyxy2at9ui.cloudfront.net/d31285b9faaf5566ba0cd2e6ec07db81.png'); */
+    background: scroll center url('/imgs/todolist.png');
     background-size: cover;
   }
   

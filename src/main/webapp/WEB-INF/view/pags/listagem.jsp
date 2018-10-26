@@ -59,8 +59,8 @@
                 <c:forEach var="projeto" items="${projetos}">
                     <li><a class="nav-item" href="/projeto/projeto?id=${projeto.id}">${projeto.nome}</a></li>
                 </c:forEach>
-               
-             
+
+
 
 
 
@@ -72,13 +72,13 @@
                         <a href="/projeto/excluirProjeto?id=${projeto.id}">
                             <i class="far fa-times-circle" style="color: red;"></i>
                         </a>
-                        <a href="/projeto/editarProjeto?id=${projeto.id}">
-                            <i class="fas fa-pencil-alt" ></i>
+                        <a href="#" data-toggle="modal" data-target="#myModalProjeto" data-id="${projeto.id}" data-nome="${projeto.nome}" data-vencimento="${projeto.dataVencimento}" data-descricao="${projeto.descricao}" >
+                            <i class="fas fa-pencil-alt"></i>
                         </a>
                     </h3>
                     <br>
                     <h4>Tarefas</h4>
-						
+
                     <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
 
                     <table class=" table table-hover" style="width:100%">
@@ -86,37 +86,37 @@
                         <tr>
                             <th>Nome</th>
                             <th>Descrição</th>
-                            <th>Vencimento</th>                            
+                            <th>Vencimento</th>
 
                         </tr>
                         <c:forEach var="tarefa" items="${tarefas}">
-                        	<tbody id="myTable">
-                            <tr>
-                                <td>${tarefa.nome}</td>
-                                <td id="descricao">${tarefa.descricao}</td>
-                                <td>${tarefa.dataVencimento}</td>
+                            <tbody id="myTable">
+                                <tr>
+                                    <td>${tarefa.nome}</td>
+                                    <td id="descricao">${tarefa.descricao}</td>
+                                    <td>${tarefa.dataVencimento}</td>
 
-                                <td>
-                                    <a class="btn btn-success btn-sm" href="/tarefa/concluido/{{tarefa.id}}">
-                                        <i class="far fa-check-circle"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}">
-                                        <i class="far fa-trash-alt"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a id="btnEditar" href="/editarTarefa?id=${tarefa.id}" class="btn btn-dark btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                        
+                                    <td>
+                                        <a class="btn btn-success btn-sm" href="/tarefa/concluido/{{tarefa.id}}">
+                                            <i class="far fa-check-circle"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}">
+                                            <i class="far fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a id="btnEditar" href="#" class="btn btn-dark btn-sm">
+                                            <i class="fas fa-edit" data-toggle="modal" data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}" data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
                         </c:forEach>
-                        
-                        
+
+
                     </table>
 
                 </div>
@@ -127,7 +127,7 @@
     <!--Modals-->
     <c:import url="ModalFormProjeto.jsp"></c:import>
     <c:import url="ModalFormTarefa.jsp"></c:import>
-   
+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -142,19 +142,40 @@
                 });
             });
         });
-            // $('#myModal').on('show.bs.modal', function (event) {
-            //     var button = $(event.relatedTarget) //Button that triggered the modal
-            //     var recipientNome = button.data('nome') //Extract info from data-* attributes
-            //     var recipientDescricao = button.data('descricao') //Extract info from data-* attributes
-            //     var recipientDtVencimento = button.data('vencimento') //Extract info from data-* attributes
-            //     //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
-            //     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            //     var modal = $(this)
-            //     modal.find('.modal-title').text('Editar ' + recipientNome)
-            //     modal.find('.modal-body input#id_nome').val(recipientNome)
-            //     modal.find('.modal-body input#id_data_vencimento').val(recipientDtVencimento)
-            //     modal.find('.modal-body textarea').val(recipientDescricao)
-            // })
+
+        $('#myModalTarefa').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) //Button that triggered the modal
+            var id = button.data('id')
+            var nome = button.data('nome') //Extract info from data-* attributes
+            var descricao = button.data('descricao') //Extract info from data-* attributes
+            var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
+            //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('Editar ' + nome)
+            modal.find('.modal-body input#id').val(id)
+            modal.find('.modal-body input#nome').val(nome)
+            modal.find('.modal-body input#data_vencimento').val(dtVencimento)
+            modal.find('.modal-body textarea').val(descricao)
+        })
+
+        $('#myModalProjeto').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) //Button that triggered the modal
+            var id = button.data('id')
+            var nome = button.data('nome') //Extract info from data-* attributes
+            var descricao = button.data('descricao') //Extract info from data-* attributes
+            var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
+            
+            //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('Editar ' + nome)
+            modal.find('.modal-body input#id').val(id)
+            modal.find('.modal-body input#nome').val(nome)
+            modal.find('.modal-body input#data_vencimento').val(dtVencimento)
+            modal.find('.modal-body textarea').val(descricao)
+            
+        })
     </script>
 </body>
 

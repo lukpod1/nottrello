@@ -9,5 +9,6 @@ public interface TarefaService {
 	public void salvar(Tarefa tarefa);
 	public void remover(Long id);
 	public Tarefa buscar(Long id);
+	public Tarefa atualizar(Tarefa tarefa);
 	public List<Tarefa> listarTarefas();
 }

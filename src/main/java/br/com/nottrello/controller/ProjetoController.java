@@ -51,13 +51,13 @@ public class ProjetoController {
 		return "redirect:/usuario/logado";
 	}
 	
-	@RequestMapping("/editarProjeto")
-	public String editarTarefa(@PathParam("id") Long id, Model model) {
-		model.addAttribute(projetoService.buscarPorId(id));
-		
-		
-		return "pags/formProjeto";
-	}
+//	@RequestMapping("/editarProjeto")
+//	public String editarTarefa(@PathParam("id") Long id, Model model) {
+//		model.addAttribute(projetoService.buscarPorId(id));
+//		
+//		
+//		return "pags/formProjeto";
+//	}
 	
 	@GetMapping("/projeto")
 	public String listaProjeto(@PathParam("id") Long id, Model model) {
