@@ -37,7 +37,7 @@
                     </a>
 
                     <a class="nav-item nav-link active" href="/usuario/logado">${usuarioLogado.nomeUsuario}</a>
-                    <a class="nav-item nav-link active" href="/usuario/entrar">Sair</a>
+                    <a class="nav-item nav-link active" href="/usuario/logout">Sair</a>
                 </div>
             </div>
         </nav>
@@ -152,7 +152,9 @@
             //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
-            modal.find('.modal-title').text('Editar ' + nome)
+            if(id!=null){
+            	modal.find('.modal-title').text('Editar ' + nome)
+            }            
             modal.find('.modal-body input#id').val(id)
             modal.find('.modal-body input#nome').val(nome)
             modal.find('.modal-body input#data_vencimento').val(dtVencimento)
@@ -169,7 +171,9 @@
             //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
-            modal.find('.modal-title').text('Editar ' + nome)
+            if(id!=null){
+            	modal.find('.modal-title').text('Editar ' + nome)
+            }            
             modal.find('.modal-body input#id').val(id)
             modal.find('.modal-body input#nome').val(nome)
             modal.find('.modal-body input#data_vencimento').val(dtVencimento)
