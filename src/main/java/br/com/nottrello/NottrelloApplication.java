@@ -47,9 +47,9 @@ public class NottrelloApplication extends SpringBootServletInitializer implement
 	
 	@Override
 	public void run(String... args) throws Exception {
-		Usuario user1 = new Usuario(null, "matheus alves", "mgamer", "admin@admin.com", "matheus123");
-		Usuario user2 = new Usuario(null, "jose lucas alves da silva", "lukpod1","lucas@admin.com", "lucas123");
-		Usuario user3 = new Usuario(null, "jaicke santos da silva", "garpp", "jaicke@admin.com", "jaicke123");
+//		Usuario user1 = new Usuario(null, "matheus alves", "mgamer", "admin@admin.com", "matheus123");
+//		Usuario user2 = new Usuario(null, "jose lucas alves da silva", "lukpod1","lucas@admin.com", "lucas123");
+//		Usuario user3 = new Usuario(null, "jaicke santos da silva", "garpp", "jaicke@admin.com", "jaicke123");
 		
 		
 //		Projeto projeto1 = new Projeto(null, "NotTrello C#", "Melhor gerenciador de Projetos", "22/11/2018", user1.getId());
@@ -58,7 +58,7 @@ public class NottrelloApplication extends SpringBootServletInitializer implement
 //		
 //		
 //		projetoRepository.saveAll(Arrays.asList(projeto1, projeto2, projeto3));
-		usuarioRepository.saveAll(Arrays.asList(user1, user2, user3));
+//		usuarioRepository.saveAll(Arrays.asList(user1, user2, user3));
 		
 		Status status1 = new Status(null, "Pendente");
 		Status status2 = new Status(null, "Em andamento");

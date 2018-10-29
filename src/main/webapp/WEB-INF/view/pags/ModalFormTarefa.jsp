@@ -8,7 +8,7 @@
 				<!-- Modal Header -->
 				<div class="modal-header">
 					<h4 class="modal-title">Adicionar Tarefa</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<a  href="/projeto/projeto?id=${projeto.id}" class="close">&times;</a>
 				</div>
 
 				<!-- Modal body -->
@@ -18,6 +18,7 @@
 
 						<div class="form-group">
 							<input type="hidden" name="id" id="id" >
+							<input type="hidden" value="${projeto.id}"  name="projeto" >							
 							<label for="nome">Nome:</label>
 							<input class="form-control"  type="text" id="nome" name="nome" required/>
 							<label for="dataVencimento">Data de Vencimento:</label>
@@ -36,7 +37,7 @@
 					<!-- Modal footer -->
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-primary" style="margin-left: 20px;">Salvar</button>
-						<a href="/usuario/logado" class="btn btn-danger">Cancelar</a>
+						<a href="/projeto/projeto?id=${projeto.id}" class="btn btn-danger">Cancelar</a>
 					</div>
 				</form>
 			</div>

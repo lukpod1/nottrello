@@ -64,31 +64,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public boolean verificarUsuario(Usuario usuario) {
-//		if (usuario.getNome().equalsIgnoreCase("admin") && usuario.getSenha().equalsIgnoreCase("admin")) {
-//			return true;
-//		} else {
-//			return false;
-//		}
-		
-		
-//		CriteriaBuilder builder = manager.getCriteriaBuilder();
-//		CriteriaQuery<Usuario> query = builder.createQuery(Usuario.class);
-//		Root<Usuario> from = query.from(Usuario.class);
-//		Predicate predicate = (Predicate) builder.and();
-//		predicate = (Predicate) builder.and((Expression<Boolean>) predicate, builder.equal(from.get("nome"), usuario.getNome()));
-//		predicate = (Predicate) builder.and((Expression<Boolean>) predicate, builder.equal(from.get("senha"), usuario.getSenha()));
-//		
-//		TypedQuery<Usuario> typedQuery = manager.createQuery(
-//				query.select(from).where().orderBy(builder.asc(from.get("id"))));
-//		return !typedQuery.getResultList().isEmpty();
-		
+	
 		Query query = manager.createQuery("from Usuario where nomeUsuario = :usuario and senha = :senha");
 		query.setParameter("usuario", usuario.getNomeUsuario());
 		query.setParameter("senha", usuario.getSenha());
 		return !query.getResultList().isEmpty();
 		
-		
-
 	}
 
 }

@@ -25,14 +25,14 @@
 				<img src="/imgs/logo1.jpg" class="logo">
 
 			</h1>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+			<button class="navbar-toggler" type="button" data-toggle="collapse"  data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 			 aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
 					<strong>
-						<a class="nav-item nav-link active" href="/usuario/entrar">Sair</a>
+						<a class="nav-item nav-link active" href="/usuario/logout">Sair</a>
 					</strong>
 
 				</div>
@@ -51,7 +51,8 @@
 				</li>
 				<li>
 					<h4>${usuarioLogado.nomeUsuario}</h4>
-					<small>${usuarioLogado.email}</small>
+					<h4>${usuarioLogado.nomeCompleto}</h4>
+					<small>${usuarioLogado.senha}</small>
 				</li>
 			</ul>
 			<div class="col-sm-8 text-left">

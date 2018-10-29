@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
 
-                    <a href="#" class="nav-item nav-link active" data-toggle="modal" data-target="#myModalTarefa">
+                    <a href="#" class="nav-item nav-link active" data-toggle="modal" data-projeto="${projeto.id}" data-target="#myModalTarefa">
                         <i class="fas fa-plus"></i> Nova Tarefa
                     </a>
 
@@ -107,9 +107,11 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a id="btnEditar" href="#" class="btn btn-dark btn-sm">
-                                            <i class="fas fa-edit" data-toggle="modal" data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}" data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}"></i>
-                                        </a>
+                                        <button id="btnEditar" class="btn btn-dark btn-sm"  data-toggle="modal" data-target="#myModalTarefa"
+                                            	 data-id="${tarefa.id}" data-nome="${tarefa.nome}" data-vencimento="${tarefa.dataVencimento}"
+                                            	 	 data-descricao="${tarefa.descricao}">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -149,13 +151,14 @@
             var nome = button.data('nome') //Extract info from data-* attributes
             var descricao = button.data('descricao') //Extract info from data-* attributes
             var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
+            
             //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
             if(id!=null){
             	modal.find('.modal-title').text('Editar ' + nome)
             }            
-            modal.find('.modal-body input#id').val(id)
+            modal.find('.modal-body input#id').val(id)            
             modal.find('.modal-body input#nome').val(nome)
             modal.find('.modal-body input#data_vencimento').val(dtVencimento)
             modal.find('.modal-body textarea').val(descricao)
@@ -167,6 +170,7 @@
             var nome = button.data('nome') //Extract info from data-* attributes
             var descricao = button.data('descricao') //Extract info from data-* attributes
             var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
+           
             
             //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -174,7 +178,7 @@
             if(id!=null){
             	modal.find('.modal-title').text('Editar ' + nome)
             }            
-            modal.find('.modal-body input#id').val(id)
+            modal.find('.modal-body input#id').val(id)            
             modal.find('.modal-body input#nome').val(nome)
             modal.find('.modal-body input#data_vencimento').val(dtVencimento)
             modal.find('.modal-body textarea').val(descricao)

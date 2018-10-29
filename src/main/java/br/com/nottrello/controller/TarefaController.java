@@ -28,7 +28,7 @@ public class TarefaController{
 	public String salvarTarefa(Tarefa tarefa) {
 		tarefaService.salvar(tarefa);
 		
-		return "redirect:/usuario/logado";
+		return "redirect:/projeto/projeto?id="+tarefa.getProjeto().getId();
 	}
 	
 	@RequestMapping("/excluirTarefa")

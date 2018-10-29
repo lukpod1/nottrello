@@ -33,9 +33,9 @@ public class Projeto implements Serializable {
 //	@OneToOne(mappedBy = "projeto")
 //	private Equipe equipe;
 
-//	@ManyToOne
-//	@JoinColumn(name = "usuario_id")
-//	private Usuario usuario;
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
 
 //	@ManyToMany
 //	private List<Categoria> categorias = new ArrayList<>();

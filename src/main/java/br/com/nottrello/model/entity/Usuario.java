@@ -26,9 +26,9 @@ public class Usuario implements Serializable {
 	private String email;
 	private String senha;
 
-	@OneToMany
-	@JoinColumn(name="projeto_id")
-	private List<Projeto> projetos = new ArrayList<>();
+//	@OneToMany
+//	@JoinColumn(name="projeto_id")
+//	private List<Projeto> projetos = new ArrayList<>();
 
 //	@ManyToMany
 //	private List<Equipe> equipes = new ArrayList<>();
@@ -87,13 +87,13 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 	
-	public List<Projeto> getProjetos() {
-		return projetos;
-	}
-
-	public void setProjetos(List<Projeto> projetos) {
-		this.projetos = projetos;
-	}
+//	public List<Projeto> getProjetos() {
+//		return projetos;
+//	}
+//
+//	public void setProjetos(List<Projeto> projetos) {
+//		this.projetos = projetos;
+//	}
 
 //	public List<Equipe> getEquipes() {
 //		return equipes;

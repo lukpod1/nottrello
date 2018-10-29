@@ -59,9 +59,8 @@ public class UsuarioController {
 	}
 
 	@GetMapping("/logado")
-	public String usuarioLogado(Model model, HttpSession session) {
-		model.addAttribute("projetos", projetoService.listarProjetos());
-		model.addAttribute("tarefas", tarefaService.listarTarefas());		
+	public String usuarioLogado(Model model) {
+		model.addAttribute("projetos", projetoService.listarProjetos());		
 		return "/pags/usuariologado";
 	}
 
@@ -70,7 +69,7 @@ public class UsuarioController {
 		
 
 		if (usuarioService.verificarUsuario(usuario)) {
-			session.setAttribute("usuarioLogado", usuario);
+			session.setAttribute("usuarioLogado", usuario);			
 			return "redirect:/usuario/logado";
 		} else {
 			return "pags/loginfail";

@@ -5,6 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +18,9 @@ import br.com.nottrello.model.repository.TarefaRepository;
 @Service
 public class TarefaServiceImpl implements TarefaService {
 
+	@PersistenceContext
+	private EntityManager manager;
+	
 	@Autowired
 	private TarefaRepository tarefaRepository;
 	
@@ -48,13 +55,10 @@ public class TarefaServiceImpl implements TarefaService {
 	}
 
 	@Override
-	public List<Tarefa> listarTarefas() {
-		List<Tarefa> tarefas = new ArrayList<>();
-		Iterator<Tarefa> iterator = this.tarefaRepository.findAll().iterator();
-
-		while (iterator.hasNext()) {
-			tarefas.add(iterator.next());
-		}
+	public List<Tarefa> listarTarefasPorProjeto(Long id) {		
+		Query query = manager.createQuery("from Tarefa where projeto_id = :id ");
+		query.setParameter("id", id);
+		List<Tarefa> tarefas = query.getResultList() ;
 
 		return tarefas;
 	}
