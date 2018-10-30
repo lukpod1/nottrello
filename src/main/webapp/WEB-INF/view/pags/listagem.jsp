@@ -21,8 +21,8 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
             <h1 class="logo float-left">
-
-                <img src="/imgs/logo1.jpg" class="logo">
+                <a href="/usuario/logado"><img src="/imgs/logo1.jpg" class="logo"></a>
+                
 
             </h1>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"

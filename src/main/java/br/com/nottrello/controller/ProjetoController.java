@@ -44,7 +44,7 @@ public class ProjetoController {
 	}
 	
 	@RequestMapping("/excluirProjeto")
-	public String removeTarefa(@PathParam("id") Long id) {
+	public String removeProjeto(@PathParam("id") Long id) {
 		
 		projetoService.remover(id);
 		
