@@ -45,7 +45,7 @@
     <div class="col-sm-7" style="margin-left:40px">
         <h1>Perfil</h1>
         <hr>
-        <form class="form-group" enctype="multipart/form-data" method="post">
+        <form class="form-group" action="/usuario/salvarPerfil" method="post">
             <input type="hidden" value="${usuarioLogado.id}" name="id">
 
             <label for="">Nome Completo:</label>
@@ -60,11 +60,11 @@
             <label for="">Senha:</label>
             <input value="${usuarioLogado.senha}" type="password" name="senha" class="form-control">
 
-            <label for="">Avatar:</label>
+            <label for="">Foto do Perfil:</label>
             <input type="file" name="avatar" class="form-control">
-
+			<br>
             <button class="btn btn-primary  text-uppercase" type="submit">Salvar Perfil</button>
-            <a href="/usuario/logado/{{usuario.id}}" class="btn btn-danger  text-uppercase">Cancelar</a>
+            <a href="/usuario/logado/" class="btn btn-danger  text-uppercase">Cancelar</a>
 
         </form>
     </div>

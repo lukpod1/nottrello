@@ -1,5 +1,6 @@
 package br.com.nottrello.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.nottrello.model.entity.Projeto;
+import br.com.nottrello.model.entity.Usuario;
 import br.com.nottrello.model.service.ProjetoService;
 import br.com.nottrello.model.service.TarefaService;
 
@@ -53,9 +55,10 @@ public class ProjetoController {
 
 	
 	@GetMapping("/projeto")
-	public String listaProjeto(@PathParam("id") Long id, Model model) {
-		model.addAttribute("projeto", projetoService.buscarPorId(id));
-		model.addAttribute("projetos", projetoService.listarProjetos());
+	public String listaProjeto(@PathParam("id") Long id, Model model, HttpSession session) {
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		model.addAttribute("projetos", projetoService.listarPorUsuario(usuario.getId()));
+		model.addAttribute("projeto", projetoService.buscarPorId(id));		
 		model.addAttribute("tarefas", tarefaService.listarTarefasPorProjeto(id));
 		return "/pags/listagem";
 	}

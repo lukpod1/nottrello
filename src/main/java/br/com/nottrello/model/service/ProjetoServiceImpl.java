@@ -5,18 +5,25 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.nottrello.model.entity.Projeto;
+import br.com.nottrello.model.entity.Tarefa;
 import br.com.nottrello.model.repository.ProjetoRepository;
 
 @Service
 public class ProjetoServiceImpl implements ProjetoService {
 
-	@Autowired
-	private ProjetoRepository projetoRepository;
+	@PersistenceContext
+	private EntityManager manager;
 	
+	@Autowired
+	private ProjetoRepository projetoRepository;	
 	
 
 	public ProjetoServiceImpl(ProjetoRepository projetoRepository) {
@@ -53,6 +60,16 @@ public class ProjetoServiceImpl implements ProjetoService {
 
 		return projetos;
 
+	}
+
+	@Override
+	public List<Projeto> listarPorUsuario(Long id) {
+		Query query = manager.createQuery("from Projeto where usuario_id = :id ");
+		query.setParameter("id", id);
+		List<Projeto> projetos = query.getResultList() ;
+
+		return projetos;
+		
 	}
 
 }

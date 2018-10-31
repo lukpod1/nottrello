@@ -11,6 +11,7 @@
 <h4>Editar projeto</h4>
 	<form action="/projeto/salvar" method="post">
 	<input type="hidden" id="id" name="id" value="${projeto.id}">
+	<input type="hidden" id="usuario_id" name="usuario_id" value="${usuarioLogado.id}">
 			
 	<table>
 		<tr>

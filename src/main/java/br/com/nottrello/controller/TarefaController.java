@@ -47,12 +47,6 @@ public class TarefaController{
 		return "redirect:/projeto/projeto?id="+projeto.getId();
 	}
 	
-//	@RequestMapping("/editarTarefa")
-//	public String editarTarefa(@PathParam("id") Long id, Model model) {
-//		model.addAttribute("tarefa", tarefaService.buscar(id));
-//		
-//		
-//		return "pags/formTarefa";
-//	}
+
 	
 }

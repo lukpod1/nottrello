@@ -59,13 +59,14 @@ public class UsuarioController {
 	}
 
 	@GetMapping("/logado")
-	public String usuarioLogado(Model model) {
-		model.addAttribute("projetos", projetoService.listarProjetos());		
+	public String usuarioLogado(Model model, HttpSession session) {	
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		model.addAttribute("projetos", projetoService.listarPorUsuario(usuario.getId()));		
 		return "/pags/usuariologado";
 	}
 
 	@GetMapping("/logar")
-	public String logar(Usuario usuario, HttpSession session, Model model) {
+	public String logar(Usuario usuario, HttpSession session) {
 		
 
 		if (usuarioService.verificarUsuario(usuario)) {
@@ -88,5 +89,14 @@ public class UsuarioController {
 		model.addAttribute("usuario", usuarioService.buscarPorId(id));
 		
 		return "pags/formPerfil";
+	}
+	
+	@RequestMapping("/salvarPerfil")
+	public String salvarPerfil(Usuario usuario) {
+		usuario.getNomeUsuario().toLowerCase();		
+		usuarioService.salvar(usuario);
+
+		return "redirect:/usuario/logado";
+		
 	}
 }

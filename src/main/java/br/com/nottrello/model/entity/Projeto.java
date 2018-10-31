@@ -44,12 +44,13 @@ public class Projeto implements Serializable {
 		super();
 	}
 
-	public Projeto(Long id, String nome, String descricao, String dataVencimento) {
+	public Projeto(Long id, String nome, String descricao, String dataVencimento, Usuario usuario) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.dataVencimento = dataVencimento;
+		this.usuario = usuario;
 		
 	}
 
@@ -95,6 +96,16 @@ public class Projeto implements Serializable {
 	public void setDataVencimento(String dataVencimento) {
 		this.dataVencimento = dataVencimento;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	
 
 //	public String getEtiquetaCor() {
 //		return etiquetaCor;
