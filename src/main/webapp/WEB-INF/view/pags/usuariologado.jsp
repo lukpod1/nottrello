@@ -51,8 +51,10 @@
 				</li>
 				<li>
 					<h4>${usuarioLogado.nomeUsuario}</h4>
-					<h4>${usuarioLogado.nomeCompleto}</h4>
-					<small>${usuarioLogado.senha}</small>
+					<h6>${usuarioLogado.nomeCompleto}</h6>
+					<h6><a href="/usuario/editarPerfil?id=${usuarioLogado.id}">Editar Perfil</a></h6>
+					
+					
 				</li>
 			</ul>
 			<div class="col-sm-8 text-left">

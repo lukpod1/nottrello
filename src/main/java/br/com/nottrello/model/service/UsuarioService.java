@@ -8,7 +8,9 @@ public interface UsuarioService {
 
 	public void salvar(Usuario usuario);
 	public void remover(Long id);
-	public Usuario buscarId(Long id);
+	public Usuario buscarPorId(Long id);
+	public Object buscarUsuarioNome(String nomeUsuario);
 	public List<Usuario> buscarUsuarios();
 	public boolean verificarUsuario(Usuario usuario);
+
 }

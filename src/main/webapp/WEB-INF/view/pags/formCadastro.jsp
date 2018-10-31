@@ -1,46 +1,75 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	 pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html lang="en">
 
-	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-	<html xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/style/testCadastro.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <title>Criar uma conta !Trello</title>
+</head>
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-		<title>Criar uma conta !Trello</title>
-	</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-signin flex-row my-5">
+                    <div class="card-img-left d-none d-md-flex">
+                        <!-- Background image for card set in CSS! -->
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Criar uma Conta !Trello</h5>
+                        <form class="form-signin" method="POST" action="/usuario/salvar">
+                            <div class="form-label-group">
+                                <input name="nomeCompleto" type="text" id="inputName" class="form-control" placeholder="Nome Completo"
+                                    required autofocus>
+                                <label for="inputName">Nome Completo</label>
+                            </div>
 
-	<body>
+                            <div class="form-label-group">
+                                <input name="nomeUsuario" type="text" id="inputUsername" class="form-control" placeholder="Usuario de Login"
+                                    required autofocus>
+                                <label for="inputUsername">Usuario de Login</label>
+                            </div>
 
+                            <div class="form-label-group">
+                                <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                    required>
+                                <label for="inputEmail">E-mail</label>
+                            </div>
 
-		<div class="container" style="width: 450px; margin-top: 100px">
+                            <hr>
 
-			<h1>Criar uma Conta !Trello</h1>
-			<p>ou
-				<a href="/usuario/entrar"> entrar em sua conta</a>
-			</p>
+                            <div class="form-label-group">
+                                <input name="senha" type="password" id="inputPassword" class="form-control" placeholder="Password"
+                                    required>
+                                <label for="inputPassword">Senha</label>
+                            </div>
 
-			<form action="/usuario/salvar" method="post">
-				<input type="hidden" name="id">
-				<div class="form-group">
-					<label for="nome">Nome:</label>
-					<input type="text" class="form-control" id="nome" name="nome" required="true">
-				</div>
-				<div class="form-group">
-					<label for="email">Email:</label>
-					<input type="email" class="form-control" id="email" name="email" required="true">
-				</div>
-				<div class="form-group">
-					<label for="senha">Senha:</label>
-					<input type="password" class="form-control" id="senha" name="senha" required="true">
-				</div>
-				<button type="submit" class="btn btn-primary">Criar nova conta</button>
-				<a href="/home"> Voltar pro Inicio</a>
+                            <div class="form-label-group">
+                                <input  type="password" id="inputConfirmPassword" class="form-control" placeholder="Password"
+                                    required>
+                                <label for="inputConfirmPassword">Confirmar senha</label>
+                            </div>
 
-			</form>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Cadastre-se</button>
+                            <a class="d-block text-center mt-2 small" href="/usuario/entrar">Entrar em sua conta</a>
+                            <a class="d-block text-center mt-2 small" href="/home"> Voltar pro Inicio</a>
+                           
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Javascript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
 
-		</div>
-
-	</body>
-
-	</html>
+</html>

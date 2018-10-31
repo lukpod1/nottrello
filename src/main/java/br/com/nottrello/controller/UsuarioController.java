@@ -1,9 +1,9 @@
 package br.com.nottrello.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +40,7 @@ public class UsuarioController {
 	@GetMapping("/novo")
 	public String novo() {
 
-		return "pags/testCadastro";
+		return "pags/formCadastro";
 	}
 
 	@PostMapping("/salvar")
@@ -55,7 +55,7 @@ public class UsuarioController {
 
 	@GetMapping("/entrar")
 	public String entrar() {
-		return "pags/testLogin";
+		return "pags/formLogin";
 	}
 
 	@GetMapping("/logado")
@@ -65,11 +65,11 @@ public class UsuarioController {
 	}
 
 	@GetMapping("/logar")
-	public String logar(Usuario usuario, HttpSession session) {
+	public String logar(Usuario usuario, HttpSession session, Model model) {
 		
 
 		if (usuarioService.verificarUsuario(usuario)) {
-			session.setAttribute("usuarioLogado", usuario);			
+			session.setAttribute("usuarioLogado", usuarioService.buscarUsuarioNome(usuario.getNomeUsuario()));
 			return "redirect:/usuario/logado";
 		} else {
 			return "pags/loginfail";
@@ -81,5 +81,12 @@ public class UsuarioController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return entrar();
+	}
+	
+	@RequestMapping("/editarPerfil")
+	public String editarPerfil(@PathParam("id") Long id, Model model) {
+		model.addAttribute("usuario", usuarioService.buscarPorId(id));
+		
+		return "pags/formPerfil";
 	}
 }

@@ -17,8 +17,7 @@ import javax.persistence.criteria.Root;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-
+import br.com.nottrello.model.entity.Tarefa;
 import br.com.nottrello.model.entity.Usuario;
 import br.com.nottrello.model.repository.UsuarioRepository;
 
@@ -44,9 +43,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public Usuario buscarId(Long id) {
-		Optional<Usuario> u = this.usuarioRepository.findById(id);
-		return u.get();
+	public Object buscarUsuarioNome(String nomeUsuario) {
+		Query query = manager.createQuery("from Usuario where nomeUsuario = :nome ");
+		query.setParameter("nome", nomeUsuario);
+		Object usuario = query.getSingleResult();
+
+		return usuario;
 
 	}
 
@@ -69,6 +71,13 @@ public class UsuarioServiceImpl implements UsuarioService {
 		query.setParameter("usuario", usuario.getNomeUsuario());
 		query.setParameter("senha", usuario.getSenha());
 		return !query.getResultList().isEmpty();
+		
+	}
+
+	@Override
+	public Usuario buscarPorId(Long id) {
+		Optional<Usuario> u = this.usuarioRepository.findById(id);
+        return u.get();
 		
 	}
 
