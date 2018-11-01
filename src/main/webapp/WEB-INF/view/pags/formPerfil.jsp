@@ -40,7 +40,7 @@
 
 
 </div>
-<div class="row" style="margin:60px;  background-color:white; padding:40px; border-radius:22px;">
+<div class="row" style="margin:70px;margin-top:20px;  background-color:white; padding:30px; border-radius:22px;">
 
     <div class="col-sm-7" style="margin-left:40px">
         <h1>Perfil</h1>

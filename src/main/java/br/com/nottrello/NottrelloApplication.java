@@ -60,10 +60,10 @@ public class NottrelloApplication extends SpringBootServletInitializer implement
 //		projetoRepository.saveAll(Arrays.asList(projeto1, projeto2, projeto3));
 //		usuarioRepository.saveAll(Arrays.asList(user1, user2, user3));
 		
-		Status status1 = new Status(null, "Pendente");
-		Status status2 = new Status(null, "Em andamento");
-		Status status3 = new Status(null, "Concluido");
-		statusRepository.saveAll(Arrays.asList(status1, status2, status3)); 
+//		Status status1 = new Status(null, "Pendente");
+//		Status status2 = new Status(null, "Em andamento");
+//		Status status3 = new Status(null, "Concluido");
+//		statusRepository.saveAll(Arrays.asList(status1, status2, status3)); 
 		
 		
 //		
