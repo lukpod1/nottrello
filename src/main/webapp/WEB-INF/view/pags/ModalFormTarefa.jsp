@@ -18,7 +18,7 @@
 
 						<div class="form-group">
 							<input type="hidden" name="id" id="id" >
-							<input type="text" value="${projeto.id}" name="projeto" >							
+							<input type="hidden" value="${projeto.id}" name="projeto" >							
 							<label for="nome">Nome:</label>
 							<input class="form-control"  type="text" id="nome" name="nome" required/>
 							<label for="dataVencimento">Data de Vencimento:</label>

@@ -50,7 +50,7 @@
         <div class="row content">
             <ul class="sidebar navbar-nav bg-light">
                 <h6 class="dropdown-header">Projetos:
-                    <a href="#" data-toggle="modal" data-target="#myModalProjeto">
+                    <a href="#" data-usuario="${usuarioLogado.id}" data-toggle="modal" data-target="#myModalProjeto">
                         <i class="fas fa-plus"></i>
                     </a>
                 </h6>
@@ -72,7 +72,7 @@
                         <a href="/projeto/excluirProjeto?id=${projeto.id}">
                             <i class="far fa-times-circle" style="color: red;"></i>
                         </a>
-                        <a href="#" data-toggle="modal" data-target="#myModalProjeto" data-id="${projeto.id}" data-nome="${projeto.nome}" data-vencimento="${projeto.dataVencimento}" data-descricao="${projeto.descricao}" >
+                        <a href="#" data-toggle="modal" data-target="#myModalProjeto" data-usuario="${usuarioLogado.id}" data-id="${projeto.id}" data-nome="${projeto.nome}" data-vencimento="${projeto.dataVencimento}" data-descricao="${projeto.descricao}" >
                             <i class="fas fa-pencil-alt"></i>
                         </a>
                     </h3>
@@ -170,7 +170,7 @@
             var nome = button.data('nome') //Extract info from data-* attributes
             var descricao = button.data('descricao') //Extract info from data-* attributes
             var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
-           
+            var idUsuario = button.data('usuario')
             
             //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -182,6 +182,7 @@
             modal.find('.modal-body input#nome').val(nome)
             modal.find('.modal-body input#data_vencimento').val(dtVencimento)
             modal.find('.modal-body textarea').val(descricao)
+            modal.find('.modal-body input#usuario').val(idUsuario)
             
         })
     </script>

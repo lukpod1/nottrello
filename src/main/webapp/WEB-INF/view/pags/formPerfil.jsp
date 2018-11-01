@@ -45,7 +45,7 @@
     <div class="col-sm-7" style="margin-left:40px">
         <h1>Perfil</h1>
         <hr>
-        <form class="form-group" action="/usuario/salvarPerfil" method="post">
+        <form class="form-group" action="/usuario/salvarPerfil" method="post" enctype="multipart/form-data">
             <input type="hidden" value="${usuarioLogado.id}" name="id">
 
             <label for="">Nome Completo:</label>

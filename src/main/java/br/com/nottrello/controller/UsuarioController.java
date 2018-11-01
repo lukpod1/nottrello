@@ -1,5 +1,6 @@
 package br.com.nottrello.controller;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,10 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import br.com.nottrello.model.entity.Usuario;
 import br.com.nottrello.model.service.ProjetoService;
 import br.com.nottrello.model.service.TarefaService;
 import br.com.nottrello.model.service.UsuarioService;
+
 
 @Controller
 @RequestMapping("/usuario")
@@ -99,4 +102,7 @@ public class UsuarioController {
 		return "redirect:/usuario/logado";
 		
 	}
+	
+	
+	
 }

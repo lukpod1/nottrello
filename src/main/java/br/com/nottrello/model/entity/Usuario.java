@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+
+
 @Entity
 public class Usuario implements Serializable {
 
@@ -25,6 +27,7 @@ public class Usuario implements Serializable {
 	private String nomeUsuario;
 	private String email;
 	private String senha;
+	
 
 //	@OneToMany
 //	@JoinColumn(name="projeto_id")

@@ -8,7 +8,7 @@
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">Adicionar Projeto</h4>
-                <a  href="/projeto/projeto?id=${projeto.id}" class="close">&times;</a>
+                <a  href="/usuario/logado" class="close">&times;</a>
             </div>
 
             <!-- Modal body -->
@@ -21,7 +21,7 @@
                     <div class="form-group">
 
                         <input type="hidden" id="id" name="id">
-                        <input type="text" id="usuario" name="usuario">
+                        <input type="hidden" id="usuario" name="usuario">
                         <label for="nome">Nome: </label>
 
                         <input class="form-control" type="text" id="nome" name="nome">
@@ -46,7 +46,7 @@
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Salvar</button>
-                    <a href="/projeto/projeto?id=${projeto.id}" class="btn btn-danger">Cancelar</a>
+                    <a href="/usuario/logado" class="btn btn-danger">Cancelar</a>
                 </div>
             </form>
         </div>
