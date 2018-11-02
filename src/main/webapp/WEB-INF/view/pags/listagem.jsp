@@ -22,7 +22,7 @@
         <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
             <h1 class="logo float-left">
                 <a href="/usuario/logado"><img src="/imgs/logo1.jpg" class="logo"></a>
-                
+
 
             </h1>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -32,7 +32,8 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
 
-                    <a href="#" class="nav-item nav-link active" data-toggle="modal" data-projeto="${projeto.id}" data-target="#myModalTarefa">
+                    <a href="#" class="nav-item nav-link active" data-toggle="modal" data-projeto="${projeto.id}"
+                        data-target="#myModalTarefa">
                         <i class="fas fa-plus"></i> Nova Tarefa
                     </a>
 
@@ -72,7 +73,9 @@
                         <a href="/projeto/excluirProjeto?id=${projeto.id}">
                             <i class="far fa-times-circle" style="color: red;"></i>
                         </a>
-                        <a href="#" data-toggle="modal" data-target="#myModalProjeto" data-usuario="${usuarioLogado.id}" data-id="${projeto.id}" data-nome="${projeto.nome}" data-vencimento="${projeto.dataVencimento}" data-descricao="${projeto.descricao}" >
+                        <a href="#" data-toggle="modal" data-target="#myModalProjeto" data-usuario="${usuarioLogado.id}"
+                            data-id="${projeto.id}" data-nome="${projeto.nome}" data-vencimento="${projeto.dataVencimento}"
+                            data-descricao="${projeto.descricao}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
                     </h3>
@@ -87,6 +90,7 @@
                             <th>Nome</th>
                             <th>Descrição</th>
                             <th>Vencimento</th>
+                            <th>Status</th>
 
                         </tr>
                         <c:forEach var="tarefa" items="${tarefas}">
@@ -95,6 +99,21 @@
                                     <td>${tarefa.nome}</td>
                                     <td id="descricao">${tarefa.descricao}</td>
                                     <td>${tarefa.dataVencimento}</td>
+
+                                    <td>
+                                        <!-- Example single danger button -->
+                                        <div class="input-group mb-3">
+                                            <select class="custom-select" id="inputGroupSelect01">
+                                                <c:forEach var="status" items="${status}">
+
+                                                    <option value="${status.id}"><a href="/mudarStatus" selected>${status.nome}</a></option>
+
+
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+
+                                    </td>
 
                                     <td>
                                         <a class="btn btn-success btn-sm" href="/tarefa/concluido/{{tarefa.id}}">
@@ -107,9 +126,9 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <button id="btnEditar" class="btn btn-dark btn-sm"  data-toggle="modal" data-target="#myModalTarefa"
-                                            	 data-id="${tarefa.id}" data-nome="${tarefa.nome}" data-vencimento="${tarefa.dataVencimento}"
-                                            	 	 data-descricao="${tarefa.descricao}">
+                                        <button id="btnEditar" class="btn btn-dark btn-sm" data-toggle="modal"
+                                            data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
+                                            data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">
                                             <i class="fas fa-edit"></i>
                                         </button>
                                     </td>
@@ -151,14 +170,14 @@
             var nome = button.data('nome') //Extract info from data-* attributes
             var descricao = button.data('descricao') //Extract info from data-* attributes
             var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
-            
+
             //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
-            if(id!=null){
-            	modal.find('.modal-title').text('Editar ' + nome)
-            }            
-            modal.find('.modal-body input#id').val(id)            
+            if (id != null) {
+                modal.find('.modal-title').text('Editar ' + nome)
+            }
+            modal.find('.modal-body input#id').val(id)
             modal.find('.modal-body input#nome').val(nome)
             modal.find('.modal-body input#data_vencimento').val(dtVencimento)
             modal.find('.modal-body textarea').val(descricao)
@@ -171,19 +190,19 @@
             var descricao = button.data('descricao') //Extract info from data-* attributes
             var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
             var idUsuario = button.data('usuario')
-            
+
             //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
-            if(id!=null){
-            	modal.find('.modal-title').text('Editar ' + nome)
-            }            
-            modal.find('.modal-body input#id').val(id)            
+            if (id != null) {
+                modal.find('.modal-title').text('Editar ' + nome)
+            }
+            modal.find('.modal-body input#id').val(id)
             modal.find('.modal-body input#nome').val(nome)
             modal.find('.modal-body input#data_vencimento').val(dtVencimento)
             modal.find('.modal-body textarea').val(descricao)
             modal.find('.modal-body input#usuario').val(idUsuario)
-            
+
         })
     </script>
 </body>

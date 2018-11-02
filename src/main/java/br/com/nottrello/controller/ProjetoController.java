@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.nottrello.model.entity.Projeto;
 import br.com.nottrello.model.entity.Usuario;
 import br.com.nottrello.model.service.ProjetoService;
+import br.com.nottrello.model.service.StatusService;
 import br.com.nottrello.model.service.TarefaService;
 
 @Controller
@@ -24,6 +25,9 @@ public class ProjetoController {
 	
 	@Autowired
 	private TarefaService tarefaService;
+	
+	@Autowired
+	private StatusService statusService;
 
 	public ProjetoController(ProjetoService projetoService) {
 		super();
@@ -60,6 +64,7 @@ public class ProjetoController {
 		model.addAttribute("projetos", projetoService.listarPorUsuario(usuario.getId()));
 		model.addAttribute("projeto", projetoService.buscarPorId(id));		
 		model.addAttribute("tarefas", tarefaService.listarTarefasPorProjeto(id));
+		model.addAttribute("status", statusService.listarStatus());
 		return "/pags/listagem";
 	}
 

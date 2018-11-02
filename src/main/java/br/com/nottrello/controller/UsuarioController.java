@@ -64,7 +64,7 @@ public class UsuarioController {
 	@GetMapping("/logado")
 	public String usuarioLogado(Model model, HttpSession session) {	
 		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-		model.addAttribute("projetos", projetoService.listarPorUsuario(usuario.getId()));		
+		model.addAttribute("projetos", projetoService.listarPorUsuario(usuario.getId()));			
 		return "/pags/usuariologado";
 	}
 

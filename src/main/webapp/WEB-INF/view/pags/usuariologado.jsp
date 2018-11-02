@@ -6,7 +6,8 @@
 <html>
 
 <head>
-	
+		
+		
 	<meta charset="UTF-8" />
 	<meta http-equiv="Content-Type" content="text/html">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -61,7 +62,7 @@
 				<div id="app">
 					<br>
 					<button class="btn btn-primary" data-toggle="modal" data-usuario="${usuarioLogado.id}" data-target="#myModalProjeto">
-						<i class="fas fa-plus"></i>
+						<i class="fas fa-plus"></i> Novo Projeto
 					</button>
 					<br>
 					<h4>Meus Projetos</h4>
@@ -90,54 +91,27 @@
 							</tbody>
 						</c:forEach>
 					</table>
-
+					<canvas class="line-graph">
+						
+					</canvas>
 				</div>
 			</div>
 		</div>
+
+		
+		
+		
 	</div>
 
 	<!--Modals-->
 	<c:import url="ModalFormProjeto.jsp"></c:import>
 	
 
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	<script>
-		$(document).ready(function () {
-			$("#myInput").on("keyup", function () {
-				var value = $(this).val().toLowerCase();
-				$("#myTable tr").filter(function () {
-					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-				});
-			});
-		});
-		
-		$('#myModalProjeto').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) //Button that triggered the modal
-            var id = button.data('id')
-            var nome = button.data('nome') //Extract info from data-* attributes
-            var descricao = button.data('descricao') //Extract info from data-* attributes
-            var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
-            var usuario = button.data('usuario')
-           
-            
-            //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            if(id!=null){
-            	modal.find('.modal-title').text('Editar ' + nome)
-            }            
-            modal.find('.modal-body input#id').val(id) 
-            modal.find('.modal-body input#usuario').val(usuario) 
-            modal.find('.modal-body input#nome').val(nome)
-            modal.find('.modal-body input#data_vencimento').val(dtVencimento)
-            modal.find('.modal-body textarea').val(descricao)
-            
-        })
-				
-	</script>
+	<script src="/scripts/main.js"></script>
 </body>
 
 </html>

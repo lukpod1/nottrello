@@ -19,6 +19,10 @@ public class Status implements Serializable{
 	private Long id;
 	
 	private String nome;
+	
+	public Status() {
+		
+	}
 
 	public Status(Long id, String nome) {
 		super();

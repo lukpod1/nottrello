@@ -260,10 +260,20 @@ pre code {
   color: #074f66;
 }
 
-.promo .barra-divide {
-  background: #0c86ae;
+.barra-divide {
+  background-color: #0c86ae;
   padding: 10px 0;
   margin: 0 auto;
+}
+
+ .barra-divide li {
+  margin-top: 20px;
+}
+
+.gh-btns {
+  margin: 75px 0 0;
+  background-color: #0c86ae;
+  padding: 10px 0 0px;
 }
 
 

@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
     <title>Nottrello - Home</title>
     <!-- Meta -->
@@ -9,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">    
+    <meta name="author" content="">
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <!-- FontAwesome JS -->
@@ -57,7 +58,7 @@
                         <li class="nav-item">
                             <a class="nav-link scrollto" href="#features">Como funciona</a>
                         </li>
-                        
+
                         <li class="nav-item last">
                             <a class="nav-link scrollto" href="#contact">Contatos</a>
                         </li>
@@ -79,7 +80,7 @@
             </h2>
             <p class="intro">Nottrello, seu gerenciador de projetos preferido!</p>
             <div class="btns">
-                <a class="btn btn-cta-secondary" href="/usuario/entrar" >Entrar</a>
+                <a class="btn btn-cta-secondary" href="/usuario/entrar">Entrar</a>
                 <a class="btn btn-cta-primary" href="/usuario/novo">Inscrever-se</a>
             </div>
             <ul class="meta list-inline">
@@ -92,8 +93,29 @@
             <!--//meta-->
         </div>
         <!--//container-->
-        <div class="barra-divide">
-        </div>
+        <!-- <div class="barra-divide">
+            <div class="social-media-inner container text-center">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item github-star" style="margin-top:15px;">
+                        <a class="github-button" href="https://github.com/lukpod1/nottrello" data-icon="octicon-star" aria-label="Star lukpod1/nottrello on GitHub">Star</a>
+                    </li>
+                    <li class="list-inline-item github-fork">
+                        
+                        <a class="github-button" href="https://github.com/lukpod1/nottrello" aria-label=" @nottrello on GitHub">Follow @nottrello</a>
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+        <p class="gh-btns text-center">
+            <iframe src="https://ghbtns.com/github-btn.html?user=lukpod1&repo=nottrello&type=star&count=true"
+                frameborder="0" scrolling="0" width="120px" height="30px"></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=lukpod1&repo=nottrello&type=watch&count=true&v=2"
+                frameborder="0" scrolling="0" width="120px" height="30px"></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=lukpod1&repo=nottrello&type=fork&count=true"
+                frameborder="0" scrolling="0" width="120px" height="30px"></iframe>
+
+        </p>
+
     </section>
     <!--//promo-->
 
@@ -101,10 +123,12 @@
     <section id="about" class="about section">
         <div class="container">
             <h2 class="title text-center">O que é o Not Trello?</h2>
-            <p class="intro text-center">O Nottrello é uma ferramenta de gerenciamento de projetos em listas e que pode ser ajustado com a necessidade
-                do usuário. Você pode utilizá-lo para organizar suas tarefas de trabalho, seus planos de viagens, as prioridades
+            <p class="intro text-center">O Nottrello é uma ferramenta de gerenciamento de projetos em listas e que pode
+                ser ajustado com a necessidade
+                do usuário. Você pode utilizá-lo para organizar suas tarefas de trabalho, seus planos de viagens, as
+                prioridades
                 de seus estudos, entre muitos outros. </p>
-      
+
         </div>
         <!--//container-->
     </section>
@@ -147,90 +171,93 @@
             <div class="contact-inner">
                 <h2 class="title  text-center">Conheça nossa equipe</h2>
                 <p class="intro  text-center">Esperamos que nossa ferramenta organize seus projetos.
-                    <br>Sinta-se à vontade para entrar em contato se tiver alguma dúvida ou sugestão.          
-                <div class="author-message">
-                    <div class="profile">
-                        <img class="img-fluid" src="assets/images/jaicke.jpg" alt="" />                        
-                    </div>
-                    <!--//profile Jaicke-->
+                    <br>Sinta-se à vontade para entrar em contato se tiver alguma dúvida ou sugestão.
                     <div class="author-message">
                         <div class="profile">
-                            <img class="img-fluid" src="/imgs/jaicke.jpg" alt="" />                        
+                            <img class="img-fluid" src="assets/images/jaicke.jpg" alt="" />
                         </div>
-                        <!--//profile-->
-                        <div class="speech-bubble">
-                            <h3 class="sub-title">Jaicke Santos</h3>
-                            <p>
-                                <a href="https://github.com/jaicke" target="_blank">Siga-me no GitHub</a> e conheça o meu repositório.</p>                        
-                           
-                        </div>
-                        <!--//speech-bubble-->
-                    </div>
-                <!-- Profile Lucas -->
-                <div class="author-message">
-                    <div class="profile">
-                        <img class="img-fluid" src="/imgs/lucas.jpg" alt="" />                        
-                    </div>
-                    <!--//profile-->
-                    <div class="speech-bubble">
-                        <h3 class="sub-title">José Lucas</h3>
-                        <p>
-                            <a href="https://instagram.com/lukpod1" target="_blank">Siga-me no instagram</a> e conheça meu portifólio 
-                            
-                            <a href="https://lukpod1.github.io" target="_blank"> Aqui</a>.</p>                        
-                       
-                    </div>
-                    <!--//speech-bubble-->
-                </div>
-                <!-- Profile Matheus -->
-                <div class="author-message">
-                    <div class="profile">
-                        <img class="img-fluid" src="/imgs/matheus.jpg" alt="" />                        
-                    </div>
-                    <!--//profile-->
-                    <div class="speech-bubble">
-                        <h3 class="sub-title">Matheus Alves</h3>
-                        <p>
-                            <a href="https://github.com/MatheusAlves00" target="_blank">Siga-me no GitHub</a> e conheça o meu repositório.</p>                        
-                       
-                    </div>
-                    <!--//speech-bubble-->
-                </div>
-                <!--//author-message-->
-                <div class="clearfix"></div>
-                <div class="info text-center">
-                    <h4 class="sub-title">Fique ligado!</h4>
-                    <ul class="social-icons list-inline">
-                        <li class="list-inline-item">
-                            <a href="#" target="_blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" target="_blank">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" target="_blank">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
+                        <!--//profile Jaicke-->
+                        <div class="author-message">
+                            <div class="profile">
+                                <img class="img-fluid" src="/imgs/jaicke.jpg" alt="" />
+                            </div>
+                            <!--//profile-->
+                            <div class="speech-bubble">
+                                <h3 class="sub-title">Jaicke Santos</h3>
+                                <p>
+                                    <a href="https://github.com/jaicke" target="_blank">Siga-me no GitHub</a> e conheça
+                                    o meu repositório.</p>
 
-                        
-                    </ul>
-                </div>
-                <!--//info-->
+                            </div>
+                            <!--//speech-bubble-->
+                        </div>
+                        <!-- Profile Lucas -->
+                        <div class="author-message">
+                            <div class="profile">
+                                <img class="img-fluid" src="/imgs/lucas.jpg" alt="" />
+                            </div>
+                            <!--//profile-->
+                            <div class="speech-bubble">
+                                <h3 class="sub-title">José Lucas</h3>
+                                <p>
+                                    <a href="https://instagram.com/lukpod1" target="_blank">Siga-me no instagram</a> e
+                                    conheça meu portifólio
+
+                                    <a href="https://lukpod1.github.io" target="_blank"> Aqui</a>.</p>
+
+                            </div>
+                            <!--//speech-bubble-->
+                        </div>
+                        <!-- Profile Matheus -->
+                        <div class="author-message">
+                            <div class="profile">
+                                <img class="img-fluid" src="/imgs/matheus.jpg" alt="" />
+                            </div>
+                            <!--//profile-->
+                            <div class="speech-bubble">
+                                <h3 class="sub-title">Matheus Alves</h3>
+                                <p>
+                                    <a href="https://github.com/MatheusAlves00" target="_blank">Siga-me no GitHub</a> e
+                                    conheça o meu repositório.</p>
+
+                            </div>
+                            <!--//speech-bubble-->
+                        </div>
+                        <!--//author-message-->
+                        <div class="clearfix"></div>
+                        <div class="info text-center">
+                            <h4 class="sub-title">Fique ligado!</h4>
+                            <ul class="social-icons list-inline">
+                                <li class="list-inline-item">
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <!--//info-->
+                    </div>
+                    <!--//contact-inner-->
             </div>
-            <!--//contact-inner-->
-        </div>
-        <!--//container-->
+            <!--//container-->
     </section>
     <!--//contact-->
 
     <!-- ******FOOTER****** -->
     <footer class="footer">
-        <div class="container text-center">            
+        <div class="container text-center">
             <small class="copyright">© Copyright 2018. Todos os direitos reservados.</small>
         </div>
         <!--//container-->
@@ -247,4 +274,5 @@
 
 
 </body>
+
 </html>
