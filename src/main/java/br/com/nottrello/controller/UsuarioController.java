@@ -1,8 +1,5 @@
 package br.com.nottrello.controller;
 
-import java.io.FileNotFoundException;
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
@@ -13,10 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 import br.com.nottrello.model.entity.Usuario;
 import br.com.nottrello.model.service.ProjetoService;
-import br.com.nottrello.model.service.TarefaService;
+import br.com.nottrello.model.service.StatusService;
 import br.com.nottrello.model.service.UsuarioService;
 
 
@@ -31,7 +27,7 @@ public class UsuarioController {
 	private ProjetoService projetoService;
 
 	@Autowired
-	private TarefaService tarefaService;
+	private StatusService statusService;
 
 	// Sempre lembrar de colocar o construtor para que os métodos do service
 	// funcionem
@@ -64,7 +60,8 @@ public class UsuarioController {
 	@GetMapping("/logado")
 	public String usuarioLogado(Model model, HttpSession session) {	
 		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-		model.addAttribute("projetos", projetoService.listarPorUsuario(usuario.getId()));			
+		model.addAttribute("projetos", projetoService.listarPorUsuario(usuario.getId()));	
+		model.addAttribute("status", statusService.listarStatus());
 		return "/pags/usuariologado";
 	}
 

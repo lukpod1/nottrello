@@ -78,6 +78,9 @@
                             data-descricao="${projeto.descricao}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
+                          <a  href="/projeto/concluir?id=${projeto.id}">
+                             <i class="far fa-check-circle" style="color: green;"></i>
+                         </a>
                     </h3>
                     <br>
                     <h4>Tarefas</h4>
@@ -92,47 +95,83 @@
                             <th>Vencimento</th>
                             <th>Status</th>
 
-                        </tr>
+                        </tr >
                         <c:forEach var="tarefa" items="${tarefas}">
                             <tbody id="myTable">
-                                <tr>
-                                    <td>${tarefa.nome}</td>
-                                    <td id="descricao">${tarefa.descricao}</td>
-                                    <td>${tarefa.dataVencimento}</td>
+                                <c:choose>
+                                    <c:when test="${tarefa.status.id ==1}">
+                                            <tr>
+                                                    <td style="border-left: 12px solid yellow">${tarefa.nome}</td>
+                                                    <td id="descricao">${tarefa.descricao}</td>
+                                                    <td>${tarefa.dataVencimento}</td>
+                
+                                                    <td> ${tarefa.status.nome}</td>
+                                                    <td>
+                                                        <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}">
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <button id="btnEditar" class="btn btn-dark btn-sm" data-toggle="modal"
+                                                            data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
+                                                            data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
 
-                                    <td>
-                                        <!-- Example single danger button -->
-                                        <div class="input-group mb-3">
-                                            <select class="custom-select" id="inputGroupSelect01">
-                                                <c:forEach var="status" items="${status}">
+                                    </c:when>
+                                    <c:when test="${tarefa.status.id ==2}">
+                                            <tr >
+                                                    <td style="border-left:12px solid orange">${tarefa.nome}</td>
+                                                    <td id="descricao">${tarefa.descricao}</td>
+                                                    <td>${tarefa.dataVencimento}</td>
+                
+                                                    <td> ${tarefa.status.nome}</td>
+                
+                                                
+                                                    <td>
+                                                        <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}">
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <button id="btnEditar" class="btn btn-dark btn-sm" data-toggle="modal"
+                                                            data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
+                                                            data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
 
-                                                    <option value="${status.id}"><a href="/mudarStatus" selected>${status.nome}</a></option>
+                                    </c:when>
+                                    <c:otherwise>
+                                            <tr style="border-left:12px solid green">
+                                                    <td>${tarefa.nome}</td>
+                                                    <td id="descricao">${tarefa.descricao}</td>
+                                                    <td>${tarefa.dataVencimento}</td>
+                
+                                                    <td> ${tarefa.status.nome}</td>
+                
+                                                   
+                                                    <td>
+                                                        <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}">
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <button id="btnEditar" class="btn btn-dark btn-sm" data-toggle="modal"
+                                                            data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
+                                                            data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                    </c:otherwise>
 
-
-                                                </c:forEach>
-                                            </select>
-                                        </div>
-
-                                    </td>
-
-                                    <td>
-                                        <a class="btn btn-success btn-sm" href="/tarefa/concluido/{{tarefa.id}}">
-                                            <i class="far fa-check-circle"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <button id="btnEditar" class="btn btn-dark btn-sm" data-toggle="modal"
-                                            data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
-                                            data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                </c:choose>
+                                
+                                
                             </tbody>
 
                         </c:forEach>

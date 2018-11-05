@@ -24,34 +24,35 @@ public class Projeto implements Serializable {
 	private Long id;
 	private String nome;
 
-	@OneToMany(mappedBy = "projeto")
-	private List<Tarefa> tarefas = new ArrayList<>();
+	// @OneToMany(mappedBy = "projeto")
+	// private List<Tarefa> tarefas = new ArrayList<>();
 	private String descricao;
 	private String dataVencimento;
-//	private String etiquetaCor;
-
-//	@OneToOne(mappedBy = "projeto")
-//	private Equipe equipe;
 
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
-//	@ManyToMany
-//	private List<Categoria> categorias = new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name = "status_id")
+	private Status status;
+
+	// @ManyToMany
+	// private List<Categoria> categorias = new ArrayList<>();
 
 	public Projeto() {
 		super();
 	}
 
-	public Projeto(Long id, String nome, String descricao, String dataVencimento, Usuario usuario) {
+	public Projeto(Long id, String nome, String descricao, String dataVencimento, Usuario usuario, Status status) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.dataVencimento = dataVencimento;
 		this.usuario = usuario;
-		
+		this.status = status;
+
 	}
 
 	public Long getId() {
@@ -70,15 +71,15 @@ public class Projeto implements Serializable {
 		this.nome = nome;
 	}
 
-	public List<Tarefa> getTarefas() {
-
-		return tarefas;
-	}
-
-	public void setTarefas(List<Tarefa> tarefas) {
-
-		this.tarefas = tarefas;
-	}
+	// public List<Tarefa> getTarefas() {
+	//
+	// return tarefas;
+	// }
+	//
+	// public void setTarefas(List<Tarefa> tarefas) {
+	//
+	// this.tarefas = tarefas;
+	// }
 
 	public String getDescricao() {
 
@@ -104,32 +105,40 @@ public class Projeto implements Serializable {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 	
 	
 
-//	public String getEtiquetaCor() {
-//		return etiquetaCor;
-//	}
-//
-//	public void setEtiquetaCor(String etiquetaCor) {
-//		this.etiquetaCor = etiquetaCor;
-//	}
-//
-//	public Equipe getEquipe() {
-//		return equipe;
-//	}
-//
-//	public void setEquipe(Equipe equipe) {
-//		this.equipe = equipe;
-//	}
-//
-//	public List<Categoria> getCategorias() {
-//
-//		return categorias;
-//	}
-//
-//	public void setCategorias(List<Categoria> categorias) {
-//		this.categorias = categorias;
-//	}
+	// public String getEtiquetaCor() {
+	// return etiquetaCor;
+	// }
+	//
+	// public void setEtiquetaCor(String etiquetaCor) {
+	// this.etiquetaCor = etiquetaCor;
+	// }
+	//
+	// public Equipe getEquipe() {
+	// return equipe;
+	// }
+	//
+	// public void setEquipe(Equipe equipe) {
+	// this.equipe = equipe;
+	// }
+	//
+	// public List<Categoria> getCategorias() {
+	//
+	// return categorias;
+	// }
+	//
+	// public void setCategorias(List<Categoria> categorias) {
+	// this.categorias = categorias;
+	// }
 
 }

@@ -26,9 +26,7 @@ public class Tarefa implements Serializable {
 	private Status status;
 	
 	private String descricao;
-	
-//	@ManyToOne
-//	private Usuario usuario;
+
 	
 	@ManyToOne
 	@JoinColumn(name="projeto_id")

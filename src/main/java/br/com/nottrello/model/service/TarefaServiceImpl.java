@@ -20,10 +20,10 @@ public class TarefaServiceImpl implements TarefaService {
 
 	@PersistenceContext
 	private EntityManager manager;
-	
+
 	@Autowired
 	private TarefaRepository tarefaRepository;
-	
+
 	public TarefaServiceImpl(TarefaRepository tarefaRepository) {
 		super();
 		this.tarefaRepository = tarefaRepository;
@@ -44,10 +44,10 @@ public class TarefaServiceImpl implements TarefaService {
 	@Override
 	public Tarefa buscar(Long id) {
 		Optional<Tarefa> t = this.tarefaRepository.findById(id);
-        return t.get();
+		return t.get();
 
 	}
-	
+
 	@Override
 	public Tarefa atualizar(Tarefa tarefa) {
 		buscar(tarefa.getId());
@@ -55,14 +55,24 @@ public class TarefaServiceImpl implements TarefaService {
 	}
 
 	@Override
-	public List<Tarefa> listarTarefasPorProjeto(Long id) {		
+	public List<Tarefa> listarTarefasPorProjeto(Long id) {
 		Query query = manager.createQuery("from Tarefa where projeto_id = :id ");
 		query.setParameter("id", id);
-		List<Tarefa> tarefas = query.getResultList() ;
+		List<Tarefa> tarefas = query.getResultList();
 
 		return tarefas;
 	}
 
-	
+	@Override
+	public Boolean verificaTarefasConcluidas(Long id) {
+		List<Tarefa> tarefas = listarTarefasPorProjeto(id);
+		for (Tarefa tarefa : tarefas) {
+			if (tarefa.getStatus().getId() == 3) {
+				return true;
+			}		
+
+		}
+		return false;
+	}
 
 }

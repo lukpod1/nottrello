@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- The Modal -->
 <div class="modal fade" id="myModalProjeto">
     <div class="modal-dialog modal-dialog-centered">
@@ -34,9 +35,13 @@
 
                         <input class="form-control" type="date" id="data_vencimento" name="dataVencimento">
 
-                        <label for="etiquetaCot">Cor da Etiqueta: </label>
-
-                        <input class="form-control" type="color" id="etiquetaCor" >
+                        <label for="status">Status: </label>
+                        <select name="status" class="custom-select" id="inputGroupSelect01">
+							<c:forEach var="status" items="${status}">
+								<option value="${status.id}">${status.nome}</option>
+							</c:forEach>
+						</select>
+                        
 
 
                     </div>

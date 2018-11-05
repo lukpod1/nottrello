@@ -1,5 +1,7 @@
 package br.com.nottrello.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.nottrello.model.entity.Projeto;
+import br.com.nottrello.model.entity.Status;
+import br.com.nottrello.model.entity.Tarefa;
 import br.com.nottrello.model.entity.Usuario;
 import br.com.nottrello.model.service.ProjetoService;
 import br.com.nottrello.model.service.StatusService;
@@ -66,6 +70,19 @@ public class ProjetoController {
 		model.addAttribute("tarefas", tarefaService.listarTarefasPorProjeto(id));
 		model.addAttribute("status", statusService.listarStatus());
 		return "/pags/listagem";
+	}
+	
+	@GetMapping("/concluir")
+	public String concluirProjeto(@PathParam("id") Long id) {
+		Projeto projeto = projetoService.buscarPorId(id);
+		Status status = statusService.buscarPorId(3l);
+		if(tarefaService.verificaTarefasConcluidas(id)) {
+			projeto.setStatus(status);
+			projetoService.salvar(projeto);
+		}
+		
+		return "redirect:/usuario/logado";
+		
 	}
 
 

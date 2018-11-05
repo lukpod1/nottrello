@@ -223,26 +223,7 @@
                             </div>
                             <!--//speech-bubble-->
                         </div>
-                        <!--//author-message-->
-                        <div class="clearfix"></div>
-                        <div class="info text-center">
-                            <h4 class="sub-title">Fique ligado!</h4>
-                            <ul class="social-icons list-inline">
-                                <li class="list-inline-item">
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
+                        
 
 
                             </ul>

@@ -43,12 +43,12 @@ public class TarefaController{
 	public String removeTarefa(@PathParam("id") Long id) {
 		
 		Tarefa  tarefa = tarefaService.buscar(id);
-		Projeto projeto = projetoService.buscarPorId(tarefa.getProjeto().getId());
+		Long projeto_id = tarefa.getProjeto().getId();
 		tarefaService.remover(id);
 		
 		
 		
-		return "redirect:/projeto/projeto?id="+projeto.getId();
+		return "redirect:/projeto/projeto?id="+projeto_id;
 	}
 	
 //	@RequestMapping("/mudarStatus")
