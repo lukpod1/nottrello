@@ -60,43 +60,43 @@
 			</ul>
 			<div class="col-sm-8 text-left">
 				<div id="app">
-					<br>
-					<button class="btn btn-primary" data-toggle="modal" data-usuario="${usuarioLogado.id}" data-target="#myModalProjeto">
-						<i class="fas fa-plus"></i> Novo Projeto
-					</button>
-					<br>
-					<h4>Meus Projetos</h4>
-
-					<input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
-
-
-					<table class=" table table-hover" style="width:100%">
-
-						<c:forEach var="projeto" items="${projetos}">
-							<tbody id="myTable">
-
-								<tr>
-									<td>
-										<a href="/projeto/projeto?id=${projeto.id}">
-											<h5>${projeto.nome}</h5>
-										</a>
-	
-										<small>${projeto.descricao}</small>
-									</td>
-	
-	
-	
-								</tr>
-	
-							</tbody>
-						</c:forEach>
-					</table>
-					<canvas class="line-graph">
-						
-					</canvas>
+						<section id="tabs">
+								<div class="container">
+									
+									<div class="row">
+										<div class="col-md-12 ">
+											<nav>
+												<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+													<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Visão Geral</a>
+													<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Projetos</a>
+													<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+													<a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">About</a>
+												</div>
+											</nav>
+											<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+												<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+													<c:import url="overview.jsp"></c:import>
+												</div>
+												<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+													<c:import url="projetos.jsp"></c:import>
+												</div>
+												<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+													Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+												</div>
+												<div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+													Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+												</div>
+											</div>
+										
+										</div>
+									</div>
+								</div>
+							</section>
+					
 				</div>
 			</div>
 		</div>
+		
 
 		
 		
@@ -105,6 +105,7 @@
 
 	<!--Modals-->
 	<c:import url="ModalFormProjeto.jsp"></c:import>
+	
 	
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>

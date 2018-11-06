@@ -106,3 +106,60 @@ var graph = new Chart(ctx, {
         }]
     }
 });
+
+// modal
+
+$(document).ready(function () {
+    $("#myInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
+
+$('#myModalTarefa').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) //Button that triggered the modal
+    var id = button.data('id')
+    var nome = button.data('nome') //Extract info from data-* attributes
+    var descricao = button.data('descricao') //Extract info from data-* attributes
+    var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
+
+    //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    if (id != null) {
+        modal.find('.modal-title').text('Editar ' + nome)
+    }
+    modal.find('.modal-body input#id').val(id)
+    modal.find('.modal-body input#nome').val(nome)
+    modal.find('.modal-body input#data_vencimento').val(dtVencimento)
+    modal.find('.modal-body textarea').val(descricao)
+})
+
+$('#myModalProjeto').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) //Button that triggered the modal
+    var id = button.data('id')
+    var nome = button.data('nome') //Extract info from data-* attributes
+    var descricao = button.data('descricao') //Extract info from data-* attributes
+    var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
+    var idUsuario = button.data('usuario')
+
+    //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    if (id != null) {
+        modal.find('.modal-title').text('Editar ' + nome)
+    }
+    modal.find('.modal-body input#id').val(id)
+    modal.find('.modal-body input#nome').val(nome)
+    modal.find('.modal-body input#data_vencimento').val(dtVencimento)
+    modal.find('.modal-body textarea').val(descricao)
+    modal.find('.modal-body input#usuario').val(idUsuario)
+
+})
+
+
+
+
+

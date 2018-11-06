@@ -70,7 +70,7 @@
                 <div id="app">
                     <br>
                     <h3>${projeto.nome}
-                        <a href="/projeto/excluirProjeto?id=${projeto.id}">
+                        <a href="/projeto/excluirProjeto?id=${projeto.id}" id="excluirProjeto">
                             <i class="far fa-times-circle" style="color: red;"></i>
                         </a>
                         <a href="#" data-toggle="modal" data-target="#myModalProjeto" data-usuario="${usuarioLogado.id}"
@@ -78,9 +78,10 @@
                             data-descricao="${projeto.descricao}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
-                          <a  href="/projeto/concluir?id=${projeto.id}">
-                             <i class="far fa-check-circle" style="color: green;"></i>
-                         </a>
+                        <a href="/projeto/concluir?id=${projeto.id}">
+                            <i class="far fa-check-circle" style="color: green;"></i>
+                        </a>
+                        <input type="button" id="alerta" value="ok" />
                     </h3>
                     <br>
                     <h4>Tarefas</h4>
@@ -95,83 +96,86 @@
                             <th>Vencimento</th>
                             <th>Status</th>
 
-                        </tr >
+                        </tr>
                         <c:forEach var="tarefa" items="${tarefas}">
                             <tbody id="myTable">
                                 <c:choose>
                                     <c:when test="${tarefa.status.id ==1}">
-                                            <tr>
-                                                    <td style="border-left: 12px solid yellow">${tarefa.nome}</td>
-                                                    <td id="descricao">${tarefa.descricao}</td>
-                                                    <td>${tarefa.dataVencimento}</td>
-                
-                                                    <td> ${tarefa.status.nome}</td>
-                                                    <td>
-                                                        <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}">
-                                                            <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <button id="btnEditar" class="btn btn-dark btn-sm" data-toggle="modal"
-                                                            data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
-                                                            data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">
-                                                            <i class="fas fa-edit"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
+                                        <tr>
+                                            <td style="border-left: 12px solid yellow">${tarefa.nome}</td>
+                                            <td id="descricao">${tarefa.descricao}</td>
+                                            <td>${tarefa.dataVencimento}</td>
+
+                                            <td> ${tarefa.status.nome}</td>
+                                            <td>
+                                                <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}"
+                                                    id="excluirTarefa">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <button id="btnEditar" class="btn btn-dark btn-sm" data-toggle="modal"
+                                                    data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
+                                                    data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
 
                                     </c:when>
                                     <c:when test="${tarefa.status.id ==2}">
-                                            <tr >
-                                                    <td style="border-left:12px solid orange">${tarefa.nome}</td>
-                                                    <td id="descricao">${tarefa.descricao}</td>
-                                                    <td>${tarefa.dataVencimento}</td>
-                
-                                                    <td> ${tarefa.status.nome}</td>
-                
-                                                
-                                                    <td>
-                                                        <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}">
-                                                            <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <button id="btnEditar" class="btn btn-dark btn-sm" data-toggle="modal"
-                                                            data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
-                                                            data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">
-                                                            <i class="fas fa-edit"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
+                                        <tr>
+                                            <td style="border-left:12px solid orange">${tarefa.nome}</td>
+                                            <td id="descricao">${tarefa.descricao}</td>
+                                            <td>${tarefa.dataVencimento}</td>
+
+                                            <td> ${tarefa.status.nome}</td>
+
+
+                                            <td>
+                                                <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}"
+                                                    id="excluirTarefa">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <button id="btnEditar" class="btn btn-dark btn-sm" data-toggle="modal"
+                                                    data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
+                                                    data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
 
                                     </c:when>
                                     <c:otherwise>
-                                            <tr style="border-left:12px solid green">
-                                                    <td>${tarefa.nome}</td>
-                                                    <td id="descricao">${tarefa.descricao}</td>
-                                                    <td>${tarefa.dataVencimento}</td>
-                
-                                                    <td> ${tarefa.status.nome}</td>
-                
-                                                   
-                                                    <td>
-                                                        <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}">
-                                                            <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <button id="btnEditar" class="btn btn-dark btn-sm" data-toggle="modal"
-                                                            data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
-                                                            data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">
-                                                            <i class="fas fa-edit"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
+                                        <tr style="border-left:12px solid green">
+                                            <td>${tarefa.nome}</td>
+                                            <td id="descricao">${tarefa.descricao}</td>
+                                            <td>${tarefa.dataVencimento}</td>
+
+                                            <td> ${tarefa.status.nome}</td>
+
+
+                                            <td>
+                                                <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}"
+                                                    id="excluirTarefa">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <button id="btnEditar" class="btn btn-dark btn-sm" data-toggle="modal"
+                                                    data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
+                                                    data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
                                     </c:otherwise>
 
                                 </c:choose>
-                                
-                                
+
+
                             </tbody>
 
                         </c:forEach>
@@ -190,59 +194,75 @@
 
 
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="../../../scripts/main.js"></script>
     <script>
-        $(document).ready(function () {
-            $("#myInput").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+
+        var alertBtn = document.getElementById('excluirProjeto');
+
+        alertBtn.onclick = function () {
+            swal({
+                title: "Tem certeza?",
+                text: "Uma vez deletado, você não poderá recuperá-la!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Sua tareva foi deletada", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Your imaginary file is safe!", {
+                            icon: "error",
+                        });
+
+                    }
+                })
+        };
+
+        var alertDelete = document.getElementById('excluirProjeto');
+        alertDelete.onclick = function () {
+            swal({
+                title: "Tem certeza?",
+                text: "Uma vez deletado, você não poderá recuperá-la!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            },
+                function () {
+                    swal("Deletado", "Seu projeto foi deletado", "success");
                 });
-            });
-        });
+        }
 
-        $('#myModalTarefa').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) //Button that triggered the modal
-            var id = button.data('id')
-            var nome = button.data('nome') //Extract info from data-* attributes
-            var descricao = button.data('descricao') //Extract info from data-* attributes
-            var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
 
-            //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            if (id != null) {
-                modal.find('.modal-title').text('Editar ' + nome)
-            }
-            modal.find('.modal-body input#id').val(id)
-            modal.find('.modal-body input#nome').val(nome)
-            modal.find('.modal-body input#data_vencimento').val(dtVencimento)
-            modal.find('.modal-body textarea').val(descricao)
-        })
-
-        $('#myModalProjeto').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) //Button that triggered the modal
-            var id = button.data('id')
-            var nome = button.data('nome') //Extract info from data-* attributes
-            var descricao = button.data('descricao') //Extract info from data-* attributes
-            var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
-            var idUsuario = button.data('usuario')
-
-            //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            if (id != null) {
-                modal.find('.modal-title').text('Editar ' + nome)
-            }
-            modal.find('.modal-body input#id').val(id)
-            modal.find('.modal-body input#nome').val(nome)
-            modal.find('.modal-body input#data_vencimento').val(dtVencimento)
-            modal.find('.modal-body textarea').val(descricao)
-            modal.find('.modal-body input#usuario').val(idUsuario)
-
-        })
+// $(document).ready(function () {
+//     $("#excluirTarefa").click(function () {
+//         swal({
+//             title: "Are you sure?",
+//             text: "You will not be able to recover this imaginary file!",
+//             type: "warning",
+//             showCancelButton: true,
+//             confirmButtonClass: "btn-danger",
+//             confirmButtonText: "Yes, delete it!",
+//             cancelButtonText: "No, cancel plx!",
+//             closeOnConfirm: false,
+//             closeOnCancel: false
+//         }, function (isConfirm) {
+//             if (isConfirm) {
+//                 swal("Deleted!", "Your imaginary file has been deleted.", "success");
+//             } else {
+//                 swal("Cancelled", "Your imaginary file is safe :)", "error");
+//             }
+//         });
+//     });
+// });
     </script>
 </body>
 
