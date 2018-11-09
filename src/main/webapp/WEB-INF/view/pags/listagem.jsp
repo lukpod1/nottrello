@@ -48,29 +48,33 @@
 
     <!-- content -->
     <div class="container-fluid text-left">
-        <div class="row content">
-            <ul class="sidebar navbar-nav bg-light">
-                <h6 class="dropdown-header">Projetos:
-                    <a href="#" data-usuario="${usuarioLogado.id}" data-toggle="modal" data-target="#myModalProjeto">
-                        <i class="fas fa-plus"></i>
-                    </a>
-                </h6>
+        <div class="row">
+            <div class="col-md-2">
+                <ul class="sidebar navbar-nav ">
+                    <h6 class="dropdown-header">Projetos:
+                        <a href="#" data-usuario="${usuarioLogado.id}" data-toggle="modal" data-target="#myModalProjeto">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </h6>
 
 
-                <c:forEach var="projeto" items="${projetos}">
-                    <li><a class="nav-item" href="/projeto/projeto?id=${projeto.id}">${projeto.nome}</a></li>
-                </c:forEach>
+                    <c:forEach var="projeto" items="${projetos}">
+                        <li><a class="nav-item" href="/projeto/projeto?id=${projeto.id}">${projeto.nome}</a></li>
+                    </c:forEach>
 
 
 
 
 
-            </ul>
-            <div class="col-sm-8 text-left">
+                </ul>
+            </div>
+
+            <div class="col-md-7">
                 <div id="app">
                     <br>
                     <h3>${projeto.nome}
-                        <a href="/projeto/excluirProjeto?id=${projeto.id}" id="excluirProjeto">
+                        <a href="#" id="excluirProjeto" data-toggle="modal" data-target="#myAlertaDeleteProjeto"
+                        data-id="${projeto.id}" >
                             <i class="far fa-times-circle" style="color: red;"></i>
                         </a>
                         <a href="#" data-toggle="modal" data-target="#myModalProjeto" data-usuario="${usuarioLogado.id}"
@@ -78,10 +82,10 @@
                             data-descricao="${projeto.descricao}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
-                        <a href="/projeto/concluir?id=${projeto.id}">
+                        <a href="#" id="concluirProjeto" data-toggle="modal" data-target="#myAlertaConcluirProjeto"
+                        data-id="${projeto.id}">
                             <i class="far fa-check-circle" style="color: green;"></i>
                         </a>
-                        <input type="button" id="alerta" value="ok" />
                     </h3>
                     <br>
                     <h4>Tarefas</h4>
@@ -102,14 +106,14 @@
                                 <c:choose>
                                     <c:when test="${tarefa.status.id ==1}">
                                         <tr>
-                                            <td style="border-left: 12px solid yellow">${tarefa.nome}</td>
+                                            <td style="border-left: 12px solid #FFEB3B">${tarefa.nome}</td>
                                             <td id="descricao">${tarefa.descricao}</td>
                                             <td>${tarefa.dataVencimento}</td>
 
                                             <td> ${tarefa.status.nome}</td>
                                             <td>
-                                                <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}"
-                                                    id="excluirTarefa">
+                                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myAlertaTarefa"
+                                                    data-id="${tarefa.id}" id="excluirTarefa">
                                                     <i class="far fa-trash-alt"></i>
                                                 </a>
                                             </td>
@@ -125,7 +129,7 @@
                                     </c:when>
                                     <c:when test="${tarefa.status.id ==2}">
                                         <tr>
-                                            <td style="border-left:12px solid orange">${tarefa.nome}</td>
+                                            <td style="border-left:12px solid #FF5722">${tarefa.nome}</td>
                                             <td id="descricao">${tarefa.descricao}</td>
                                             <td>${tarefa.dataVencimento}</td>
 
@@ -133,8 +137,8 @@
 
 
                                             <td>
-                                                <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}"
-                                                    id="excluirTarefa">
+                                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myAlertaTarefa"
+                                                    data-id="${tarefa.id}" id="excluirTarefa">
                                                     <i class="far fa-trash-alt"></i>
                                                 </a>
                                             </td>
@@ -149,7 +153,7 @@
 
                                     </c:when>
                                     <c:otherwise>
-                                        <tr style="border-left:12px solid green">
+                                        <tr style="border-left:12px solid #4CAF50">
                                             <td>${tarefa.nome}</td>
                                             <td id="descricao">${tarefa.descricao}</td>
                                             <td>${tarefa.dataVencimento}</td>
@@ -158,8 +162,8 @@
 
 
                                             <td>
-                                                <a class="btn btn-danger btn-sm" href="/excluirTarefa?id=${tarefa.id}"
-                                                    id="excluirTarefa">
+                                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myAlertaTarefa"
+                                                    data-id="${tarefa.id}" id="excluirTarefa">
                                                     <i class="far fa-trash-alt"></i>
                                                 </a>
                                             </td>
@@ -185,15 +189,24 @@
 
                 </div>
             </div>
+            <div class="col-md-3">
+                <input type="hidden" value="${qtPendente}" id="pendente">
+                <input type="hidden" value="${qtEmAndamento}" id="andamento">
+                <input type="hidden" value="${qtConcluido}" id="concluido">
+                <canvas class="biscoito" width="200" height="100"></canvas>
+            </div>
         </div>
     </div>
 
     <!--Modals-->
     <c:import url="ModalFormProjeto.jsp"></c:import>
     <c:import url="ModalFormTarefa.jsp"></c:import>
+    <c:import url="alertaExcluirTarefa.jsp"></c:import>
+    <c:import url="alertaExcluirProjeto.jsp"></c:import>
+    <c:import url="alertaConcluirProjeto.jsp"></c:import>
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -201,68 +214,43 @@
     <script src="../../../scripts/main.js"></script>
     <script>
 
-        var alertBtn = document.getElementById('excluirProjeto');
-
-        alertBtn.onclick = function () {
-            swal({
-                title: "Tem certeza?",
-                text: "Uma vez deletado, você não poderá recuperá-la!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal("Sua tareva foi deletada", {
-                            icon: "success",
-                        });
-                    } else {
-                        swal("Your imaginary file is safe!", {
-                            icon: "error",
-                        });
-
-                    }
-                })
-        };
-
-        var alertDelete = document.getElementById('excluirProjeto');
-        alertDelete.onclick = function () {
-            swal({
-                title: "Tem certeza?",
-                text: "Uma vez deletado, você não poderá recuperá-la!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false
+        var biscoito = document.getElementsByClassName('biscoito');
+        var qtTarefaPendente = document.getElementById('pendente');
+        var qtTarefaEmAndamento = document.getElementById('andamento');
+        var qtTarefaConcluido = document.getElementById('concluido');
+        var myPieChart = new Chart(biscoito, {
+            type: 'doughnut',
+            data: {
+                labels: ['Pendente', 'Em Andamento', 'Concluído'],
+                datasets: [{
+                    label: "Tarefas",
+                    data: [qtTarefaPendente.value, qtTarefaEmAndamento.value, qtTarefaConcluido.value],
+                    backgroundColor: ["#FFEB3B", "#FF5722", "#4CAF50"],
+                }],
             },
-                function () {
-                    swal("Deletado", "Seu projeto foi deletado", "success");
-                });
-        }
+        });
 
+        $('a[data-target="#myAlertaTarefa"]').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).data('id');
+            $('.delete').attr('href', '/excluirTarefa?id=' + id);
+            $('#myAlertaTarefa').modal('show');
+        });
 
-// $(document).ready(function () {
-//     $("#excluirTarefa").click(function () {
-//         swal({
-//             title: "Are you sure?",
-//             text: "You will not be able to recover this imaginary file!",
-//             type: "warning",
-//             showCancelButton: true,
-//             confirmButtonClass: "btn-danger",
-//             confirmButtonText: "Yes, delete it!",
-//             cancelButtonText: "No, cancel plx!",
-//             closeOnConfirm: false,
-//             closeOnCancel: false
-//         }, function (isConfirm) {
-//             if (isConfirm) {
-//                 swal("Deleted!", "Your imaginary file has been deleted.", "success");
-//             } else {
-//                 swal("Cancelled", "Your imaginary file is safe :)", "error");
-//             }
-//         });
-//     });
-// });
+        $('a[data-target="#myAlertaDeleteProjeto"]').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).data('id');
+            $('.delete').attr('href', '/projeto/excluirProjeto?id=' + id);
+            $('#myAlertaDeleteProjeto').modal('show');
+        });
+
+        $('a[data-target="#myAlertaConcluirProjeto"]').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).data('id');
+            $('.ok').attr('href', '/projeto/concluir?id=' + id);
+            $('#myAlertaConcluirProjeto').modal('show');
+        });
+
     </script>
 </body>
 

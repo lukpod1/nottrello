@@ -69,6 +69,26 @@ public class ProjetoController {
 		model.addAttribute("projeto", projetoService.buscarPorId(id));		
 		model.addAttribute("tarefas", tarefaService.listarTarefasPorProjeto(id));
 		model.addAttribute("status", statusService.listarStatus());
+		
+		List<Tarefa> tarefas = tarefaService.listarTarefasPorProjeto(id);
+		
+		Long qtTarefaPendente = 0l;
+		Long qtTarefaEmAndamento = 0l;
+		Long qtTarefaConcluido = 0l;
+		
+		for (Tarefa tarefa : tarefas) {
+			if (tarefa.getStatus().getId() == 1) {
+				qtTarefaPendente += 1l;
+				model.addAttribute("qtPendente", qtTarefaPendente);
+			} else if (tarefa.getStatus().getId() == 2) {
+				qtTarefaEmAndamento += 1l;
+				model.addAttribute("qtEmAndamento", qtTarefaEmAndamento);
+			} else if (tarefa.getStatus().getId() == 3) {
+				qtTarefaConcluido += 1l;
+				model.addAttribute("qtConcluido", qtTarefaConcluido);
+			} 
+		}
+		
 		return "/pags/listagem";
 	}
 	
@@ -76,12 +96,12 @@ public class ProjetoController {
 	public String concluirProjeto(@PathParam("id") Long id) {
 		Projeto projeto = projetoService.buscarPorId(id);
 		Status status = statusService.buscarPorId(3l);
-		if(tarefaService.verificaTarefasConcluidas(id)) {
-			projeto.setStatus(status);
-			projetoService.salvar(projeto);
-		}
+		tarefaService.verificaTarefasConcluidas(id);
+		projeto.setStatus(status);
+		projetoService.salvar(projeto);
 		
-		return "redirect:/usuario/logado";
+		
+		return "redirect:/projeto/projeto?id="+id;
 		
 	}
 

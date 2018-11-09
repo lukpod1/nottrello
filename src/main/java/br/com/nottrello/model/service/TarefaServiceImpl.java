@@ -12,6 +12,7 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.nottrello.model.entity.Status;
 import br.com.nottrello.model.entity.Tarefa;
 import br.com.nottrello.model.repository.TarefaRepository;
 
@@ -23,6 +24,10 @@ public class TarefaServiceImpl implements TarefaService {
 
 	@Autowired
 	private TarefaRepository tarefaRepository;
+	
+	@Autowired
+	private StatusService statusService;
+	
 
 	public TarefaServiceImpl(TarefaRepository tarefaRepository) {
 		super();
@@ -64,15 +69,16 @@ public class TarefaServiceImpl implements TarefaService {
 	}
 
 	@Override
-	public Boolean verificaTarefasConcluidas(Long id) {
+	public void verificaTarefasConcluidas(Long id) {
 		List<Tarefa> tarefas = listarTarefasPorProjeto(id);
+		Status status = statusService.buscarPorId(3l);
 		for (Tarefa tarefa : tarefas) {
-			if (tarefa.getStatus().getId() == 3) {
-				return true;
+			if (tarefa.getStatus().getId() != 3) {
+				tarefa.setStatus(status);
+				salvar(tarefa);
 			}		
 
 		}
-		return false;
 	}
 
 }

@@ -11,5 +11,5 @@ public interface TarefaService {
 	public Tarefa buscar(Long id);
 	public Tarefa atualizar(Tarefa tarefa);
 	public List<Tarefa> listarTarefasPorProjeto(Long id);
-	public Boolean verificaTarefasConcluidas(Long id);
+	public void verificaTarefasConcluidas(Long id);
 }

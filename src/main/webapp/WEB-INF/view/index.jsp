@@ -24,6 +24,9 @@
     <link id="theme-style" rel="stylesheet" href="/style/theme-1.css">
     <!-- GitHub Button -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Emoji -->
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+   <link rel="stylesheet" href="../../assets/scss/homem.scss">
 </head>
 
 <body data-spy="scroll">
