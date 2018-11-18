@@ -18,90 +18,77 @@
 </head>
 
 <body>
-    <div>
-        <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
-            <h1 class="logo float-left">
-                <a href="/usuario/logado"><img src="/imgs/logo1.jpg" class="logo"></a>
-
-
-            </h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-
-                    <a href="#" class="nav-item nav-link active" data-toggle="modal" data-projeto="${projeto.id}"
-                        data-target="#myModalTarefa">
-                        <i class="fas fa-plus"></i> Nova Tarefa
-                    </a>
-
-                    <a class="nav-item nav-link active" href="/usuario/logado">${usuarioLogado.nomeUsuario}</a>
-                    <a class="nav-item nav-link active" href="/usuario/logout">Sair</a>
-                </div>
-            </div>
-        </nav>
-
-
-    </div>
+    <!-- navbar -->
+    <c:import url="navbar.jsp"></c:import>
 
     <!-- content -->
-    <div class="container-fluid text-left">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2">
-                <ul class="sidebar navbar-nav ">
-                    <h6 class="dropdown-header">Projetos:
-                        <a href="#" data-usuario="${usuarioLogado.id}" data-toggle="modal" data-target="#myModalProjeto">
-                            <i class="fas fa-plus"></i>
-                        </a>
-                    </h6>
 
-
+            <div class="col-sm-2" id="sidebar">
+                <br>
+                <h5>Projetos</h5>
+                <ul style="text-decoration:none; list-style:none;">
                     <c:forEach var="projeto" items="${projetos}">
                         <li><a class="nav-item" href="/projeto/projeto?id=${projeto.id}">${projeto.nome}</a></li>
                     </c:forEach>
 
-
-
-
-
                 </ul>
-            </div>
 
-            <div class="col-md-7">
+
+            </div>
+            <!-- <div class="col-sm-1">
+                <hr class="side">
+            </div> -->
+            <div class="col-sm-7">
+
+
                 <div id="app">
                     <br>
-                    <h3>${projeto.nome}
-                        <a href="#" id="excluirProjeto" data-toggle="modal" data-target="#myAlertaDeleteProjeto"
-                        data-id="${projeto.id}" >
-                            <i class="far fa-times-circle" style="color: red;"></i>
-                        </a>
-                        <a href="#" data-toggle="modal" data-target="#myModalProjeto" data-usuario="${usuarioLogado.id}"
-                            data-id="${projeto.id}" data-nome="${projeto.nome}" data-vencimento="${projeto.dataVencimento}"
-                            data-descricao="${projeto.descricao}">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <a href="#" id="concluirProjeto" data-toggle="modal" data-target="#myAlertaConcluirProjeto"
-                        data-id="${projeto.id}">
-                            <i class="far fa-check-circle" style="color: green;"></i>
-                        </a>
-                    </h3>
-                    <br>
                     <h4>Tarefas</h4>
+                    <div class="row">
 
-                    <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+                        <div class="col-sm-9">
+                            <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary" data-toggle="modal" data-projeto="${projeto.id}"
+                                data-target="#myModalTarefa">
+                                <i class="fas fa-plus"></i> Nova Tarefa
+                            </button>
+                        </div>
 
+                    </div>
+
+                    <!-- <div class="pagination">
+                        <span class="step-links">
+                            {% if tarefas.has_previous %}
+                            <a href="?page={{ tarefas.previous_page_number }}"><i class="fas fa-backward"></i></a>
+                            {% endif %}
+
+                            <span class="current">
+                                Página {{ tarefas.number }} de {{ tarefas.paginator.num_pages }}.
+                            </span>
+
+                            {% if tarefas.has_next %}
+                            <a href="?page={{ tarefas.next_page_number }}"><i class="fas fa-forward"></i></a>
+                            {% endif %}
+                        </span>
+                    </div> -->
                     <table class=" table table-hover" style="width:100%">
 
                         <tr>
                             <th>Nome</th>
                             <th>Descrição</th>
+                            <th>Data de Criação</th>
                             <th>Vencimento</th>
                             <th>Status</th>
 
                         </tr>
+
                         <c:forEach var="tarefa" items="${tarefas}">
+
+
                             <tbody id="myTable">
                                 <c:choose>
                                     <c:when test="${tarefa.status.id ==1}">
@@ -112,8 +99,8 @@
 
                                             <td> ${tarefa.status.nome}</td>
                                             <td>
-                                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myAlertaTarefa"
-                                                    data-id="${tarefa.id}" id="excluirTarefa">
+                                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                    data-target="#myAlertaTarefa" data-id="${tarefa.id}" id="excluirTarefa">
                                                     <i class="far fa-trash-alt"></i>
                                                 </a>
                                             </td>
@@ -137,8 +124,8 @@
 
 
                                             <td>
-                                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myAlertaTarefa"
-                                                    data-id="${tarefa.id}" id="excluirTarefa">
+                                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                    data-target="#myAlertaTarefa" data-id="${tarefa.id}" id="excluirTarefa">
                                                     <i class="far fa-trash-alt"></i>
                                                 </a>
                                             </td>
@@ -162,8 +149,8 @@
 
 
                                             <td>
-                                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myAlertaTarefa"
-                                                    data-id="${tarefa.id}" id="excluirTarefa">
+                                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                    data-target="#myAlertaTarefa" data-id="${tarefa.id}" id="excluirTarefa">
                                                     <i class="far fa-trash-alt"></i>
                                                 </a>
                                             </td>
@@ -179,24 +166,63 @@
 
                                 </c:choose>
 
-
                             </tbody>
 
                         </c:forEach>
-
-
                     </table>
+                    <!-- <div class="pagination">
+                        <span class="step-links">
+                            {% if tarefas.has_previous %}
+                            <a href="?page={{ tarefas.previous_page_number }}"><i class="fas fa-backward"></i></a>
+                            {% endif %}
+
+                            <span class="current">
+                                Página {{ tarefas.number }} de {{ tarefas.paginator.num_pages }}.
+                            </span>
+
+                            {% if tarefas.has_next %}
+                            <a href="?page={{ tarefas.next_page_number }}"><i class="fas fa-forward"></i></a>
+                            {% endif %}
+                        </span>
+                    </div> -->
+
 
                 </div>
+
             </div>
-            <div class="col-md-3">
+
+
+            <div class="col-sm-3" id='grafico'>
+                <br>
+                <h5>${projeto.nome}
+                    <a href="#" data-toggle="modal" data-target="#myModalProjeto" data-usuario="${usuarioLogado.id}"
+                            data-id="${projeto.id}" data-nome="${projeto.nome}" data-vencimento="${projeto.dataVencimento}"
+                            data-descricao="${projeto.descricao}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                    <a href="#" data-toggle="modal" data-target="#myAlertaDeleteProjeto" data-id="${projeto.id}" style="float:right;">
+                        <i class="far fa-times-circle" style="color: red;"></i>
+                    </a>
+                    <c:if test="${projeto.status.id != 3}" >
+                        <a href="#" data-toggle="modal" data-target="#myAlertaConcluirProjeto" data-id="${projeto.id}"
+                        style="float:right;">
+                        <i class="far fa-check-circle" style="color: green;"></i>
+                    </a>
+                    </c:if>
+                </h5>
+
                 <input type="hidden" value="${qtPendente}" id="pendente">
                 <input type="hidden" value="${qtEmAndamento}" id="andamento">
                 <input type="hidden" value="${qtConcluido}" id="concluido">
-                <canvas class="biscoito" width="200" height="100"></canvas>
+                <canvas class="biscoito" width="300" height="200"></canvas>
+
             </div>
+
         </div>
     </div>
+
+
+
 
     <!--Modals-->
     <c:import url="ModalFormProjeto.jsp"></c:import>
@@ -206,6 +232,9 @@
     <c:import url="alertaConcluirProjeto.jsp"></c:import>
 
 
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -213,7 +242,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="../../../scripts/main.js"></script>
     <script>
-
         var biscoito = document.getElementsByClassName('biscoito');
         var qtTarefaPendente = document.getElementById('pendente');
         var qtTarefaEmAndamento = document.getElementById('andamento');
@@ -229,28 +257,24 @@
                 }],
             },
         });
-
         $('a[data-target="#myAlertaTarefa"]').on('click', function (event) {
             event.preventDefault();
             var id = $(this).data('id');
             $('.delete').attr('href', '/excluirTarefa?id=' + id);
             $('#myAlertaTarefa').modal('show');
         });
-
         $('a[data-target="#myAlertaDeleteProjeto"]').on('click', function (event) {
             event.preventDefault();
             var id = $(this).data('id');
             $('.delete').attr('href', '/projeto/excluirProjeto?id=' + id);
             $('#myAlertaDeleteProjeto').modal('show');
         });
-
         $('a[data-target="#myAlertaConcluirProjeto"]').on('click', function (event) {
             event.preventDefault();
             var id = $(this).data('id');
             $('.ok').attr('href', '/projeto/concluir?id=' + id);
             $('#myAlertaConcluirProjeto').modal('show');
         });
-
     </script>
 </body>
 

@@ -26,7 +26,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Emoji -->
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-   <link rel="stylesheet" href="../../assets/scss/homem.scss">
+    <link rel="stylesheet" href="../../assets/scss/homem.scss">
 </head>
 
 <body data-spy="scroll">
@@ -142,20 +142,53 @@
         <div class="container text-center">
             <h2 class="title">Como funciona</h2>
             <ul class="feature-list list-unstyled">
-                <li>
-                    <i class="fas fa-check"></i> Fully responsive</li>
-                <li>
-                    <i class="fas fa-check"></i> HTML5 + CSS3</li>
-                <li>
-                    <i class="fas fa-check"></i> Built on Bootstrap 4</li>
-                <li>
-                    <i class="fas fa-check"></i> SCSS source files included</li>
-                <li>
-                    <i class="fas fa-check"></i> 1000+ FontAwesome 5 icons</li>
-                <li>
-                    <i class="fas fa-check"></i> 4 colour schemes</li>
-                <li>
-                    <i class="fas fa-check"></i> Compatible with all modern browsers</li>
+                <div class="row">
+                    <div class="col-md-9">
+                        <li>
+
+                            <img class="img-fluid" src="/imgs/meus_projetos.PNG" style="border-radius: 22px;">
+                        </li>
+                    </div>
+                    <div class="col-md-3">
+                        <li>
+                            <h6 class="title"><i class="fas fa-check"></i>Não perca de vista seu desempenho</h6>
+                        </li>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <li>
+                            <h6 class="title"><i class="fas fa-check"></i>Graficos que mostram os status de seuas
+                                tarefas.</h6>
+                        </li>
+                    </div>
+                    <div class="col-sm-9">
+                        <li>
+
+                            <img class="img-fluid" src="/imgs/lista_tarefas.PNG" style=" border-radius: 22px; ">
+                        </li>
+                    </div>
+                </div>
+
+
+
+                <br>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <li>
+                            <img class="img-fluid" src="/imgs/pergunta_respostas.PNG" style="border-radius: 22px;">
+                        </li>
+                    </div>
+                    <div class="col-sm-3">
+                        <li>
+                            <h6 class="title"><i class="fas fa-check"></i>Fórum para a comunidade discutir suas
+                                dúvidas.</h6>
+
+                        </li>
+                    </div>
+                </div>
             </ul>
         </div>
         <!--//container-->
@@ -176,9 +209,7 @@
                 <p class="intro  text-center">Esperamos que nossa ferramenta organize seus projetos.
                     <br>Sinta-se à vontade para entrar em contato se tiver alguma dúvida ou sugestão.
                     <div class="author-message">
-                        <div class="profile">
-                            <img class="img-fluid" src="assets/images/jaicke.jpg" alt="" />
-                        </div>
+                        
                         <!--//profile Jaicke-->
                         <div class="author-message">
                             <div class="profile">
@@ -226,16 +257,16 @@
                             </div>
                             <!--//speech-bubble-->
                         </div>
-                        
 
 
-                            </ul>
-                        </div>
-                        <!--//info-->
+
+                        </ul>
                     </div>
-                    <!--//contact-inner-->
+                    <!--//info-->
             </div>
-            <!--//container-->
+            <!--//contact-inner-->
+        </div>
+        <!--//container-->
     </section>
     <!--//contact-->
 

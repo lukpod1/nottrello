@@ -18,46 +18,28 @@
 	<title>!Trello</title>
 </head>
 
-<body>
-	<div>
-		<nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
-			<h1 class="logo float-left">
-
-				<img src="/imgs/logo1.jpg" class="logo">
-
-			</h1>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-			 aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-				<div class="navbar-nav">
-					<strong>
-						<a class="nav-item nav-link active" href="/usuario/logout">Sair</a>
-					</strong>
-
-				</div>
-			</div>
-		</nav>
-
-
-	</div>
+<body style="background-color: whitesmoke">
+	<c:import url="navbar.jsp"></c:import>
 
 	<!-- content -->
 	<div class="container-fluid text-center">
-		<div class="row content">
-			<ul class="sidebar navbar-nav bg-light">
-				<li>
-					<img class="avatar" src="/imgs/padrao.jpg">
-				</li>
-				<li>
-					<h4>${usuarioLogado.nomeUsuario}</h4>
-					<h6>${usuarioLogado.nomeCompleto}</h6>
-					<h6><a href="/usuario/editarPerfil?id=${usuarioLogado.id}">Editar Perfil</a></h6>
+		<div class="row content" style="margin:30px;  background-color:white; padding:20px; border-radius:22px;height: auto;">
+			<div class="col-lg-3" style="margin-left:40px">
+				<ul class="sidebar navbar-nav ">
+					<li>
+						<img class="avatar" src="/imgs/padrao.jpg">
+					</li>
+					<li>
+						<h4>${usuarioLogado.nomeUsuario}</h4>
+						<h6>${usuarioLogado.nomeCompleto}</h6>
+						<h6><a href="/usuario/editarPerfil?id=${usuarioLogado.id}">Editar Perfil</a></h6>
 
 
-				</li>
-			</ul>
+					</li>
+				</ul>
+			</div>
+
+
 			<div class="col-sm-8 text-left">
 				<div id="app">
 					<section id="tabs">
@@ -71,8 +53,7 @@
 											 aria-controls="nav-home" aria-selected="true">Visão Geral</a>
 											<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
 											 aria-controls="nav-profile" aria-selected="false">Projetos</a>
-											 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-forum" role="tab"
-											 aria-controls="nav-profile" aria-selected="false">Fórum</a>
+											
 										</div>
 									</nav>
 									<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
@@ -82,9 +63,7 @@
 										<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 											<c:import url="projetos.jsp"></c:import>
 										</div>
-										<div class="tab-pane fade" id="nav-forum" role="tabpanel" aria-labelledby="nav-profile-tab">
-												bgdkghdf
-										</div>
+
 
 									</div>
 
@@ -120,7 +99,7 @@
 		var qtProjetoConcluido = document.getElementById('concluido');
 
 		var bar = new Chart(ctx, {
-			type: 'horizontalBar',
+			type: 'pie',
 			data: {
 				labels: ['Pendente', 'Em Andamento', 'Concluído'],
 				datasets: [{
@@ -130,7 +109,7 @@
 				}]
 			},
 			options: {
-				legend: { display: false },
+				legend: { display: true },
 				title: {
 					display: true,
 					text: 'Quantidade de Projetos'
