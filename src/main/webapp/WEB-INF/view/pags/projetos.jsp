@@ -9,7 +9,7 @@
         <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
     </div>
     <div class="col-sm-3">
-        <button class="btn btn-primary" data-toggle="modal" data-usuario="${usuarioLogado.id}" data-target="#myModalProjeto">
+        <button class="btn btn-primary" data-toggle="modal" data-id="${usuarioLogado.id}" data-target="#myModalProjeto">
             <i class="fas fa-plus"></i> Novo Projeto
         </button>
     </div>

@@ -19,8 +19,7 @@
                     <i class="fas fa-plus"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-id="${usuarioLogado.id}" data-target="#myModalProjeto">Novo
-                        Projeto</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal"data-usuario="${usuarioLogado.id}" data-target="#myModalProjeto">Novo Projeto</a>
 
                 </div>
 
@@ -37,7 +36,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/usuario/logado">Meus Projetos</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/forum">Fórum</a>
+                    <a class="dropdown-item" href="/forum/perguntas">Fórum</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/usuario/perfil/">Editar Perfil</a>
                     <div class="dropdown-divider"></div>

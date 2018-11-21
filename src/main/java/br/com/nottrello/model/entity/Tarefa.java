@@ -11,13 +11,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Tarefa implements Serializable {
+public class Tarefa {
 
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private Categoria categoria;
 	private String prioridadeCor;
 	private String dataVencimento;
 	
@@ -37,12 +37,11 @@ public class Tarefa implements Serializable {
 		
 	}
 
-	public Tarefa(Long id, String nome, Categoria categoria, String prioridadeCor, String dataVencimento, Status status,
+	public Tarefa(Long id, String nome, String prioridadeCor, String dataVencimento, Status status,
 			String descricao, Projeto projeto) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.categoria = categoria;
 		this.prioridadeCor = prioridadeCor;
 		this.dataVencimento = dataVencimento;
 		this.status = status;
@@ -66,13 +65,7 @@ public class Tarefa implements Serializable {
 		this.nome = nome;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
+	
 
 	public String getPrioridadeCor() {
 		return prioridadeCor;

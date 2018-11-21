@@ -195,19 +195,20 @@
             <div class="col-sm-3" id='grafico'>
                 <br>
                 <h5>${projeto.nome}
+                     
                     <a href="#" data-toggle="modal" data-target="#myModalProjeto" data-usuario="${usuarioLogado.id}"
-                            data-id="${projeto.id}" data-nome="${projeto.nome}" data-vencimento="${projeto.dataVencimento}"
-                            data-descricao="${projeto.descricao}">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
+                        data-id="${projeto.id}" data-nome="${projeto.nome}" data-vencimento="${projeto.dataVencimento}"
+                        data-descricao="${projeto.descricao}" style="float:right">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
                     <a href="#" data-toggle="modal" data-target="#myAlertaDeleteProjeto" data-id="${projeto.id}" style="float:right;">
                         <i class="far fa-times-circle" style="color: red;"></i>
                     </a>
-                    <c:if test="${projeto.status.id != 3}" >
+                    <c:if test="${projeto.status.id != 3}">
                         <a href="#" data-toggle="modal" data-target="#myAlertaConcluirProjeto" data-id="${projeto.id}"
-                        style="float:right;">
-                        <i class="far fa-check-circle" style="color: green;"></i>
-                    </a>
+                            style="float:right;">
+                            <i class="far fa-check-circle" style="color: green;"></i>
+                        </a>
                     </c:if>
                 </h5>
 

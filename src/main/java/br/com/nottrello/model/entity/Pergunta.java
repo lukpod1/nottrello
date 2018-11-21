@@ -1,6 +1,5 @@
 package br.com.nottrello.model.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,10 +9,9 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Pergunta {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "pergunta_id")
 	private Long id;
 	private String titulo;
 	private String detalhesPergunta;
@@ -77,6 +75,5 @@ public class Pergunta {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
-	
+
 }

@@ -21,8 +21,8 @@
 
                     <div class="form-group">
 
-                        <input type="hidden" id="id" name="id">
-                        <input type="hidden" id="usuario" name="usuario">
+                        <input type="text" id="id" name="id">
+                        <input type="text" id="usuario" name="usuario">
                         <label for="nome">Nome: </label>
 
                         <input class="form-control" type="text" id="nome" name="nome">
