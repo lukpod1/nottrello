@@ -15,7 +15,6 @@ public class Resposta {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "resposta_id")
 	private Long id;
 	private String conteudo;
 	private String data_criacao;
@@ -28,13 +27,9 @@ public class Resposta {
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
-	
-	
 	public Resposta() {
 		
 	}
-
-	
 
 	public Resposta(Long id, String conteudo, String data_criacao, Pergunta pergunta, Usuario usuario) {
 		super();
@@ -104,11 +99,4 @@ public class Resposta {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
-
-
-	
-	
-	
-	
 }

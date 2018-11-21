@@ -50,11 +50,6 @@ public class RespostaServiceImpl implements RespostaService {
 		return respostas;
 	}
 
-	@Override
-	public List<Resposta> listarPerguntas() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void like(Resposta resposta) {

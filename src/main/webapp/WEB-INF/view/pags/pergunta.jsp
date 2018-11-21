@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="/style/style.css">
     <title>Fórum - NotTrello</title>
 </head>
+
 <body>
     <c:import url="navbar.jsp"></c:import>
 
@@ -44,13 +46,30 @@
                     </li>
                 </ul>
 
-                <a href="#" data-toggle="modal" data-pergunta="${pergunta.id}" data-id="${usuarioLogado.id}" data-target="#myModalResposta">Responder</a>
-                
+                <a href="#" data-toggle="modal" data-pergunta="${pergunta.id}" data-id="${usuarioLogado.id}"
+                    data-target="#myModalResposta">Responder</a>
+
                 <hr>
 
                 <span class="badge badge-primary badge-pill">${qtResposta} Respostas</span>
-                
+
                 <hr>
+                <ul class="list-group">
+                    <c:forEach var="resposta" items="${respostas}">
+                        <li class="list-group-item list-group-item-light">
+                            <div class="d-flex w-100 justify-content-between">
+                                <small>
+                                    <img class="avatar" src="/imgs/padrao.jpg" style="width:30px;">
+                                    ${resposta.usuario.nomeUsuario}
+
+                                </small>
+                                <p>${resposta.data_criacao}</p>
+                                
+                            </div>
+                            <p>${resposta.conteudo}</p>
+                        </li>
+                    </c:forEach>
+                </ul>
 
             </div>
             <div class="col-md-2"></div>
@@ -76,4 +95,5 @@
         });
     </script>
 </body>
+
 </html>
