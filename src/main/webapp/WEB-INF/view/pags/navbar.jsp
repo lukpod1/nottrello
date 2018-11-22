@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<div>
+
+
     <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #3f9ebd;">
 
         <img src="/imgs/logo1.png" class="logo">
@@ -12,7 +12,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-            <div class=" dropdown" style="margin-right: 20px;">
+            <div class=" dropdown" >
 
                 <a href="#" class=" dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" style="color:white; text-decoration: none">
@@ -26,7 +26,7 @@
             </div>
         
             
-            <div class="dropdown" style="margin-right: 70px;">
+            <div class="dropdown">
                 <a href="#" class=" dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" style="color:white; text-decoration: none;">
                     <img class="avatar" src="/imgs/padrao.jpg" style="width: 30px">
@@ -46,4 +46,3 @@
     </nav>
 
 
-</div>

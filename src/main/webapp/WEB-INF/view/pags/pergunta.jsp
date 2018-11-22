@@ -67,6 +67,8 @@
                                 
                             </div>
                             <p>${resposta.conteudo}</p>
+                            <a href="/forum/curtir/resposta?id=${resposta.id}"><i class="fas fa-thumbs-up"></i> ${likes.size()}</a>
+                            <a href="/forum/discurtir/resposta?id=${resposta.id}"><i class="fas fa-thumbs-down"></i> ${dislikes.size()}</a>
                         </li>
                     </c:forEach>
                 </ul>

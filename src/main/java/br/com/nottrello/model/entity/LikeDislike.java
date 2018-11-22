@@ -13,60 +13,60 @@ public class LikeDislike {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "resposta_id")
 	private Resposta resposta;
-	
-	private boolean positivo;
-	
+
+	private Boolean positivo;
+
 	public LikeDislike() {
 		super();
 	}
 
-
-	public LikeDislike(Long id, Usuario usuario, boolean positivo) {
+	public LikeDislike(Long id, Usuario usuario, Boolean positivo) {
 		super();
 		this.id = id;
 		this.usuario = usuario;
 		this.positivo = positivo;
 	}
-
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public Usuario getUsuario() {
 		return usuario;
 	}
 
-
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 
-
-	public boolean isPositivo() {
+	public Boolean isPositivo() {
 		return positivo;
 	}
 
-
-	public void setPositivo(boolean positivo) {
+	public void setPositivo(Boolean positivo) {
 		this.positivo = positivo;
+	}
+
+	public Resposta getResposta() {
+		return resposta;
+	}
+
+	public void setResposta(Resposta resposta) {
+		this.resposta = resposta;
 	}
 	
 	
-	
-	
+
 }

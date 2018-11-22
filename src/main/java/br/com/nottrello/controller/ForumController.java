@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.nottrello.model.entity.LikeDislike;
 import br.com.nottrello.model.entity.Pergunta;
 import br.com.nottrello.model.entity.Resposta;
 import br.com.nottrello.model.entity.Usuario;
+import br.com.nottrello.model.service.LikeDislikeService;
 import br.com.nottrello.model.service.PerguntaService;
 import br.com.nottrello.model.service.RespostaService;
 import br.com.nottrello.model.service.StatusService;
@@ -31,6 +33,9 @@ public class ForumController {
 	
 	@Autowired
 	private StatusService statusService;
+	
+	@Autowired
+	private LikeDislikeService likeDislikeService;
 
 	public ForumController(PerguntaService perguntaService, RespostaService respostaService) {
 		super();
@@ -59,22 +64,43 @@ public class ForumController {
 	public String salvar(Resposta resposta) {
 		respostaService.salvar(resposta);
 		
-		return "redirect:/forum/respostas";
+		return "redirect:/forum/respostas?id="+resposta.getPergunta().getId();
 	}
 		
 	@GetMapping("/respostas")
 	public String ListaRespostas(@PathParam("id") Long id, Model model, HttpSession session) {
-		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		
 		model.addAttribute("pergunta", perguntaService.buscarPorId(id));
 		model.addAttribute("respostas", respostaService.listarPorPergunta(id));
+		model.addAttribute("likes", likeDislikeService.listarPorCurtir());
+		model.addAttribute("dislikes", likeDislikeService.listarPorDiscurtir());
 		
-		List<Resposta> respostas = respostaService.listarPorPergunta(id);
-		
-		Long qtResposta = (long) respostas.size();
-		model.addAttribute("qtResposta", qtResposta);
+	
+		model.addAttribute("qtResposta", respostaService.listarPorPergunta(id).size());
 
 		return "/pags/pergunta";
 		
+	}
+	
+	@GetMapping("/curtir/resposta")
+	public String curtir(@PathParam("id") Long id, Model model, HttpSession session) {
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		Resposta resposta = respostaService.buscarPorId(id);
+		
+		likeDislikeService.curtir(resposta, usuario);	
+		
+		return "redirect:/forum/respostas?id="+resposta.getPergunta().getId();
+	}
+	
+	@GetMapping("/discurtir/resposta")
+	public String discurtir(@PathParam("id") Long id, HttpSession session) {
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		Resposta resposta = respostaService.buscarPorId(id);
+		
+		likeDislikeService.discurtir(resposta, usuario);	
+	
+		
+		return "redirect:/forum/respostas?id="+resposta.getPergunta().getId();
 	}
 	
 	

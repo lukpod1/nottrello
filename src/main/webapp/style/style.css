@@ -5,7 +5,8 @@ body{
 
 .avatar{
 	width: 200px;
-	margin: 40px;
+	margin-right: 5px;
+	margin-left: 35px;
 }
 
 .logo{
