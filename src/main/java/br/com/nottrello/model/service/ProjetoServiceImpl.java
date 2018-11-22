@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.nottrello.model.entity.Projeto;
-import br.com.nottrello.model.entity.Tarefa;
 import br.com.nottrello.model.repository.ProjetoRepository;
 
 @Service

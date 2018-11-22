@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!-- The Modal -->
 <div class="modal fade" id="myModalTarefa">
 	<div class="modal-dialog modal-dialog-centered">
@@ -30,7 +28,7 @@
 								<option value="${status.id}">${status.nome}</option>
 							</c:forEach>
 						</select>
-						<label for="descricao">DescriÃ§Ã£o:</label>
+						<label for="descricao">Descrição:</label>
 						<textarea class="form-control" name="descricao" rows="4" cols="50" style="resize: none">
 
 						</textarea>

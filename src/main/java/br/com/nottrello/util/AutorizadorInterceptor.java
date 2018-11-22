@@ -11,7 +11,7 @@ public class AutorizadorInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String uri = request.getRequestURI();
-		if (uri.endsWith("entrar") || uri.endsWith("logar") || uri.endsWith("usuario/novo") || uri.endsWith("salvar") || uri.endsWith("home") || 
+		if (uri.endsWith("entrar") || uri.endsWith("logar") || uri.endsWith("usuario/novo") || uri.endsWith("salvar") || uri.endsWith("home") || uri.endsWith("forum/perguntas") || uri.endsWith("forum/respostas") || 
 				uri.contains("assets") || uri.contains("imgs") || uri.contains("scripts") || uri.contains("style")) {
 			return true;
 		}

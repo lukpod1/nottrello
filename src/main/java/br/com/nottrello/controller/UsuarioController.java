@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.nottrello.model.entity.Projeto;
-import br.com.nottrello.model.entity.Tarefa;
 import br.com.nottrello.model.entity.Usuario;
 import br.com.nottrello.model.service.ProjetoService;
 import br.com.nottrello.model.service.StatusService;

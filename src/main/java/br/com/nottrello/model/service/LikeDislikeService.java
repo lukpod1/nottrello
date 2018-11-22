@@ -11,6 +11,7 @@ public interface LikeDislikeService {
 	public void remover(Long id);
 	public List<LikeDislike> listarPorCurtir();
 	public List<LikeDislike> listarPorDiscurtir();
+	public List<LikeDislike> listarPorResposta(Resposta resposta);
 	public void curtir(Resposta resposta, Usuario usuario);
 	public void discurtir(Resposta resposta, Usuario usuario);
 }

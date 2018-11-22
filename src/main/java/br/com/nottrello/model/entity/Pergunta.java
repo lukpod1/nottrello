@@ -1,5 +1,8 @@
 package br.com.nottrello.model.entity;
 
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +23,7 @@ public class Pergunta {
 	
 	private String titulo;
 	private String detalhesPergunta;
-	private String data_criacao;
+	private Date data_criacao = new Date();
 	
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
@@ -30,7 +33,7 @@ public class Pergunta {
 		
 	}
 
-	public Pergunta(Long id, String titulo, String detalhesPergunta, String data_criacao, Usuario usuario) {
+	public Pergunta(Long id, String titulo, String detalhesPergunta, Date data_criacao, Usuario usuario) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -65,11 +68,11 @@ public class Pergunta {
 		this.detalhesPergunta = detalhesPergunta;
 	}
 			
-	public String getData_criacao() {
+	public Date getData_criacao() {
 		return data_criacao;
 	}
 
-	public void setData_criacao(String data_criacao) {
+	public void setData_criacao(Date data_criacao) {
 		this.data_criacao = data_criacao;
 	}
 

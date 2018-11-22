@@ -241,7 +241,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="../../../scripts/main.js"></script>
     <script>
         var biscoito = document.getElementsByClassName('biscoito');
         var qtTarefaPendente = document.getElementById('pendente');
@@ -258,12 +257,9 @@
                 }],
             },
         });
-        $('a[data-target="#myAlertaTarefa"]').on('click', function (event) {
-            event.preventDefault();
-            var id = $(this).data('id');
-            $('.delete').attr('href', '/excluirTarefa?id=' + id);
-            $('#myAlertaTarefa').modal('show');
-        });
+        
+       
+        // Adicionando dados para os modals
         $('a[data-target="#myAlertaDeleteProjeto"]').on('click', function (event) {
             event.preventDefault();
             var id = $(this).data('id');

@@ -10,7 +10,6 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.nottrello.model.entity.Pergunta;
 import br.com.nottrello.model.entity.Resposta;
 import br.com.nottrello.model.repository.RespostaRepository;
 

@@ -8,7 +8,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.nottrello.model.entity.Projeto;
 import br.com.nottrello.model.entity.Status;
 import br.com.nottrello.model.repository.StatusRepository;
 

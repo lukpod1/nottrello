@@ -6,12 +6,6 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
-            <!-- Modal Header -->
-            <!-- <div class="modal-header">
-                <h4 class="modal-title">Deseja excluir essa tarefa?</h4>
-                <a  href="/usuario/logado" class="close">&times;</a>
-            </div> -->
-
             <!-- Modal body -->
             <div class="modal-body">
                 <center>
@@ -24,25 +18,7 @@
 
 
             </div>
-            <!-- <div class="modal-footer">
-                <center>
-                    
-                </center>
-
-            </div> -->
-
-            <!-- <form method="post" action="/projeto/salvar">
-
-                <div class="modal-body">
-
-                </div>
-
-                
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                    <a href="/usuario/logado" class="btn btn-danger">Cancelar</a>
-                </div>
-            </form> -->
+      
         </div>
     </div>
 </div>

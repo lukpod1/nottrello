@@ -17,29 +17,8 @@
     <title>!Trello - Editar Perfil</title>
 </head>
 <body style="background-color:whitesmoke">
-<div>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
-        <h1 class="logo float-left">
-
-            <img src="/imgs/logo1.jpg" class="logo">
-
-        </h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <strong>
-                    <a class="nav-item nav-link active" href="/usuario/logout">Sair</a>
-                </strong>
-
-            </div>
-        </div>
-    </nav>
-
-
-</div>
+	<!-- navbar -->
+    <c:import url="navBarTwo.jsp"></c:import>
 <div class="row" style="margin:70px;margin-top:20px;  background-color:white; padding:30px; border-radius:22px;">
 
     <div class="col-sm-7" style="margin-left:40px">
@@ -72,15 +51,16 @@
         <hr>
         <h6>Foto do Perfil</h6>
    
-        
-             
-            
                 <img class="avatar" src="/imgs/padrao.jpg">
-   
-
-    </div>
+   </div>
 </div>
 
+<c:import url="ModalFormProjeto.jsp"></c:import>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
+ 
+
 </html>

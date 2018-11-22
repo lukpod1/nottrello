@@ -17,9 +17,9 @@
 
                     <div class="form-group">
 
-                        <input type="text" id="id" name="id">
-                        <input type="text" value="${usuarioLogado.id}" name="usuario">
-                        <input type="text" value="${pergunta.id}" name="pergunta">
+                        <input type="hidden" id="id" name="id">
+                        <input type="hidden" value="${usuarioLogado.id}" name="usuario">
+                        <input type="hidden" value="${pergunta.id}" name="pergunta">
                         <label for="nome">Conteudo: </label>
 
                         <input class="form-control" type="text" id="conteudo" name="conteudo">

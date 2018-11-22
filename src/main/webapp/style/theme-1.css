@@ -353,6 +353,17 @@ pre code {
   color: #fff;
 }
 
+/* ======= Fórum Section ======= */
+.forum {
+  padding: 80px 0;
+  background: #042a36;
+  color: #fff;
+}
+.forum .title {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
 
 
 /* ======= Contact Section ======= */

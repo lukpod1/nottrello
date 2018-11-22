@@ -54,9 +54,21 @@ public class LikeDislikeServiceImpl implements LikeDislikeService {
 
 		return dislikes;
 	}
+	
+	@Override
+	public List<LikeDislike> listarPorResposta(Resposta resposta) {
+		Query query = manager.createQuery("from LikeDislike where positivo = :positivo and resposta_id= :resposta ");
+		query.setParameter("positivo", false);
+		query.setParameter("resposta", resposta.getId());
+		List<LikeDislike> dislikes = query.getResultList();
+
+		return dislikes;
+		
+	}
 
 	@Override
 	public void curtir(Resposta resposta, Usuario usuario) {
+		
 		LikeDislike likeDislike =  new LikeDislike();
 		likeDislike.setResposta(resposta);
 		likeDislike.setUsuario(usuario);
@@ -74,5 +86,7 @@ public class LikeDislikeServiceImpl implements LikeDislikeService {
 		salvar(likeDislike);		
 		
 	}
+
+	
 
 }

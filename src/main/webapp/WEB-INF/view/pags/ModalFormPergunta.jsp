@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!-- The Modal -->
 <div class="modal fade" id="myModalPergunta">
@@ -19,8 +16,8 @@
 
                     <div class="form-group">
  
-                        <input type="text" id="id" name="id">
-                        <input type="text" value="${usuarioLogado.id}" name="usuario">
+                        <input type="hidden" id="id" name="id">
+                        <input type="hidden" value="${usuarioLogado.id}" name="usuario">
                         <label for="nome">Titulo: </label>
 
                         <input class="form-control" type="text" id="titulo" name="titulo">

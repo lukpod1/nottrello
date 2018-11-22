@@ -15,12 +15,12 @@
 
     <link rel="stylesheet" type="text/css" href="/style/usuarioLogadoStylecss.css">
     <link rel="stylesheet" type="text/css" href="/style/style.css">
-    <title>Fórum - NotTrello</title>
+    <title>NotTrello - Fórum</title>
 </head>
 
 <body>
     <!-- navbar -->
-    <c:import url="navbar.jsp"></c:import>
+    <c:import url="navBarTwo.jsp"></c:import>
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>
@@ -40,8 +40,19 @@
                         <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
                     </div>
                     <div class="col-md-3">
-                        <a href="#" class="btn btn-success" data-usuario="${usuarioLogado.id}" data-toggle="modal"
-                            data-target="#myModalPergunta"><i class="fas fa-plus"></i> Nova Pergunta</a>
+                    	<c:choose>
+                    		<c:when test="${usuarioLogado != null }">
+                    			 <a href="#" class="btn btn-success" data-usuario="${usuarioLogado.id}" data-toggle="modal"
+                            	 data-target="#myModalPergunta"><i class="fas fa-plus"></i> Nova Pergunta</a>
+                    		</c:when>
+                    		<c:otherwise>
+                    		
+                    			<a href="#" class="btn btn-success" data-toggle="modal"
+                            	 data-target="#alertaLogue"><i class="fas fa-plus"></i> Nova Pergunta</a>
+                    		</c:otherwise>
+                    	
+                    	</c:choose>
+                       
 
 
                     </div>
@@ -96,12 +107,11 @@
 
     <c:import url="ModalFormPergunta.jsp"></c:import>
     <c:import url="ModalFormProjeto.jsp"></c:import>
+    <c:import url="alertaLogue.jsp"></c:import>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-    <script src="../../../scripts/main.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -112,22 +122,7 @@
                 });
             });
         });
-        // $('#myModalProjeto').on('show.bs.modal', function (event) {
-        //     var button = $(event.relatedTarget) // Button that triggered the modal
-        //     var id = button.data('id') // Extract info from data-* attributes
-        //     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        //     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        //     var modal = $(this)
-        //     modal.find('.modal-body input#id_usuario').val(id);
-        // });
-        // $('#myModalPergunta').on('show.bs.modal', function (event) {
-        //     var button = $(event.relatedTarget) // Button that triggered the modal
-        //     var id = button.data('id') // Extract info from data-* attributes
-        //     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        //     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        //     var modal = $(this)
-        //     modal.find('.modal-body input#id_usuario').val(id);
-        // });
+       
     </script>
 
 </body>
