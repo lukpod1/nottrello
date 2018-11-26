@@ -63,34 +63,61 @@ public class ProjetoController {
 
 	
 	@GetMapping("/projeto")
-	public String listaProjeto(@PathParam("id") Long id, Model model, HttpSession session) {
-		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-		model.addAttribute("projetos", projetoService.listarPorUsuario(usuario.getId()));
+	public String listaProjeto(@PathParam("id") Long id, Model model) {			
 		model.addAttribute("projeto", projetoService.buscarPorId(id));		
 		model.addAttribute("tarefas", tarefaService.listarTarefasPorProjeto(id));
 		model.addAttribute("status", statusService.listarStatus());
 		
 		List<Tarefa> tarefas = tarefaService.listarTarefasPorProjeto(id);
 		
-		Long qtTarefaPendente = 0l;
-		Long qtTarefaEmAndamento = 0l;
-		Long qtTarefaConcluido = 0l;
+		int qtTarefaPendente = 0;
+		int qtTarefaEmAndamento = 0;
+		int qtTarefaConcluido = 0;
 		
 		for (Tarefa tarefa : tarefas) {
 			if (tarefa.getStatus().getId() == 1) {
-				qtTarefaPendente += 1l;
+				qtTarefaPendente += 1;
 				model.addAttribute("qtPendente", qtTarefaPendente);
 			} else if (tarefa.getStatus().getId() == 2) {
-				qtTarefaEmAndamento += 1l;
+				qtTarefaEmAndamento += 1;
 				model.addAttribute("qtEmAndamento", qtTarefaEmAndamento);
 			} else if (tarefa.getStatus().getId() == 3) {
-				qtTarefaConcluido += 1l;
+				qtTarefaConcluido += 1;
 				model.addAttribute("qtConcluido", qtTarefaConcluido);
 			} 
 		}
 		
 		return "/pags/listagem";
 	}
+	
+	@GetMapping("/resumo/projeto")
+	public String resumo(@PathParam("id") Long id, Model model) {			
+		model.addAttribute("projeto", projetoService.buscarPorId(id));		
+		model.addAttribute("tarefas", tarefaService.listarTarefasPorProjeto(id));
+		
+		List<Tarefa> tarefas = tarefaService.listarTarefasPorProjeto(id);
+		
+		int qtTarefaPendente = 0;
+		int qtTarefaEmAndamento = 0;
+		int qtTarefaConcluido = 0;
+		
+		for (Tarefa tarefa : tarefas) {
+			if (tarefa.getStatus().getId() == 1) {
+				qtTarefaPendente += 1;
+				model.addAttribute("qtPendente", qtTarefaPendente);
+			} else if (tarefa.getStatus().getId() == 2) {
+				qtTarefaEmAndamento += 1;
+				model.addAttribute("qtEmAndamento", qtTarefaEmAndamento);
+			} else if (tarefa.getStatus().getId() == 3) {
+				qtTarefaConcluido += 1;
+				model.addAttribute("qtConcluido", qtTarefaConcluido);
+			} 
+		}
+		
+		return "/pags/resumo";
+	}
+	
+	
 	
 	@GetMapping("/concluir")
 	public String concluirProjeto(@PathParam("id") Long id) {

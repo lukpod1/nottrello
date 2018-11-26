@@ -20,7 +20,7 @@
                         <input type="hidden" value="${usuarioLogado.id}" name="usuario">
                         <label for="nome">Titulo: </label>
 
-                        <input class="form-control" type="text" id="titulo" name="titulo">
+                        <input class="form-control" type="text" id="titulo" name="titulo" autofocus />
 
                         <label for="descricao">Detalhes: </label>
 

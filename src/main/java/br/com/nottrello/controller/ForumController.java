@@ -31,8 +31,6 @@ public class ForumController {
 	@Autowired
 	private StatusService statusService;
 	
-	@Autowired
-	private LikeDislikeService likeDislikeService;
 
 	public ForumController(PerguntaService perguntaService, RespostaService respostaService) {
 		super();
@@ -69,8 +67,7 @@ public class ForumController {
 		
 		model.addAttribute("pergunta", perguntaService.buscarPorId(id));
 		model.addAttribute("respostas", respostaService.listarPorPergunta(id));
-		
-	
+		model.addAttribute("status", statusService.listarStatus());	
 		model.addAttribute("qtResposta", respostaService.listarPorPergunta(id).size());
 
 		return "/pags/pergunta";
@@ -84,9 +81,6 @@ public class ForumController {
 		resposta.setCurtir(resposta.getCurtir()+1);
 		respostaService.salvar(resposta);
 		
-		
-		
-		
 		return "redirect:/forum/respostas?id="+resposta.getPergunta().getId();
 	}
 	
@@ -95,9 +89,6 @@ public class ForumController {
 		Resposta resposta = respostaService.buscarPorId(id);
 		resposta.setDiscurtir(resposta.getDiscurtir()+1);
 		respostaService.salvar(resposta);
-		
-		
-	
 		
 		return "redirect:/forum/respostas?id="+resposta.getPergunta().getId();
 	}

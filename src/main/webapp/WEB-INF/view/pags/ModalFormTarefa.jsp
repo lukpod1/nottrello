@@ -1,4 +1,6 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- The Modal -->
 <div class="modal fade" id="myModalTarefa">
 	<div class="modal-dialog modal-dialog-centered">
@@ -7,7 +9,7 @@
 			<!-- Modal Header -->
 			<div class="modal-header">
 				<h4 class="modal-title">Adicionar Tarefa</h4>
-				<a href="/projeto/projeto?id=${projeto.id}" class="close">&times;</a>
+				<a href="#" data-dismiss="modal" class="close">&times;</a>
 			</div>
 
 			<!-- Modal body -->
@@ -19,7 +21,7 @@
 						<input type="hidden" name="id" id="id">
 						<input type="hidden" value="${projeto.id}" name="projeto">
 						<label for="nome">Nome:</label>
-						<input class="form-control" type="text" id="nome" name="nome" required />
+						<input class="form-control" type="text" id="nome" name="nome" required autofocus />
 						<label for="dataVencimento">Data de Vencimento:</label>
 						<input class="form-control" type="date" id="data_vencimento" name="dataVencimento" required />
 						<label for="inputGroupSelect01">Status:</label>
@@ -28,7 +30,7 @@
 								<option value="${status.id}">${status.nome}</option>
 							</c:forEach>
 						</select>
-						<label for="descricao">Descrição:</label>
+						<label for="descricao">DescriÃ§Ã£o:</label>
 						<textarea class="form-control" name="descricao" rows="4" cols="50" style="resize: none">
 
 						</textarea>
@@ -42,7 +44,7 @@
 				<!-- Modal footer -->
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-primary" style="margin-left: 20px;">Salvar</button>
-					<a href="/projeto/projeto?id=${projeto.id}" class="btn btn-danger">Cancelar</a>
+					<a href="#" data-dismiss="modal" class="btn btn-danger">Cancelar</a>
 				</div>
 			</form>
 		</div>

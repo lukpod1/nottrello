@@ -107,6 +107,7 @@ public class UsuarioController {
 	@RequestMapping("/editarPerfil")
 	public String editarPerfil(@PathParam("id") Long id, Model model) {
 		model.addAttribute("usuario", usuarioService.buscarPorId(id));
+		model.addAttribute("status", statusService.listarStatus());
 
 		return "pags/formPerfil";
 	}

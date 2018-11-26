@@ -64,7 +64,7 @@
 				</li>
 				<li class="nav-item"><a class="nav-link scrollto"
 					href="#features">Como funciona</a></li>
-				<li class="nav-item"><a class="nav-link scroolto" href="#forum">Fórum</a>
+				<li class="nav-item"><a class="nav-link scrollto" href="#forum">Fórum</a>
 				</li>
 
 				<li class="nav-item last"><a class="nav-link scrollto"

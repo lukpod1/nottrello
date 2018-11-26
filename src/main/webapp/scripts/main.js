@@ -161,6 +161,20 @@ $('a[data-target="#myAlertaTarefa"]').on('click', function (event) {
 
 });
 
+	// Adicionando dados para os modals
+    $('a[data-target="#myAlertaDeleteProjeto"]').on('click', function (event) {
+        event.preventDefault();
+        var id = $(this).data('id');
+        $('.btn btn-danger delete').attr('href', '/projeto/excluirProjeto?id=' + id);
+        $('#myAlertaDeleteProjeto').modal('show');
+    });
+    $('a[data-target="#myAlertaConcluirProjeto"]').on('click', function (event) {
+        event.preventDefault();
+        var id = $(this).data('id');
+        $('.ok').attr('href', '/projeto/concluir?id=' + id);
+        $('#myAlertaConcluirProjeto').modal('show');
+    });
+
 
 
 

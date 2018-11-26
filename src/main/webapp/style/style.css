@@ -35,3 +35,91 @@ body{
 #projetos{
 	width: 200px;
 }
+
+
+
+
+/* Layout novo */
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+ul{
+    list-style: none;
+}
+
+
+#menuSide{
+    padding: 10px;
+    background-color: #3f9ebd;
+    list-style: none;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    
+}
+#menuSide i{
+    color: white;
+}
+
+.foto{
+    
+    position: fixed;
+    bottom: 0;
+    left: 22px;
+      
+}
+.foto img{
+    width: 30px;     
+    border-radius: 22px;
+}
+
+.dropdown-toggle{
+    color: white;
+    
+}
+
+
+
+
+
+#sideBar{
+    padding: 20px;
+    background-color: rgb(240, 242, 245);
+    color: rgb(41, 58, 94);
+    font-weight: bolder;
+    list-style: none;     
+    position: initial;
+    margin-left: auto;
+   
+   
+}
+
+#sideBar a{
+    color: rgb(139, 149, 157);
+    font-weight: inherit;
+    text-align: center;
+    width:  200px;
+     
+
+}
+
+#sideBar a:hover{
+    color: rgb(0, 73, 176);
+    background-color: rgb(229,232,236);
+    
+    
+}
+
+#main{
+    background-color: white;
+    padding: 30px;
+    font-size: 13px;
+    
+    
+}
+
+#main h3{
+    color: rgb(33, 56, 97);
+}

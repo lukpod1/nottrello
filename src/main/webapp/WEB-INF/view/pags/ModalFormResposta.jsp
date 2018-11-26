@@ -20,9 +20,9 @@
                         <input type="hidden" id="id" name="id">
                         <input type="hidden" value="${usuarioLogado.id}" name="usuario">
                         <input type="hidden" value="${pergunta.id}" name="pergunta">
-                        <label for="nome">Conteudo: </label>
+                        
 
-                        <input class="form-control" type="text" id="conteudo" name="conteudo">
+                        <textarea class="form-control" name="conteudo" rows="4" cols="50" style="resize:none" autofocus></textarea>
 
                     </div>
                 </div>
