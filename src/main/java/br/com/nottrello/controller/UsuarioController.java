@@ -67,19 +67,19 @@ public class UsuarioController {
 
 		List<Projeto> projetos = projetoService.listarPorUsuario(usuario.getId());
 
-		Long qtProjetoPendente = 0l;
-		Long qtProjetoEmAndamento = 0l;
-		Long qtProjetoConcluido = 0l;
+		int qtProjetoPendente = 0;
+		int qtProjetoEmAndamento = 0;
+		int qtProjetoConcluido = 0;
 
 		for (Projeto projeto : projetos) {
 			if (projeto.getStatus().getId() == 1) {
-				qtProjetoPendente += 1l;
+				qtProjetoPendente += 1;
 				model.addAttribute("qtPendente", qtProjetoPendente);
 			} else if (projeto.getStatus().getId() == 2) {
-				qtProjetoEmAndamento += 1l;
+				qtProjetoEmAndamento += 1;
 				model.addAttribute("qtEmAndamento", qtProjetoEmAndamento);
 			} else if (projeto.getStatus().getId() == 3) {
-				qtProjetoConcluido += 1l;
+				qtProjetoConcluido += 1;
 				model.addAttribute("qtConcluido", qtProjetoConcluido);
 			}
 		}

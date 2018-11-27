@@ -22,9 +22,19 @@
         <div class="row h-100">
             <c:import url="sideMenu.jsp"></c:import>
             <div class="col-md-1" id="sideBar" style="background-color:white;"></div>
+            <div class="col-md-3 text-center" style="margin-top:48px">
+                <br>
+                <h4>Foto do Perfil</h4>
+                    <hr>
+                    
+    
+                    <img class="avatar" src="/imgs/padrao.jpg">
+                    <h5>${usuarioLogado.nomeUsuario}</h5>
+                    <h6>${usuarioLogado.nomeCompleto}</h6>    
+                </div>
             <div class="col-md-8" id="main">
 
-                <h1>Perfil</h1>
+                <h4>Perfil</h4>
                 <hr>
                 <form class="form-group" action="/usuario/salvarPerfil" method="post" enctype="multipart/form-data">
                     <input type="hidden" value="${usuarioLogado.id}" name="id">
@@ -51,13 +61,7 @@
 
                 </form>
             </div>
-            <div class="col-md-3 text-center" style="margin-top:48px">
-                <br>
-                    <hr>
-                    <h6>Foto do Perfil</h6>
-    
-                    <img class="avatar" src="/imgs/padrao.jpg">
-                </div>
+            
 
 
 

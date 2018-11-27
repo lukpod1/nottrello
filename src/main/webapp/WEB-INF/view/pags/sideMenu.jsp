@@ -7,7 +7,7 @@
 
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
+                    <a class="nav-link active" href="/home">
                         <h2><i class="fas fa-exclamation"></i></h2>
                     </a>
                 </li>
@@ -22,14 +22,19 @@
                 <li class="nav-item">
                     <!-- Bot�o dropright padr�o -->
                     <div class="btn-group dropup">
-                        <a href="#" class="nav-link dropdown-toggle foto" data-toggle="dropdown">
+                        
+                        <a href="#" class="nav-link dropdown-toggle foto" style="margin-left: -7px;" data-toggle="dropdown">
+                            
                             <img src="/imgs/padrao.jpg">
+                            <small class="nomeUsuario">${usuarioLogado.nomeUsuario}</small>
                         </a>
+                        
                         <div class="dropdown-menu dropdown-menu-up " aria-labelledby="triggerId">
                             <a class="dropdown-item" href="/usuario/logado">Meus Projetos</a>
                             <a class="dropdown-item" href="/usuario/editarPerfil?id=${usuarioLogado.id}">Editar Perfil</a>
                             <a class="dropdown-item" href="/usuario/logout">Sair</a>
                         </div>
+                        
                     </div>
 
                 </li>
@@ -43,12 +48,12 @@
 
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
+                    <a class="nav-link active" href="/home">
                         <h2><i class="fas fa-exclamation"></i></h2>
                     </a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link active" href="/usuario/entrar">Entrar</a>
+                        <a class="nav-link active" style="color:white;" href="/usuario/entrar">Entrar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active btn btn-outline-light" href="/usuario/novo">Inscrever-se</a>
