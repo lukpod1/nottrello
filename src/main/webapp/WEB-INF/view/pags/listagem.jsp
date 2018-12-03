@@ -21,7 +21,7 @@
 <body>
 
 
-	
+
 
 	<div class="container-fluid h-100">
 		<div class="row h-100">
@@ -61,19 +61,18 @@
 
 										<td> ${tarefa.status.nome}</td>
 										<td>
-												<a href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fas fa-ellipsis-h"></i>
-													</a>
-													<div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
-														<a class="dropdown-item" href="#" data-toggle="modal"
-														data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
-														data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">Editar</a>
-		
-														<div class="dropdown-divider"></div>
-														<a class="dropdown-item" data-toggle="modal"
-														data-target="#myAlertaTarefa" data-id="${tarefa.id}" id="excluirTarefa" href="/excluirTarefa?id=${tarefa.id}">Excluir</a>
-		
-													</div>
+											<a href="#" data-toggle="dropdown" aria-expanded="false">
+												<i class="fas fa-ellipsis-h"></i>
+											</a>
+											<div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
+												<a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModalTarefa" data-id="${tarefa.id}"
+												 data-nome="${tarefa.nome}" data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">Editar</a>
+
+												<div class="dropdown-divider"></div>
+												<a class="dropdown-item" data-toggle="modal" data-target="#myAlertaTarefa" data-id="${tarefa.id}" id="excluirTarefa"
+												 href="/excluirTarefa?id=${tarefa.id}">Excluir</a>
+
+											</div>
 
 										</td>
 									</tr>
@@ -92,19 +91,19 @@
 
 
 										<td>
-												<a href="#" data-toggle="dropdown" aria-expanded="false">
-														<i class="fas fa-ellipsis-h"></i>
-													</a>
-													<div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
-														<a class="dropdown-item" href="#" data-toggle="modal"
-														data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
-														data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">Editar</a>
-		
-														<div class="dropdown-divider"></div>
-														<a class="dropdown-item" data-toggle="modal"
-														data-target="#myAlertaTarefa" data-id="${tarefa.id}" id="excluirTarefa" href="/excluirTarefa?id=${tarefa.id}">Excluir</a>
-		
-													</div>
+											<a href="#" data-toggle="dropdown" aria-expanded="false">
+												<i class="fas fa-ellipsis-h"></i>
+											</a>
+											<div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
+												<a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModalTarefa" data-id="${tarefa.id}"
+												 data-nome="${tarefa.nome}" data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">Editar</a>
+
+												<div class="dropdown-divider"></div>
+												<a class="dropdown-item" data-toggle="modal" data-target="#myAlertaTarefa" data-id="${tarefa.id}" id="excluirTarefa"
+												 href="/excluirTarefa?id=${tarefa.id}">Excluir</a>
+
+
+											</div>
 
 										</td>
 									</tr>
@@ -128,13 +127,12 @@
 												<i class="fas fa-ellipsis-h"></i>
 											</a>
 											<div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
-												<a class="dropdown-item" href="#" data-toggle="modal"
-												data-target="#myModalTarefa" data-id="${tarefa.id}" data-nome="${tarefa.nome}"
-												data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">Editar</a>
+												<a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModalTarefa" data-id="${tarefa.id}"
+												 data-nome="${tarefa.nome}" data-vencimento="${tarefa.dataVencimento}" data-descricao="${tarefa.descricao}">Editar</a>
 
 												<div class="dropdown-divider"></div>
-												<a class="dropdown-item" data-toggle="modal"
-												data-target="#myAlertaTarefa" data-id="${tarefa.id}" id="excluirTarefa" href="/excluirTarefa?id=${tarefa.id}">Excluir</a>
+												<a class="dropdown-item" data-toggle="modal" data-target="#myAlertaTarefa" data-id="${tarefa.id}" id="excluirTarefa"
+												 href="/excluirTarefa?id=${tarefa.id}">Excluir</a>
 
 											</div>
 
@@ -166,7 +164,7 @@
 								</select>
 							</td>
 
-							<td ><button type="submit" class="btn btn-info">Adicionar</button></td>
+							<td><button type="submit" class="btn btn-info">Adicionar</button></td>
 
 						</form>
 
@@ -184,7 +182,7 @@
 		</div>
 	</div>
 
-	
+
 
 
 	<!--Modals-->
@@ -222,7 +220,7 @@
 		});
 
 
-	
+
 	</script>
 </body>
 

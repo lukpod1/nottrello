@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.nottrello.model.entity.Pergunta;
 import br.com.nottrello.model.entity.Resposta;
-import br.com.nottrello.model.service.LikeDislikeService;
 import br.com.nottrello.model.service.PerguntaService;
 import br.com.nottrello.model.service.RespostaService;
 import br.com.nottrello.model.service.StatusService;
